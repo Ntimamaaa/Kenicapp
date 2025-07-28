@@ -35,7 +35,15 @@ const restrictedDomainData = [
     { name: "go.ke", value: 863 },
 ]
 
-const COLORS = ["#007BFF", "#060842", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
+const COLORS = [
+    "hsl(var(--chart-1))",
+    "hsl(var(--chart-2))",
+    "hsl(var(--chart-3))",
+    "hsl(var(--chart-4))",
+    "hsl(var(--chart-5))",
+    "hsl(var(--primary))",
+    "hsl(var(--accent))",
+];
 
 const renderActiveShape = (props: any) => {
   const RADIAN = Math.PI / 180;
@@ -232,8 +240,8 @@ export default function DomainStatsPage() {
                                 />
                                 ))}
                             </Pie>
-                            <Tooltip formatter={(value, name) => [value.toLocaleString(), name]}/>
-                            <Legend onMouseEnter={onLegendEnter} onMouseLeave={onLegendLeave} />
+                            <Tooltip contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))'}} formatter={(value, name) => [value.toLocaleString(), name]}/>
+                            <Legend wrapperStyle={{color: 'hsl(var(--foreground))'}} onMouseEnter={onLegendEnter} onMouseLeave={onLegendLeave} />
                         </PieChart>
                     </ResponsiveContainer>
                 </CardContent>
@@ -247,9 +255,9 @@ export default function DomainStatsPage() {
                 <CardContent>
                      <ResponsiveContainer width="100%" height={300}>
                         <BarChart data={restrictedDomainData} layout="vertical" margin={{ left: 10, right: 30}}>
-                        <XAxis type="number" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                        <YAxis type="category" dataKey="name" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                        <Tooltip contentStyle={{backgroundColor: 'hsl(var(--background))'}}/>
+                        <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
+                        <YAxis type="category" dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
+                        <Tooltip cursor={{fill: 'hsl(var(--accent))', opacity: 0.5}} contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))'}}/>
                         <Bar dataKey="value" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} barSize={30}>
                              {restrictedDomainData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
