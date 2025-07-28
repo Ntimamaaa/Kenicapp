@@ -151,7 +151,6 @@ export default function ResourcesPage() {
                                     <span className="font-semibold text-base">{link.name}</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                    <span>Go To Website</span>
                                     <ExternalLink className="h-4 w-4"/>
                                 </div>
                             </Link>
@@ -248,3 +247,5 @@ export default function ResourcesPage() {
     </div>
   )
 }
+
+    
