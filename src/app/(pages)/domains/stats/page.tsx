@@ -121,14 +121,14 @@ export default function DomainStatsPage() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
-            <Card className="animate-fade-in-up" style={{animationDelay: '200ms'}}>
+            <Card className="animate-fade-in-up flex flex-col" style={{animationDelay: '200ms'}}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                 Total Domains
                 </CardTitle>
                 <Globe className="h-4 w-4 text-primary" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-grow">
                 <div className="text-2xl font-bold">112,801</div>
                 <p className="text-xs text-muted-foreground">
                 All registered .KE domains
@@ -140,14 +140,14 @@ export default function DomainStatsPage() {
                 </Button>
             </CardFooter>
             </Card>
-            <Card className="animate-fade-in-up" style={{animationDelay: '400ms'}}>
+            <Card className="animate-fade-in-up flex flex-col" style={{animationDelay: '400ms'}}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                 Licensed Registrars
                 </CardTitle>
                 <Users className="h-4 w-4 text-primary" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-grow">
                 <div className="text-2xl font-bold">512</div>
                 <p className="text-xs text-muted-foreground">
                 Accredited partners
@@ -188,12 +188,12 @@ export default function DomainStatsPage() {
                     <CardDescription>Domains registered recently</CardDescription>
                 </CardHeader>
                 <CardContent>
-                   <div className="grid grid-cols-2 gap-4 text-center">
-                        <div className="rounded-lg p-4">
+                   <div className="grid grid-cols-2 text-center">
+                        <div className="p-4 border-r">
                             <p className="text-sm text-muted-foreground">Last 24 Hours</p>
                             <p className="text-3xl font-bold">98</p>
                         </div>
-                         <div className="rounded-lg p-4">
+                         <div className="p-4">
                             <p className="text-sm text-muted-foreground">Last 30 Days</p>
                             <p className="text-3xl font-bold">4,275</p>
                         </div>
@@ -206,12 +206,12 @@ export default function DomainStatsPage() {
                     <CardDescription>Domains renewed recently</CardDescription>
                 </CardHeader>
                 <CardContent>
-                   <div className="grid grid-cols-2 gap-4 text-center">
-                        <div className="rounded-lg p-4">
+                   <div className="grid grid-cols-2 text-center">
+                        <div className="p-4 border-r">
                             <p className="text-sm text-muted-foreground">Last 24 Hours</p>
                             <p className="text-3xl font-bold">118</p>
                         </div>
-                         <div className="rounded-lg p-4">
+                         <div className="p-4">
                             <p className="text-sm text-muted-foreground">Last 30 Days</p>
                             <p className="text-3xl font-bold">4,785</p>
                         </div>
@@ -284,3 +284,5 @@ export default function DomainStatsPage() {
     </div>
   );
 }
+
+    
