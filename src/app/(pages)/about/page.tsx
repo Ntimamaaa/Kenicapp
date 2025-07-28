@@ -9,6 +9,7 @@ import Link from "next/link";
 
 export default function AboutPage() {
   const [isHistoryExpanded, setIsHistoryExpanded] = useState(false);
+  const [isVisionExpanded, setIsVisionExpanded] = useState(false);
 
   return (
     <div className="bg-secondary flex-1">
@@ -84,8 +85,22 @@ export default function AboutPage() {
                 <p>
                   KeNIC was established with the vision of bringing the Kenyan Internet technology up to global standards and to promote Internet and its services in the country on a large scale. As a registry, our efforts are geared towards ensuring our technological infrastructure supports the efficient administration of the .KE domain and development of the internet ecosystem in Kenya by providing the name service for all .KE
                 </p>
-                 <Button variant="link" className="p-0 h-auto" asChild>
-                    <Link href="#">Read More</Link>
+                {isVisionExpanded && (
+                    <div className="space-y-4">
+                        <p>KeNIC is the manager and administrator of Kenya's country code top-level domain—.ke. As the ccTLD registry operator, KeNIC plays a pivotal role in Kenya's internet ecosystem and digital economy.</p>
+                        <p>KeNIC oversees a namespace that has seen 20% domain growth since 2017, reflecting Kenya's gradual digital development. With high internet penetration, KeNIC operates in one of Africa's most developed digital markets. The enabling presence of internet exchange points, government backing for e-services, and innovation hubs provide a supportive environment</p>
+                        <p>As the sole .ke registry operator, KeNIC possesses specialized expertise in reliable management of domain name systems. The WHOIS database of registration details is also a unique asset</p>
+                        <p>KeNIC collaborates across the internet industry to promote .ke domain visibility and adoption. Key partnerships include government agencies, financial institutions, tech hubs and industry forums</p>
+                        <p>Factors like expanding internet access, digitization policies, and a supportive ecosystem position KeNIC to promote .ke domains as a leading African ccTLD registry</p>
+                        <p>Kenya ranks 3rd in Africa in domain uptake analysis based on registered domains and local hosting metrics. With 85% internet penetration, Kenya is a continental leader in digital advancement</p>
+                        <p>IANA delegated .ke administration to Dr. Shem Ochuocho in 1993, succeeded by KeNIC's 2000 formation as a non-profit entity under Kenyan law to manage Kenya's internet presence</p>
+                        <p>As manager of Kenya's secure .ke namespace, KeNIC aims to operate an efficient registry aligned with global standards. Strategic priorities include opening .ke globally, improving domain registration experience, partnerships and talent development for sustainable growth</p>
+                        <p>KeNIC offers a range of products and services, including comprehensive registry services, registrar accreditation, DNSSEC implementation, and the introduction of the Second-Level Domain Name Space, providing flexibility and customization for businesses and individuals within the .KE domain space. Continually investing in technical infrastructure enhancements, KeNIC ensures the reliability and security of the .KE domain registry, upholding its commitment to providing a stable and trustworthy platform for .KE domain name registration and management</p>
+                        <p>In conclusion, KeNIC's role as the manager and administrator of .KE domains in Kenya is pivotal in shaping the nation's internet ecosystem and contributing to its digital economy growth. Through strategic partnerships, technical capabilities, and a diverse range of products and services, KeNIC remains at the forefront of promoting a secure, reliable, and inclusive online presence for businesses, organizations, and individuals across Kenya's digital landscape.</p>
+                    </div>
+                )}
+                 <Button variant="link" className="p-0 h-auto" onClick={() => setIsVisionExpanded(!isVisionExpanded)}>
+                    {isVisionExpanded ? "Read Less" : "Read More"}
                 </Button>
               </CardContent>
             </Card>
