@@ -21,6 +21,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from '../theme-toggle';
 
 const navItems = [
   {
@@ -101,11 +102,11 @@ export function Header() {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                       <NavigationMenuLink asChild>
-                        <Link href={item.href!} className={navigationMenuTriggerStyle()}>
+                      <Link href={item.href!} legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                           {item.title}
-                        </Link>
-                      </NavigationMenuLink>
+                        </NavigationMenuLink>
+                      </Link>
                     )}
                   </NavigationMenuItem>
                 ))}
@@ -114,6 +115,7 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2">
+            <ThemeToggle />
             <Button variant="ghost" className="hidden sm:inline-flex">Log In</Button>
             <Button className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90">Register</Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
