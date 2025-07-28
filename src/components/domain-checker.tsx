@@ -51,7 +51,7 @@ export function DomainChecker() {
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                   <Input
-                    placeholder="your-dream-domain"
+                    placeholder="your-dream-domain.ke"
                     className="pl-10 h-12 text-lg"
                     {...field}
                   />
@@ -61,11 +61,6 @@ export function DomainChecker() {
             </FormItem>
           )}
         />
-        <div className="relative">
-          <span className="absolute -right-12 top-1/2 -translate-y-1/2 text-lg font-medium text-muted-foreground">
-            .ke
-          </span>
-        </div>
         <Button type="submit" size="lg" className="h-12">
           Search
         </Button>
