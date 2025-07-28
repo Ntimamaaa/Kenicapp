@@ -1,5 +1,6 @@
 import { DomainChecker } from '@/components/domain-checker';
 import { DomainSuggester } from '@/components/domain-suggester';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Search, Rocket, FileText } from 'lucide-react';
@@ -7,6 +8,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
+  const extensions = [
+    '.ke',
+    '.co.ke',
+    '.or.ke',
+    '.ne.ke',
+    '.go.ke',
+    '.me.ke',
+    '.mobi.ke',
+    '.info.ke',
+    '.sc.ke',
+    '.ac.ke',
+  ];
+
   return (
     <div className="flex flex-col">
       <section className="w-full bg-white dark:bg-gray-950 py-12 md:py-24 lg:py-32">
@@ -41,6 +55,33 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section id="extensions" className="w-full py-12 md:py-24 lg:py-32">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-8 text-center">
+            <div className="space-y-2">
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+                Explore Our Domain Extensions
+              </h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                We offer a wide range of .KE extensions to suit every need.
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {extensions.map((ext) => (
+                <Badge
+                  key={ext}
+                  variant="outline"
+                  className="text-lg font-medium py-2 px-4 border-2 border-primary/50 text-primary"
+                >
+                  {ext}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <section
         id="features"
