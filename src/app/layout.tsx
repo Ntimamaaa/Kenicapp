@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Chatbot } from '@/components/chatbot';
 
 export const metadata: Metadata = {
   title: 'KeNIC | Find Your Perfect .KE Domain',
@@ -46,6 +47,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <Chatbot />
           <Toaster />
         </ThemeProvider>
       </body>
