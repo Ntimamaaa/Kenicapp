@@ -187,26 +187,26 @@ export default function Home() {
           </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
-        <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
-          <div className="space-y-3">
-            <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Ready to Get Started?
-            </h2>
-            <p className="mx-auto max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Your new .KE domain is just a few clicks away. Find it, register
-              it, and start building your online presence today.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              <Link href="/registrars/licensed">View Licensed Registrars</Link>
-            </Button>
+      <section className="w-full py-20 md:py-28 lg:py-32 bg-primary text-primary-foreground">
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <div className="mx-auto max-w-3xl space-y-6">
+              <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
+                Ready to Get Started?
+              </h2>
+              <p className="text-lg text-primary-foreground/80 md:text-xl">
+                Your new .KE domain is just a few clicks away. Find it, register
+                it, and start building your online presence today.
+              </p>
+              <Button
+                asChild
+                size="lg"
+                className="bg-background text-primary h-12 px-8 text-base font-semibold hover:bg-background/90"
+              >
+                <Link href="/registrars/licensed">View Licensed Registrars</Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   );
 }
