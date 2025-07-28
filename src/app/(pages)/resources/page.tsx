@@ -35,7 +35,7 @@ export default function ResourcesPage() {
             <CardHeader>
                 <CardTitle>Downloads</CardTitle>
                 <CardDescription>Find downloadable documents, forms, and resources.</CardDescription>
-            </Header>
+            </CardHeader>
             <CardContent className="text-center p-16 text-muted-foreground">
                 <p>No downloads are available at the moment. Please check back later.</p>
             </CardContent>
