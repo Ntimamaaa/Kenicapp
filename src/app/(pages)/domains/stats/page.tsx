@@ -189,11 +189,11 @@ export default function DomainStatsPage() {
                 </CardHeader>
                 <CardContent>
                    <div className="grid grid-cols-2 gap-4 text-center">
-                        <div className="rounded-lg bg-background p-4">
+                        <div className="rounded-lg p-4">
                             <p className="text-sm text-muted-foreground">Last 24 Hours</p>
                             <p className="text-3xl font-bold">98</p>
                         </div>
-                         <div className="rounded-lg bg-background p-4">
+                         <div className="rounded-lg p-4">
                             <p className="text-sm text-muted-foreground">Last 30 Days</p>
                             <p className="text-3xl font-bold">4,275</p>
                         </div>
@@ -207,11 +207,11 @@ export default function DomainStatsPage() {
                 </CardHeader>
                 <CardContent>
                    <div className="grid grid-cols-2 gap-4 text-center">
-                        <div className="rounded-lg bg-background p-4">
+                        <div className="rounded-lg p-4">
                             <p className="text-sm text-muted-foreground">Last 24 Hours</p>
                             <p className="text-3xl font-bold">118</p>
                         </div>
-                         <div className="rounded-lg bg-background p-4">
+                         <div className="rounded-lg p-4">
                             <p className="text-sm text-muted-foreground">Last 30 Days</p>
                             <p className="text-3xl font-bold">4,785</p>
                         </div>
