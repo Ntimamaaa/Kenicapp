@@ -102,7 +102,7 @@ export default function DeletedDomainsPage() {
                 <TableCell>{domain.deletionDate}</TableCell>
                 <TableCell className="text-right">
                   <Button asChild variant="outline" size="sm">
-                    <Link href={`/whois?domain=${domain.name}`}>
+                    <Link href={`/whois?domain=${domain.name}&from=deleted-domains`}>
                       Check Availability
                     </Link>
                   </Button>

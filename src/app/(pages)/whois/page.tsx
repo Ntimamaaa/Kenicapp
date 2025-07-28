@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   Card,
@@ -11,13 +12,16 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle, XCircle } from "lucide-react";
+import { Loader2, CheckCircle, XCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { DomainChecker } from "@/components/domain-checker";
 
 export default function WhoisPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const domainQuery = searchParams.get("domain");
+  const fromDeleted = searchParams.get("from") === "deleted-domains";
+
 
   const [isLoading, setIsLoading] = useState(true);
   const [isAvailable, setIsAvailable] = useState(false);
@@ -40,6 +44,12 @@ export default function WhoisPage() {
 
   return (
     <div className="container mx-auto max-w-4xl py-12 px-4 md:px-6">
+       {fromDeleted && (
+        <Button variant="outline" onClick={() => router.back()} className="mb-8">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Deleted Domains
+        </Button>
+      )}
       <div className="space-y-4 text-center">
         <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
           WhoIs Domain Checker
