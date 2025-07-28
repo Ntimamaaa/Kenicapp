@@ -2,8 +2,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Globe } from "lucide-react";
+import { Download, Globe, CreditCard, Banknote, Smartphone } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 
 const usefulLinks = [
@@ -163,8 +164,80 @@ export default function ResourcesPage() {
                 <CardTitle>Payment Details</CardTitle>
                 <CardDescription>Information on how to make payments to KeNIC.</CardDescription>
             </CardHeader>
-            <CardContent className="text-center p-16 text-muted-foreground">
-                <p>Our payment details will be provided here shortly.</p>
+            <CardContent className="space-y-10">
+                <div className="grid md:grid-cols-3 gap-8 items-start">
+                    <div className="md:col-span-1">
+                        <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
+                            <Image src="https://placehold.co/300x160.png" alt="Credit Card" layout="fill" objectFit="contain" data-ai-hint="credit card payment" className="rounded-lg"/>
+                        </div>
+                    </div>
+                    <div className="md:col-span-2">
+                        <h3 className="font-headline text-xl font-semibold mb-2 flex items-center gap-2"><CreditCard className="text-primary"/>Credit Card Payments</h3>
+                        <p className="text-muted-foreground mb-4">If you wish to use a credit card to make payments, log into the Registrar Panel and follow the links. Credit card payments reflect in your account immediately. We urge you to use this service for any urgent payments.</p>
+                        <p className="text-sm text-muted-foreground italic"><span className="font-semibold">Refund Policy:</span> Please note that payments can ONLY be re‑allocated or refunded for a period of up to 30 days from the date of payment</p>
+                    </div>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8 items-start">
+                     <div className="md:col-span-1">
+                        <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
+                            <Image src="https://placehold.co/300x160.png" alt="Bank Transfer" layout="fill" objectFit="contain" data-ai-hint="bank transfer" className="rounded-lg"/>
+                        </div>
+                    </div>
+                    <div className="md:col-span-2">
+                         <h3 className="font-headline text-xl font-semibold mb-2 flex items-center gap-2"><Banknote className="text-primary"/>EFT or Direct Deposit</h3>
+                        <p className="text-muted-foreground mb-4">If you wish to make payment via EFT/RTGS/Cash Deposit or Cheque please use the banking details provided below.</p>
+                        <div className="bg-secondary p-4 rounded-lg text-sm space-y-2">
+                            <p><span className="font-semibold">Bank:</span> NCBA</p>
+                            <p><span className="font-semibold">Account Name:</span> Kenya Network Information Centre</p>
+                            <p><span className="font-semibold">Account Number:</span> 6634930017</p>
+                            <p><span className="font-semibold">Bank Branch:</span> Upperhill Branch</p>
+                            <p><span className="font-semibold">Swift Code:</span> CBAFKENX</p>
+                            <p><span className="font-semibold">Reference:</span> (Your Registrar Name/Code)</p>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-4">Use the Registrar's name in the reference section in order for us to allocate the payment to your account. Please send proof of payment to billing@kenic.or.ke</p>
+                        <p className="text-sm font-semibold text-destructive mt-2">NOTE: We do not accept Post-dated Cheques</p>
+                    </div>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8 items-start">
+                     <div className="md:col-span-1">
+                        <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
+                           <Image src="https://placehold.co/300x160.png" alt="iPay" layout="fill" objectFit="contain" data-ai-hint="mobile payment" className="rounded-lg"/>
+                        </div>
+                    </div>
+                    <div className="md:col-span-2">
+                        <h3 className="font-headline text-xl font-semibold mb-2 flex items-center gap-2"><Smartphone className="text-primary"/>iPay</h3>
+                        <p className="text-muted-foreground mb-4">If you wish to make payment via iPay, follow the process below. For both Mpesa and Airtel money Customers:</p>
+                        <ul className="list-decimal pl-6 text-muted-foreground space-y-1 mb-4">
+                            <li>Enter Business No. <strong>510800</strong></li>
+                            <li>Enter Account No. <strong>KENIC</strong></li>
+                            <li>Enter the amount you wish to top up.</li>
+                            <li>Log into your registrar panel and confirm the payment using the Mpesa/Airtel money confirmation code.</li>
+                        </ul>
+                        <p className="text-sm text-muted-foreground">iPay payments reflect in your account immediately. We urge you to use this service for any urgent payments.</p>
+                    </div>
+                </div>
+
+                 <div className="grid md:grid-cols-3 gap-8 items-start">
+                     <div className="md:col-span-1">
+                        <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
+                            <Image src="https://placehold.co/300x160.png" alt="M-PESA" layout="fill" objectFit="contain" data-ai-hint="mobile money" className="rounded-lg"/>
+                        </div>
+                    </div>
+                    <div className="md:col-span-2">
+                        <h3 className="font-headline text-xl font-semibold mb-2 flex items-center gap-2"><Smartphone className="text-primary"/>Mobile Banking (M-PESA)</h3>
+                        <p className="text-muted-foreground mb-4">If you wish to make payment via M-PESA (for Safaricom users), follow the process below.</p>
+                        <ul className="list-decimal pl-6 text-muted-foreground space-y-1 mb-4">
+                           <li>On your Mpesa menu, Click on Lipa Na Mpesa.</li>
+                           <li>Select Pay Bill</li>
+                           <li>Enter business No. <strong>502100</strong></li>
+                           <li>Enter Account No. (enter your registrar code. E.g. KNC)</li>
+                           <li>Enter the amount you wish to top up.</li>
+                        </ul>
+                        <p className="text-sm text-muted-foreground">Mpesa payments reflect in your account immediately. We urge you to use this service for any urgent payments</p>
+                    </div>
+                </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -172,3 +245,5 @@ export default function ResourcesPage() {
     </div>
   )
 }
+
+    
