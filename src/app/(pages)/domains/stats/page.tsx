@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {
   Bar,
   BarChart,
@@ -8,116 +8,198 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
 } from "recharts";
-import { Users, Globe, TrendingUp } from "lucide-react";
+import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCircle } from "lucide-react";
 
-const data = [
-  { name: "Jan", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Feb", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Mar", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Apr", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "May", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Jun", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Jul", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Aug", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Sep", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Oct", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Nov", total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: "Dec", total: Math.floor(Math.random() * 5000) + 1000 },
+const genericDomainData = [
+    { name: "co.ke", value: 100186 },
+    { name: "or.ke", value: 2080 },
+    { name: "ke", value: 6831 },
+    { name: "me.ke", value: 208 },
+    { name: "info.ke", value: 129 },
+    { name: "mobi.ke", value: 26 },
+    { name: "ne.ke", value: 66 },
 ];
+
+const restrictedDomainData = [
+    { name: "ac.ke", value: 1394 },
+    { name: "sc.ke", value: 1018 },
+    { name: "go.ke", value: 863 },
+]
+
+const COLORS = ["#007BFF", "#BE0AFF", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
+
+const renewalsData = [
+    { name: 'Last 24 Hours', value: 118 },
+    { name: 'Last 30 Days', value: 4785 },
+];
+
+const newDomainsData = [
+    { name: 'Last 24 Hours', value: 98 },
+    { name: 'Last 30 Days', value: 4275 },
+];
+
 
 export default function DomainStatsPage() {
   return (
-    <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
-      <div className="space-y-4 text-center mb-12">
-        <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
-          .KE Domain Statistics
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Insights and trends from the .KE domain namespace.
-        </p>
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-8">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Total .KE Domains
-            </CardTitle>
-            <Globe className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">105,234</div>
-            <p className="text-xs text-muted-foreground">
-              +1,200 from last month
+    <div className="bg-secondary flex-1">
+        <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
+        <div className="space-y-4 text-center mb-12">
+            <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
+            .KE Domain Statistics
+            </h1>
+            <p className="text-lg text-muted-foreground">
+            Live insights and trends from the .KE domain namespace.
             </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Licensed Registrars
-            </CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">58</div>
-            <p className="text-xs text-muted-foreground">
-              +2 new this quarter
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Growth Rate</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">+12.5%</div>
-            <p className="text-xs text-muted-foreground">Year-over-year</p>
-          </CardContent>
-        </Card>
-      </div>
+        </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-headline">
-            New Registrations This Year
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="pl-2">
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={data}>
-              <XAxis
-                dataKey="name"
-                stroke="#888888"
-                fontSize={12}
-                tickLine={false}
-                axisLine={false}
-              />
-              <YAxis
-                stroke="#888888"
-                fontSize={12}
-                tickLine={false}
-                axisLine={false}
-                tickFormatter={(value) => `${value}`}
-              />
-              <Tooltip
-                cursor={{ fill: "var(--color-secondary)" }}
-                contentStyle={{
-                  backgroundColor: "var(--color-background)",
-                  border: "1px solid var(--color-border)",
-                }}
-              />
-              <Bar
-                dataKey="total"
-                fill="hsl(var(--primary))"
-                radius={[4, 4, 0, 0]}
-              />
-            </BarChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
+            <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                Total Domains
+                </CardTitle>
+                <Globe className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+                <div className="text-2xl font-bold">112,801</div>
+                <p className="text-xs text-muted-foreground">
+                All registered .KE domains
+                </p>
+            </CardContent>
+            </Card>
+            <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                Licensed Registrars
+                </CardTitle>
+                <Users className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+                <div className="text-2xl font-bold">512</div>
+                <p className="text-xs text-muted-foreground">
+                Accredited partners
+                </p>
+            </CardContent>
+            </Card>
+             <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Generic Domains</CardTitle>
+                <GanttChartSquare className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+                <div className="text-2xl font-bold">109,526</div>
+                <p className="text-xs text-muted-foreground">e.g. .co.ke, .or.ke</p>
+            </CardContent>
+            </Card>
+            <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Restricted Domains</CardTitle>
+                <Package className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+                <div className="text-2xl font-bold">3,275</div>
+                <p className="text-xs text-muted-foreground">e.g. .ac.ke, .go.ke</p>
+            </CardContent>
+            </Card>
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-2 mb-8">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="font-headline flex items-center gap-2"><PlusCircle className="text-primary"/>New Domains</CardTitle>
+                    <CardDescription>Domains registered recently</CardDescription>
+                </CardHeader>
+                <CardContent>
+                   <div className="grid grid-cols-2 gap-4 text-center">
+                        <div className="rounded-lg bg-background p-4">
+                            <p className="text-sm text-muted-foreground">Last 24 Hours</p>
+                            <p className="text-3xl font-bold">98</p>
+                        </div>
+                         <div className="rounded-lg bg-background p-4">
+                            <p className="text-sm text-muted-foreground">Last 30 Days</p>
+                            <p className="text-3xl font-bold">4,275</p>
+                        </div>
+                   </div>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                    <CardTitle className="font-headline flex items-center gap-2"><RefreshCw className="text-primary"/>Domain Renewals</CardTitle>
+                    <CardDescription>Domains renewed recently</CardDescription>
+                </CardHeader>
+                <CardContent>
+                   <div className="grid grid-cols-2 gap-4 text-center">
+                        <div className="rounded-lg bg-background p-4">
+                            <p className="text-sm text-muted-foreground">Last 24 Hours</p>
+                            <p className="text-3xl font-bold">118</p>
+                        </div>
+                         <div className="rounded-lg bg-background p-4">
+                            <p className="text-sm text-muted-foreground">Last 30 Days</p>
+                            <p className="text-3xl font-bold">4,785</p>
+                        </div>
+                   </div>
+                </CardContent>
+            </Card>
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-2">
+            <Card>
+                <CardHeader>
+                <CardTitle className="font-headline">
+                    Generic Domain Distribution
+                </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ResponsiveContainer width="100%" height={300}>
+                        <PieChart>
+                        <Pie
+                            data={genericDomainData}
+                            cx="50%"
+                            cy="50%"
+                            labelLine={false}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            dataKey="value"
+                            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                        >
+                            {genericDomainData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                        </Pie>
+                        <Tooltip formatter={(value, name) => [value.toLocaleString(), name]}/>
+                        <Legend />
+                        </PieChart>
+                    </ResponsiveContainer>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                <CardTitle className="font-headline">
+                    Restricted Domain Distribution
+                </CardTitle>
+                </CardHeader>
+                <CardContent>
+                     <ResponsiveContainer width="100%" height={300}>
+                        <BarChart data={restrictedDomainData} layout="vertical" margin={{ left: 10, right: 30}}>
+                        <XAxis type="number" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                        <YAxis type="category" dataKey="name" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                        <Tooltip cursor={{fill: 'hsl(var(--muted))'}} contentStyle={{backgroundColor: 'hsl(var(--background))'}}/>
+                        <Bar dataKey="value" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} barSize={30}>
+                             {restrictedDomainData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                        </Bar>
+                        </BarChart>
+                    </ResponsiveContainer>
+                </CardContent>
+            </Card>
+        </div>
+        </div>
     </div>
   );
 }
