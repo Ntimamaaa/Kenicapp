@@ -4,7 +4,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun } from 'lucide-react';
+import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun, Info } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -40,7 +40,7 @@ const navItems = [
     title: 'Discover KeNIC',
     subItems: [
       { title: 'About Us', href: '/about', description: 'Learn about our mission, vision, and values.', icon: Users },
-      { title: 'KeNIC Team', href: '/team', description: 'Meet the people behind KeNIC.', icon: Users },
+      { title: 'Information', href: '/information', description: 'Find helpful resources and information.', icon: Info },
       { title: 'Partnerships', href: '/partners', description: 'Our network of trusted partners.', icon: Users },
     ],
   },
@@ -104,7 +104,7 @@ export function Header() {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                       <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                      <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                         <Link href={item.href!}>
                           {item.title}
                         </Link>
