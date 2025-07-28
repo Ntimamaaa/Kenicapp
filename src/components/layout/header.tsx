@@ -1,9 +1,10 @@
+
 "use client";
 
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale } from 'lucide-react';
+import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -102,9 +103,9 @@ export function Header() {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <Link href={item.href!} passHref>
-                        <NavigationMenuLink asChild>
-                           <a className={navigationMenuTriggerStyle()}>{item.title}</a>
+                      <Link href={item.href!} legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                          {item.title}
                         </NavigationMenuLink>
                       </Link>
                     )}
