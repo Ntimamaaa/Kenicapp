@@ -161,11 +161,9 @@ export default function DomainStatsPage() {
                             data={genericDomainData}
                             cx="50%"
                             cy="50%"
-                            labelLine={false}
-                            outerRadius={80}
+                            outerRadius={100}
                             fill="#8884d8"
                             dataKey="value"
-                            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                         >
                             {genericDomainData.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
