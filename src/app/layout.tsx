@@ -3,8 +3,6 @@ import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
-import { AI } from 'next/dist/client/components/react-dev-overlay/internal/components/AI';
-import { GenkitProvider } from '@genkit-ai/next/client';
 
 export const metadata: Metadata = {
   title: 'KeDomain Scout | Find Your Perfect .KE Domain',
@@ -36,14 +34,12 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
-        <GenkitProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
           <Toaster />
-        </GenkitProvider>
       </body>
     </html>
   );
