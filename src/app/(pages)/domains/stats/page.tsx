@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import {
   Bar,
   BarChart,
@@ -18,6 +18,8 @@ import {
 } from "recharts";
 import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const genericDomainData = [
     { name: "co.ke", value: 100186 },
@@ -109,7 +111,7 @@ export default function DomainStatsPage() {
   return (
     <div className="bg-secondary flex-1">
         <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
-        <div className="space-y-4 text-center mb-12">
+        <div className="space-y-4 text-center mb-12 animate-fade-in-up">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
             .KE Domain Statistics
             </h1>
@@ -119,7 +121,7 @@ export default function DomainStatsPage() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
-            <Card>
+            <Card className="animate-fade-in-up" style={{animationDelay: '200ms'}}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                 Total Domains
@@ -132,8 +134,13 @@ export default function DomainStatsPage() {
                 All registered .KE domains
                 </p>
             </CardContent>
+            <CardFooter>
+                <Button asChild className="w-full">
+                    <Link href="/registrars/licensed">Register Domain</Link>
+                </Button>
+            </CardFooter>
             </Card>
-            <Card>
+            <Card className="animate-fade-in-up" style={{animationDelay: '400ms'}}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                 Licensed Registrars
@@ -147,7 +154,7 @@ export default function DomainStatsPage() {
                 </p>
             </CardContent>
             </Card>
-             <Card>
+             <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Generic Domains</CardTitle>
                 <GanttChartSquare className="h-4 w-4 text-primary" />
@@ -157,7 +164,7 @@ export default function DomainStatsPage() {
                 <p className="text-xs text-muted-foreground">e.g. .co.ke, .or.ke</p>
             </CardContent>
             </Card>
-            <Card>
+            <Card className="animate-fade-in-up" style={{animationDelay: '800ms'}}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Restricted Domains</CardTitle>
                 <Package className="h-4 w-4 text-primary" />
@@ -170,7 +177,7 @@ export default function DomainStatsPage() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2 mb-8">
-            <Card>
+            <Card className="animate-fade-in-up" style={{animationDelay: '400ms'}}>
                 <CardHeader>
                     <CardTitle className="font-headline flex items-center gap-2"><PlusCircle className="text-primary"/>New Domains</CardTitle>
                     <CardDescription>Domains registered recently</CardDescription>
@@ -188,7 +195,7 @@ export default function DomainStatsPage() {
                    </div>
                 </CardContent>
             </Card>
-            <Card>
+            <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
                 <CardHeader>
                     <CardTitle className="font-headline flex items-center gap-2"><RefreshCw className="text-primary"/>Domain Renewals</CardTitle>
                     <CardDescription>Domains renewed recently</CardDescription>
@@ -209,7 +216,7 @@ export default function DomainStatsPage() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
-            <Card>
+            <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
                 <CardHeader>
                 <CardTitle className="font-headline">
                     Generic Domain Distribution
@@ -224,7 +231,7 @@ export default function DomainStatsPage() {
                                 cy="50%"
                                 outerRadius={100}
                                 innerRadius={60}
-                                fill="#8884d8"
+                                fill="hsl(var(--primary))"
                                 dataKey="value"
                                 activeIndex={activeIndex ?? undefined}
                                 activeShape={renderActiveShape}
@@ -240,13 +247,13 @@ export default function DomainStatsPage() {
                                 />
                                 ))}
                             </Pie>
-                            <Tooltip contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))'}} formatter={(value, name) => [value.toLocaleString(), name]}/>
+                            <Tooltip contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', color: 'hsl(var(--foreground))'}} formatter={(value, name) => [value.toLocaleString(), name]}/>
                             <Legend wrapperStyle={{color: 'hsl(var(--foreground))'}} onMouseEnter={onLegendEnter} onMouseLeave={onLegendLeave} />
                         </PieChart>
                     </ResponsiveContainer>
                 </CardContent>
             </Card>
-            <Card>
+            <Card className="animate-fade-in-up" style={{animationDelay: '800ms'}}>
                 <CardHeader>
                 <CardTitle className="font-headline">
                     Restricted Domain Distribution
@@ -257,7 +264,7 @@ export default function DomainStatsPage() {
                         <BarChart data={restrictedDomainData} layout="vertical" margin={{ left: 10, right: 30}}>
                         <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
                         <YAxis type="category" dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
-                        <Tooltip cursor={{fill: 'hsl(var(--accent))', opacity: 0.5}} contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))'}}/>
+                        <Tooltip cursor={{fill: 'hsl(var(--accent))', opacity: 0.5}} contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', color: 'hsl(var(--foreground))'}}/>
                         <Bar dataKey="value" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} barSize={30}>
                              {restrictedDomainData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
