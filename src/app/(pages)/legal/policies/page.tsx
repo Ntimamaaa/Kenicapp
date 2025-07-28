@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Mail, Phone, Shield } from "lucide-react";
+import Link from "next/link";
 
 const policies = [
   {
@@ -110,7 +111,7 @@ export default function PoliciesPage() {
                         Information on resolving domain name disputes.
                     </p>
                     <Button asChild variant="secondary" className="w-full">
-                        <a href="#">Learn More</a>
+                        <Link href="/legal/disputes">Learn More</Link>
                     </Button>
                 </CardContent>
             </Card>
