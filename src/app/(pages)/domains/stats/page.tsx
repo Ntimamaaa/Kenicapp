@@ -17,6 +17,7 @@ import {
   Sector
 } from "recharts";
 import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const genericDomainData = [
     { name: "co.ke", value: 100186 },
