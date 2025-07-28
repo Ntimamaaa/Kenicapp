@@ -34,7 +34,7 @@ const restrictedDomainData = [
     { name: "go.ke", value: 863 },
 ]
 
-const COLORS = ["#060842", "#BE0AFF", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
+const COLORS = ["#060842", "#007BFF", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
 
 const renderActiveShape = (props: any) => {
   const RADIAN = Math.PI / 180;
@@ -115,7 +115,7 @@ export default function DomainStatsPage() {
                 <CardTitle className="text-sm font-medium">
                 Total Domains
                 </CardTitle>
-                <Globe className="h-4 w-4 text-muted-foreground" />
+                <Globe className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
                 <div className="text-2xl font-bold">112,801</div>
@@ -129,7 +129,7 @@ export default function DomainStatsPage() {
                 <CardTitle className="text-sm font-medium">
                 Licensed Registrars
                 </CardTitle>
-                <Users className="h-4 w-4 text-muted-foreground" />
+                <Users className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
                 <div className="text-2xl font-bold">512</div>
@@ -141,7 +141,7 @@ export default function DomainStatsPage() {
              <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Generic Domains</CardTitle>
-                <GanttChartSquare className="h-4 w-4 text-muted-foreground" />
+                <GanttChartSquare className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
                 <div className="text-2xl font-bold">109,526</div>
@@ -151,7 +151,7 @@ export default function DomainStatsPage() {
             <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Restricted Domains</CardTitle>
-                <Package className="h-4 w-4 text-muted-foreground" />
+                <Package className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
                 <div className="text-2xl font-bold">3,275</div>
