@@ -1,3 +1,156 @@
+import { DomainChecker } from '@/components/domain-checker';
+import { DomainSuggester } from '@/components/domain-suggester';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CheckCircle, Search, Rocket, FileText } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="flex flex-col">
+      <section className="w-full bg-white dark:bg-gray-950 py-12 md:py-24 lg:py-32">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+            <div className="flex flex-col justify-center space-y-4">
+              <div className="space-y-2">
+                <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-primary">
+                  Your Perfect .KE Domain Awaits
+                </h1>
+                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  Discover, register, and manage your .KE domains with ease. Our
+                  powerful tools and AI assistant make finding your online
+                  identity simple and fast.
+                </p>
+              </div>
+              <div className="w-full max-w-2xl">
+                <DomainChecker />
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Get started by searching for your dream domain name.
+              </p>
+            </div>
+            <Image
+              src="https://placehold.co/600x400.png"
+              data-ai-hint="domain registration abstract"
+              alt="Hero"
+              width="600"
+              height="400"
+              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="features"
+        className="w-full py-12 md:py-24 lg:py-32 bg-secondary"
+      >
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="space-y-2">
+              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                Key Features
+              </div>
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">
+                Everything You Need for .KE Domains
+              </h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                From real-time checks to AI-powered suggestions, we provide a
+                comprehensive suite of tools for your domain needs.
+              </p>
+            </div>
+          </div>
+          <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
+            <Card>
+              <CardHeader className="flex flex-row items-center gap-4">
+                <div className="rounded-full bg-primary/10 p-3">
+                  <Search className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="font-headline text-xl">
+                  Domain Checker
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Instantly check the availability of any .KE domain with our
+                  real-time search.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center gap-4">
+                <div className="rounded-full bg-primary/10 p-3">
+                  <Rocket className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="font-headline text-xl">
+                  AI Suggestions
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Stuck for ideas? Use our AI tool to generate creative and
+                  available domain names.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center gap-4">
+                <div className="rounded-full bg-primary/10 p-3">
+                  <FileText className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="font-headline text-xl">
+                  WhoIs Lookup
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Access public registration data for any .KE domain with our
+                  comprehensive WhoIs service.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="ai-suggester" className="w-full py-12 md:py-24 lg:py-32">
+        <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
+          <div className="space-y-3">
+            <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
+              Unleash Creativity with our AI Domain Suggester
+            </h2>
+            <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Don't just search. Discover. Enter a few keywords and let our AI
+              find the perfect, available domain for you.
+            </p>
+          </div>
+          <div className="mx-auto w-full max-w-2xl">
+            <DomainSuggester />
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
+        <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
+          <div className="space-y-3">
+            <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
+              Ready to Get Started?
+            </h2>
+            <p className="mx-auto max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Your new .KE domain is just a few clicks away. Find it, register
+              it, and start building your online presence today.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90"
+            >
+              <Link href="/registrars/licensed">View Licensed Registrars</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
