@@ -1,5 +1,7 @@
+
 "use client";
 
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {
   Bar,
@@ -12,6 +14,7 @@ import {
   Pie,
   Cell,
   Legend,
+  Sector
 } from "recharts";
 import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCircle } from "lucide-react";
 
@@ -33,18 +36,67 @@ const restrictedDomainData = [
 
 const COLORS = ["#007BFF", "#BE0AFF", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
 
-const renewalsData = [
-    { name: 'Last 24 Hours', value: 118 },
-    { name: 'Last 30 Days', value: 4785 },
-];
+const renderActiveShape = (props: any) => {
+  const RADIAN = Math.PI / 180;
+  const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
+  const sin = Math.sin(-RADIAN * midAngle);
+  const cos = Math.cos(-RADIAN * midAngle);
+  const sx = cx + (outerRadius + 10) * cos;
+  const sy = cy + (outerRadius + 10) * sin;
+  const mx = cx + (outerRadius + 30) * cos;
+  const my = cy + (outerRadius + 30) * sin;
+  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+  const ey = my;
+  const textAnchor = cos >= 0 ? 'start' : 'end';
 
-const newDomainsData = [
-    { name: 'Last 24 Hours', value: 98 },
-    { name: 'Last 30 Days', value: 4275 },
-];
+  return (
+    <g>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} className="font-headline text-lg">
+        {payload.name}
+      </text>
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+      />
+      <Sector
+        cx={cx}
+        cy={cy}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        innerRadius={outerRadius + 6}
+        outerRadius={outerRadius + 10}
+        fill={fill}
+      />
+    </g>
+  );
+};
 
 
 export default function DomainStatsPage() {
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [activeRestrictedIndex, setActiveRestrictedIndex] = useState<number | null>(null);
+
+
+  const onPieEnter = (_: any, index: number) => {
+    setActiveIndex(index);
+  };
+  const onPieLeave = () => {
+    setActiveIndex(null);
+  }
+
+  const onLegendEnter = (props: any) => {
+      const index = genericDomainData.findIndex(d => d.name === props.value);
+      setActiveIndex(index);
+  }
+  const onLegendLeave = () => {
+    setActiveIndex(null);
+  }
+
   return (
     <div className="bg-secondary flex-1">
         <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
@@ -156,21 +208,31 @@ export default function DomainStatsPage() {
                 </CardHeader>
                 <CardContent>
                     <ResponsiveContainer width="100%" height={300}>
-                        <PieChart>
-                        <Pie
-                            data={genericDomainData}
-                            cx="50%"
-                            cy="50%"
-                            outerRadius={100}
-                            fill="#8884d8"
-                            dataKey="value"
-                        >
-                            {genericDomainData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                            ))}
-                        </Pie>
-                        <Tooltip formatter={(value, name) => [value.toLocaleString(), name]}/>
-                        <Legend />
+                         <PieChart>
+                            <Pie
+                                data={genericDomainData}
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={100}
+                                innerRadius={60}
+                                fill="#8884d8"
+                                dataKey="value"
+                                activeIndex={activeIndex ?? undefined}
+                                activeShape={renderActiveShape}
+                                onMouseEnter={onPieEnter}
+                                onMouseLeave={onPieLeave}
+                            >
+                                {genericDomainData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} 
+                                    className={cn(
+                                        "transition-opacity",
+                                        activeIndex !== null && activeIndex !== index ? "opacity-30" : "opacity-100"
+                                    )}
+                                />
+                                ))}
+                            </Pie>
+                            <Tooltip formatter={(value, name) => [value.toLocaleString(), name]}/>
+                            <Legend onMouseEnter={onLegendEnter} onMouseLeave={onLegendLeave} />
                         </PieChart>
                     </ResponsiveContainer>
                 </CardContent>
@@ -201,3 +263,4 @@ export default function DomainStatsPage() {
     </div>
   );
 }
+
