@@ -41,7 +41,7 @@ const navItems = [
     subItems: [
       { title: 'About Us', href: '/about', description: 'Learn about our mission, vision, and values.', icon: Users },
       { title: 'Information', href: '/information', description: 'Find helpful resources and information.', icon: Info },
-      { title: 'Partnerships', href: '/partners', description: 'Our network of trusted partners.', icon: Users },
+      { title: 'Resources', href: '/resources', description: 'Find helpful resources and downloads.', icon: Download },
     ],
   },
   {
