@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -34,7 +35,7 @@ const restrictedDomainData = [
     { name: "go.ke", value: 863 },
 ]
 
-const COLORS = ["#060842", "#007BFF", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
+const COLORS = ["#007BFF", "#060842", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
 
 const renderActiveShape = (props: any) => {
   const RADIAN = Math.PI / 180;
