@@ -1,7 +1,8 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
-import { Rocket, Loader2, ServerCrash, Search } from "lucide-react";
+import { useActionState, useEffect } from "react";
+import { useFormStatus } from "react-dom";
+import { Rocket, Loader2, Search } from "lucide-react";
 import Link from "next/link";
 import { getSuggestions } from "@/app/actions";
 import { Input } from "@/components/ui/input";
@@ -14,8 +15,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
-import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 const initialState = {
@@ -45,7 +44,7 @@ function SubmitButton() {
 
 export function DomainSuggester() {
   const { toast } = useToast();
-  const [state, formAction] = useFormState(getSuggestions, initialState);
+  const [state, formAction] = useActionState(getSuggestions, initialState);
 
   useEffect(() => {
     if (state.error) {
