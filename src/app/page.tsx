@@ -27,7 +27,7 @@ export default function Home() {
       <section className="w-full bg-white dark:bg-gray-950 py-12 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-            <div className="flex flex-col justify-center space-y-4">
+            <div className="flex flex-col justify-center space-y-4 animate-fade-in-up">
               <div className="space-y-2">
                 <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-primary">
                   Your Perfect .KE Domain Awaits
@@ -51,7 +51,7 @@ export default function Home() {
               alt="Hero"
               width="600"
               height="400"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
+              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last animate-fade-in"
             />
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function Home() {
 
       <section id="extensions" className="w-full py-12 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-8 text-center">
+          <div className="flex flex-col items-center justify-center space-y-8 text-center animate-fade-in-up">
             <div className="space-y-2">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                 Explore Our Domain Extensions
@@ -69,11 +69,12 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              {extensions.map((ext) => (
+              {extensions.map((ext, i) => (
                 <Badge
                   key={ext}
                   variant="outline"
-                  className="text-lg font-medium py-2 px-4 border-2 border-primary/50 text-primary"
+                  className="text-lg font-medium py-2 px-4 border-2 border-primary/50 text-primary animate-fade-in"
+                  style={{ animationDelay: `${i * 100}ms` }}
                 >
                   {ext}
                 </Badge>
@@ -89,7 +90,7 @@ export default function Home() {
         className="w-full py-12 md:py-24 lg:py-32 bg-secondary"
       >
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center animate-fade-in-up">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
                 Key Features
@@ -104,7 +105,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-            <Card>
+            <Card className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <CardHeader className="flex flex-row items-center gap-4">
                 <div className="rounded-full bg-primary/10 p-3">
                   <Search className="h-6 w-6 text-primary" />
@@ -120,7 +121,7 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <CardHeader className="flex flex-row items-center gap-4">
                 <div className="rounded-full bg-primary/10 p-3">
                   <Rocket className="h-6 w-6 text-primary" />
@@ -136,7 +137,7 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="animate-fade-in-up" style={{ animationDelay: '600ms' }}>
               <CardHeader className="flex flex-row items-center gap-4">
                 <div className="rounded-full bg-primary/10 p-3">
                   <FileText className="h-6 w-6 text-primary" />
@@ -158,7 +159,7 @@ export default function Home() {
 
       <section id="ai-suggester" className="w-full py-12 md:py-24 lg:py-32">
         <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
-          <div className="space-y-3">
+          <div className="space-y-3 animate-fade-in-up">
             <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
               Unleash Creativity with our AI Domain Suggester
             </h2>
@@ -167,7 +168,7 @@ export default function Home() {
               find the perfect, available domain for you.
             </p>
           </div>
-          <div className="mx-auto w-full max-w-2xl">
+          <div className="mx-auto w-full max-w-2xl animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <DomainSuggester />
           </div>
         </div>
@@ -175,7 +176,7 @@ export default function Home() {
 
       <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-8 text-center">
+            <div className="flex flex-col items-center justify-center space-y-8 text-center animate-fade-in-up">
                 <div className="space-y-2">
                     <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Our Partners &amp; Collaborators</h2>
                     <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -189,7 +190,7 @@ export default function Home() {
 
       <section className="w-full py-20 md:py-28 lg:py-32 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <div className="mx-auto max-w-3xl space-y-6">
+            <div className="mx-auto max-w-3xl space-y-6 animate-fade-in-up">
               <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
                 Ready to Get Started?
               </h2>
@@ -200,7 +201,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="bg-background text-primary h-12 px-8 text-base font-semibold hover:bg-background/90"
+                className="bg-accent text-accent-foreground h-12 px-8 text-base font-semibold hover:bg-accent/90"
               >
                 <Link href="/registrars/licensed">View Licensed Registrars</Link>
               </Button>
