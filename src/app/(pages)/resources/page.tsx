@@ -8,12 +8,12 @@ import Image from "next/image";
 
 
 const usefulLinks = [
-  { name: "ICANN", href: "#" },
-  { name: "AFTLD", href: "#" },
-  { name: "CA (Communication Authority of Kenya)", href: "#" },
-  { name: "ICTA", href: "#" },
-  { name: "KICTANET", href: "#" },
-  { name: "KENET", href: "#" },
+  { name: "ICANN", href: "#", hint: "ICANN logo" },
+  { name: "AFTLD", href: "#", hint: "AFTLD logo" },
+  { name: "CA (Communication Authority of Kenya)", href: "#", hint: "CA Kenya logo" },
+  { name: "ICTA", href: "#", hint: "ICTA logo" },
+  { name: "KICTANET", href: "#", hint: "KICTANET logo" },
+  { name: "KENET", href: "#", hint: "KENET logo" },
 ];
 
 export default function ResourcesPage() {
@@ -141,22 +141,23 @@ export default function ResourcesPage() {
                 <CardTitle>Useful Links</CardTitle>
                 <CardDescription>A collection of helpful links to external resources and partner organizations.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {usefulLinks.map((link) => (
-                        <Button asChild variant="outline" className="justify-start h-auto p-0" key={link.name}>
-                            <Link href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full p-4">
-                                <div className="flex items-center">
-                                     <Globe className="mr-3 h-5 w-5 text-primary"/>
-                                    <span className="font-semibold text-base">{link.name}</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                    <ExternalLink className="h-4 w-4"/>
-                                </div>
-                            </Link>
-                        </Button>
-                    ))}
-                </div>
+            <CardContent className="grid md:grid-cols-2 gap-8">
+                {usefulLinks.map((link) => (
+                    <div key={link.name} className="flex items-start gap-4">
+                        <div className="relative w-24 h-16 bg-muted rounded-lg flex-shrink-0">
+                           <Image src={`https://placehold.co/150x100.png`} alt={`${link.name} logo`} layout="fill" objectFit="contain" data-ai-hint={link.hint} className="p-2"/>
+                        </div>
+                        <div className="flex-grow">
+                            <h4 className="font-semibold text-lg mb-1">{link.name}</h4>
+                             <Button asChild variant="outline" size="sm">
+                                <Link href={link.href} target="_blank" rel="noopener noreferrer">
+                                    Visit Website
+                                    <ExternalLink className="ml-2 h-4 w-4"/>
+                                </Link>
+                            </Button>
+                        </div>
+                    </div>
+                ))}
             </CardContent>
           </Card>
         </TabsContent>
@@ -247,5 +248,3 @@ export default function ResourcesPage() {
     </div>
   )
 }
-
-    
