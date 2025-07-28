@@ -82,8 +82,45 @@ export default function ResourcesPage() {
                 <CardTitle>Downloads</CardTitle>
                 <CardDescription>Find downloadable documents, forms, and resources.</CardDescription>
             </CardHeader>
-            <CardContent className="text-center p-16 text-muted-foreground">
-                <p>No downloads are available at the moment. Please check back later.</p>
+            <CardContent className="space-y-3">
+                <div className="grid sm:grid-cols-2 gap-4">
+                    <Button asChild variant="outline" className="justify-start">
+                        <Link href="#">
+                            <Download className="mr-2 h-4 w-4" />
+                            Financial Statement 2024
+                        </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="justify-start">
+                        <Link href="#">
+                            <Download className="mr-2 h-4 w-4" />
+                            Financial Statement 2023
+                        </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="justify-start">
+                        <Link href="#">
+                            <Download className="mr-2 h-4 w-4" />
+                            Financial Statement 2022
+                        </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="justify-start">
+                        <Link href="#">
+                            <Download className="mr-2 h-4 w-4" />
+                            Financial Statement 2021
+                        </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="justify-start">
+                        <Link href="#">
+                            <Download className="mr-2 h-4 w-4" />
+                            Financial Statement 2020
+                        </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="justify-start">
+                        <Link href="#">
+                            <Download className="mr-2 h-4 w-4" />
+                            Financial Statement 2019
+                        </Link>
+                    </Button>
+                </div>
             </CardContent>
           </Card>
         </TabsContent>
