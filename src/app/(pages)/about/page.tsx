@@ -74,14 +74,14 @@ export default function AboutPage() {
           </div>
 
           <div className="md:col-span-2 space-y-6 sticky top-24">
-            <Card className="bg-primary/10 border-primary">
+            <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
                   <Eye className="text-primary"/>
                   Vision
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-primary-foreground/90 font-medium">
+              <CardContent className="text-muted-foreground">
                 A Trusted Domain Name Registry that Secures Your Online Identity.
               </CardContent>
             </Card>
