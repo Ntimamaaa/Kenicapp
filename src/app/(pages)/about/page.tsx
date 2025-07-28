@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Eye, Target, CheckCircle, Award, Users, BookOpen, TrendingUp, History, Building } from 'lucide-react';
+import { Eye, Target, CheckCircle, Award, Users, BookOpen, TrendingUp, History, Building, Heart, Zap, ShieldCheck } from 'lucide-react';
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -74,14 +74,14 @@ export default function AboutPage() {
           </div>
 
           <div className="md:col-span-2 space-y-6 sticky top-24">
-            <Card className="bg-primary text-primary-foreground">
+            <Card className="bg-primary/10 border-primary">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
-                  <Eye className="text-accent"/>
+                  <Eye className="text-primary"/>
                   Vision
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="text-primary-foreground/90 font-medium">
                 A Trusted Domain Name Registry that Secures Your Online Identity.
               </CardContent>
             </Card>
@@ -103,10 +103,10 @@ export default function AboutPage() {
                   Our Core Values
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2 text-muted-foreground">
-                  <p className="flex items-center gap-2"><Award className="text-primary h-4 w-4"/> Excellence First</p>
-                  <p className="flex items-center gap-2"><Award className="text-primary h-4 w-4"/> Innovation Driven</p>
-                  <p className="flex items-center gap-2"><Award className="text-primary h-4 w-4"/> Integrity Unshakeable</p>
+              <CardContent className="space-y-3 text-muted-foreground">
+                  <p className="flex items-center gap-3"><Heart className="text-primary h-5 w-5"/> Excellence First</p>
+                  <p className="flex items-center gap-3"><Zap className="text-primary h-5 w-5"/> Innovation Driven</p>
+                  <p className="flex items-center gap-3"><ShieldCheck className="text-primary h-5 w-5"/> Integrity Unshakeable</p>
               </CardContent>
             </Card>
           </div>
