@@ -7,6 +7,34 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 
 
+const certificates = [
+    {
+        title: "Certificate of Regulatory Compliance 2023",
+        href: "#",
+        hint: "compliance certificate 2023"
+    },
+    {
+        title: "Certificate Of Regulatory Compliance 2022",
+        href: "#",
+        hint: "compliance certificate 2022"
+    },
+    {
+        title: "Application Service Provider License 2023",
+        href: "#",
+        hint: "ASP license 2023"
+    },
+    {
+        title: "Application Service Provider License 2022",
+        href: "#",
+        hint: "ASP license 2022"
+    },
+    {
+        title: "Data Controller and Data Processor Certificates 2024-2026",
+        href: "#",
+        hint: "data certificate"
+    }
+]
+
 export default function InformationPage() {
   return (
     <div className="container mx-auto max-w-6xl py-12 px-4 md:px-6">
@@ -65,8 +93,24 @@ export default function InformationPage() {
                 <CardTitle>Certificates</CardTitle>
                 <CardDescription>Our official certifications and accreditations.</CardDescription>
             </CardHeader>
-            <CardContent className="text-center p-16 text-muted-foreground">
-                <p>Information about our certificates will be displayed here.</p>
+             <CardContent className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {certificates.map((cert) => (
+                    <Link key={cert.title} href={cert.href} className="group block">
+                        <Card className="flex flex-col items-center text-center h-full transition-shadow duration-300 group-hover:shadow-lg">
+                           <CardHeader className="p-4">
+                               <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
+                                    <Image src="https://placehold.co/200x280.png" alt={cert.title} layout="fill" objectFit="contain" data-ai-hint={cert.hint} className="rounded-lg p-2" />
+                               </div>
+                           </CardHeader>
+                           <CardContent className="p-4 flex-grow">
+                                <p className="font-semibold text-sm">{cert.title}</p>
+                           </CardContent>
+                           <CardFooter className="p-4 pt-0">
+                                <Button variant="outline" className="w-full">View Now</Button>
+                           </CardFooter>
+                        </Card>
+                    </Link>
+                ))}
             </CardContent>
           </Card>
         </TabsContent>
