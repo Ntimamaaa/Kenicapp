@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '../theme-toggle';
+import { ScrollArea } from '../ui/scroll-area';
 
 const navItems = [
   {
@@ -103,7 +104,7 @@ export function Header() {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                       <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                         <Link href={item.href!}>
                           {item.title}
                         </Link>
@@ -126,30 +127,32 @@ export function Header() {
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left">
+              <SheetContent side="left" className="flex flex-col">
                 <div className="py-6">
                     <Logo />
                 </div>
-                <div className="flex flex-col space-y-2">
-                  {navItems.map((item) => (
-                    <div key={item.title}>
-                        {item.subItems ? (
-                             <div className="flex flex-col space-y-1">
-                                <p className="font-headline px-4 pt-2 font-semibold text-foreground">{item.title}</p>
-                                {item.subItems.map((sub) => (
-                                     <MobileLink key={sub.href} href={sub.href} onOpenChange={setIsOpen}>
-                                        {sub.title}
-                                    </MobileLink>
-                                ))}
-                             </div>
-                        ) : (
-                             <MobileLink href={item.href!} onOpenChange={setIsOpen}>
-                                {item.title}
-                            </MobileLink>
-                        )}
+                <ScrollArea className="flex-1">
+                    <div className="flex flex-col space-y-2 pr-6">
+                    {navItems.map((item) => (
+                        <div key={item.title}>
+                            {item.subItems ? (
+                                <div className="flex flex-col space-y-1">
+                                    <p className="font-headline px-4 pt-2 font-semibold text-foreground">{item.title}</p>
+                                    {item.subItems.map((sub) => (
+                                        <MobileLink key={sub.href} href={sub.href} onOpenChange={setIsOpen}>
+                                            {sub.title}
+                                        </MobileLink>
+                                    ))}
+                                </div>
+                            ) : (
+                                <MobileLink href={item.href!} onOpenChange={setIsOpen}>
+                                    {item.title}
+                                </MobileLink>
+                            )}
+                        </div>
+                    ))}
                     </div>
-                  ))}
-                </div>
+                </ScrollArea>
               </SheetContent>
             </Sheet>
         </div>
