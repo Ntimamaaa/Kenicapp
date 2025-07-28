@@ -1,6 +1,9 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
+import Link from "next/link";
 
 export default function ResourcesPage() {
   return (
@@ -25,8 +28,51 @@ export default function ResourcesPage() {
                 <CardTitle>DNS &amp; DNSSEC Material</CardTitle>
                 <CardDescription>Learn about the Domain Name System and DNS Security Extensions.</CardDescription>
             </CardHeader>
-            <CardContent className="text-center p-16 text-muted-foreground">
-                <p>Informational material about DNS and DNSSEC will be available here.</p>
+            <CardContent className="space-y-6">
+                <div>
+                    <p className="text-muted-foreground mb-4">Kenya Network Information Centre (KeNIC) conducted a technical registrar training on 10th and 11th April 2019. The training covered the following exercises:</p>
+                    <ul className="list-disc pl-6 text-muted-foreground space-y-2">
+                        <li>Introduction to Domain Name System (DNS)</li>
+                        <li>DNS Configuration</li>
+                        <li>Introduction to Domain Name System Security Extensions (DNSSEC)</li>
+                        <li>DNSSEC Configuration using BIND</li>
+                    </ul>
+                </div>
+                <div className="space-y-3">
+                    <h4 className="font-semibold">Downloads</h4>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <Button asChild variant="outline" className="justify-start">
+                            <Link href="#">
+                                <Download className="mr-2 h-4 w-4" />
+                                Introduction to DNS
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="justify-start">
+                             <Link href="#">
+                                <Download className="mr-2 h-4 w-4" />
+                                DNS Fundamentals
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="justify-start">
+                            <Link href="#">
+                                <Download className="mr-2 h-4 w-4" />
+                                DNS Configuration Labs
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="justify-start">
+                            <Link href="#">
+                                <Download className="mr-2 h-4 w-4" />
+                                Introduction to DNSSEC
+                            </Link>
+                        </Button>
+                         <Button asChild variant="outline" className="justify-start">
+                             <Link href="#">
+                                <Download className="mr-2 h-4 w-4" />
+                                DNSSEC configuration using bind
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
             </CardContent>
           </Card>
         </TabsContent>
