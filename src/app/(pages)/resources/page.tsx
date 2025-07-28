@@ -46,7 +46,7 @@ export default function ResourcesPage() {
             <CardHeader>
                 <CardTitle>Useful Links</CardTitle>
                 <CardDescription>A collection of helpful links to external resources.</CardDescription>
-            </Header>
+            </CardHeader>
             <CardContent className="text-center p-16 text-muted-foreground">
                 <p>Useful links will be listed here soon.</p>
             </CardContent>
@@ -57,7 +57,7 @@ export default function ResourcesPage() {
             <CardHeader>
                 <CardTitle>Payment Details</CardTitle>
                 <CardDescription>Information on how to make payments to KeNIC.</CardDescription>
-            </Header>
+            </CardHeader>
             <CardContent className="text-center p-16 text-muted-foreground">
                 <p>Our payment details will be provided here shortly.</p>
             </CardContent>
