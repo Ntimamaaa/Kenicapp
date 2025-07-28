@@ -19,7 +19,7 @@ const valueProps = [
   },
   {
     title: "Protecting your Brand Online",
-    description: "In today’s World, corporations are at risk of cyber-attacks posed through cyber-squatting, hacking, domain hijacking and intellectual property theft. Ideal it has now become for scammers to try and use good brands to divert and drive traffic to their website, thus threatening to substantially devalue your brand customer base with potentially counterfeit and grey market sales. Kenya Network Information Centre; (KeNIC) a not-for profit organization charged with the management and administration of the .KE domain, is at the forefront of ensuring corporates protect themselves from fraudsters and hijackers thus fully maximizing their brand’s potential. With the little formal policy to protect brands from the risk and costs of image, identity and reputation theft, KeNIC has taken the initiative to raise awareness on importance of brand protection and enable corporates such as to secure their brands online through registration of .KE domain names",
+    description: "Protect your brand from cyber threats like squatting, hacking, and intellectual property theft. KeNIC helps secure your online identity by registering your .KE domain, preventing fraudsters from devaluing your brand and misleading your customers.",
     icon: Shield
   },
   {
