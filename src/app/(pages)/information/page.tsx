@@ -58,15 +58,15 @@ export default function InformationPage() {
                 <CardDescription>Our commitment to service excellence.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-                 <div className="grid md:grid-cols-3 gap-8 items-center">
+                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="md:col-span-1">
-                        <div className="relative w-full h-48 bg-muted rounded-lg flex items-center justify-center">
-                            <Image src="https://placehold.co/300x200.png" alt="Service Charter" layout="fill" objectFit="contain" data-ai-hint="document charter" className="rounded-lg p-4"/>
+                        <div className="relative w-full h-80 bg-muted rounded-lg flex items-center justify-center">
+                            <Image src="https://placehold.co/400x560.png" alt="Service Charter" layout="fill" objectFit="contain" data-ai-hint="document charter" className="rounded-lg p-4"/>
                         </div>
                     </div>
-                    <div className="md:col-span-2 space-y-4">
-                        <p className="text-muted-foreground">KeNIC always strives to offer the best services to its customers / clients and to foster closer relationships with them from wherever they are. The service charter is a manifestation of our commitment to rendering the best services as well as providing ways of communicating with our clients. Its a promise to provide high quality and consistent .KE service.</p>
-                        <Button asChild>
+                    <div className="md:col-span-1 space-y-6">
+                        <p className="text-muted-foreground text-lg leading-relaxed">KeNIC always strives to offer the best services to its customers / clients and to foster closer relationships with them from wherever they are. The service charter is a manifestation of our commitment to rendering the best services as well as providing ways of communicating with our clients. Its a promise to provide high quality and consistent .KE service.</p>
+                        <Button asChild size="lg">
                             <Link href="#">
                                 KeNIC Service Charter <ExternalLink className="ml-2 h-4 w-4"/>
                             </Link>
