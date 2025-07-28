@@ -24,7 +24,7 @@ export default function HowToRegisterPage() {
               <Search className="h-8 w-8" />
             </div>
             <h3 className="font-headline text-2xl font-bold mb-2">Step One</h3>
-            <p className="text-muted-foreground mb-4 flex-grow">
+            <p className="text-muted-foreground mb-4 flex-grow mt-4">
               Use the search box to find out if your chosen domain name is available to buy.
             </p>
             <Button asChild>
@@ -37,7 +37,7 @@ export default function HowToRegisterPage() {
               <Users className="h-8 w-8" />
             </div>
             <h3 className="font-headline text-2xl font-bold mb-2">Step Two</h3>
-            <p className="text-muted-foreground mb-4 flex-grow">
+            <p className="text-muted-foreground mb-4 flex-grow mt-4">
               Register your domain name with one of our accredited registrars.
             </p>
             <Button asChild>
@@ -50,7 +50,7 @@ export default function HowToRegisterPage() {
               <Rocket className="h-8 w-8" />
             </div>
             <h3 className="font-headline text-2xl font-bold mb-2">Step Three</h3>
-            <p className="text-muted-foreground mb-4 flex-grow">
+            <p className="text-muted-foreground mb-4 flex-grow mt-4">
               Buy your domain to get started and build your online presence.
             </p>
             <Button asChild variant="outline">
