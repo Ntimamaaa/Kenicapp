@@ -78,7 +78,7 @@ export function Header() {
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-6">
             <Logo />
-            <NavigationMenu className="hidden lg:flex">
+            <NavigationMenu className="hidden md:flex">
               <NavigationMenuList>
                 {navItems.map((item) => (
                   <NavigationMenuItem key={item.title}>
@@ -118,7 +118,7 @@ export function Header() {
             <Button className="hidden sm:inline-flex bg-accent hover:bg-accent/90">Register</Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="lg:hidden">
+                <Button variant="outline" size="icon" className="md:hidden">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
