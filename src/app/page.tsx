@@ -59,7 +59,7 @@ export default function Home() {
 
       <section id="extensions" className="w-full py-12 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-8 text-center animate-fade-in-up">
+          <div className="flex flex-col items-center justify-center space-y-8 text-center">
             <div className="space-y-2">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                 Explore Our Domain Extensions
@@ -69,12 +69,11 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              {extensions.map((ext, i) => (
+              {extensions.map((ext) => (
                 <Badge
                   key={ext}
                   variant="outline"
-                  className="text-lg font-medium py-2 px-4 border-2 border-primary/50 text-primary animate-fade-in"
-                  style={{ animationDelay: `${i * 100}ms` }}
+                  className="text-lg font-medium py-2 px-4 border-2 border-primary/50 text-primary"
                 >
                   {ext}
                 </Badge>
