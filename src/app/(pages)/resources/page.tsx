@@ -2,8 +2,18 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, Globe } from "lucide-react";
 import Link from "next/link";
+
+
+const usefulLinks = [
+  { name: "ICANN", href: "#" },
+  { name: "AFTLD", href: "#" },
+  { name: "CA (Communication Authority of Kenya)", href: "#" },
+  { name: "ICTA", href: "#" },
+  { name: "KICTANET", href: "#" },
+  { name: "KENET", href: "#" },
+];
 
 export default function ResourcesPage() {
   return (
@@ -128,10 +138,22 @@ export default function ResourcesPage() {
            <Card>
             <CardHeader>
                 <CardTitle>Useful Links</CardTitle>
-                <CardDescription>A collection of helpful links to external resources.</CardDescription>
+                <CardDescription>A collection of helpful links to external resources and partner organizations.</CardDescription>
             </CardHeader>
-            <CardContent className="text-center p-16 text-muted-foreground">
-                <p>Useful links will be listed here soon.</p>
+            <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {usefulLinks.map((link) => (
+                        <Button asChild variant="outline" className="justify-between h-auto py-3 items-center" key={link.name}>
+                            <Link href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                                <div className="flex items-center">
+                                     <Globe className="mr-3 h-5 w-5 text-primary"/>
+                                    <span className="font-semibold text-base">{link.name}</span>
+                                </div>
+                                <span className="text-sm text-muted-foreground">Go To Website</span>
+                            </Link>
+                        </Button>
+                    ))}
+                </div>
             </CardContent>
           </Card>
         </TabsContent>
