@@ -153,6 +153,11 @@ export default function DomainStatsPage() {
                 Accredited partners
                 </p>
             </CardContent>
+             <CardFooter>
+                <Button asChild className="w-full" variant="outline">
+                    <Link href="/registrars/licensed">View Registrars</Link>
+                </Button>
+            </CardFooter>
             </Card>
              <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
