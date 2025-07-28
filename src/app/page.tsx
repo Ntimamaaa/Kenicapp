@@ -1,5 +1,6 @@
 import { DomainChecker } from '@/components/domain-checker';
 import { DomainSuggester } from '@/components/domain-suggester';
+import { PartnersMarquee } from '@/components/partners-marquee';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -170,6 +171,20 @@ export default function Home() {
             <DomainSuggester />
           </div>
         </div>
+      </section>
+
+      <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-8 text-center">
+                <div className="space-y-2">
+                    <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Our Partners &amp; Collaborators</h2>
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                        We are proud to work with a diverse range of organizations to build a better digital Kenya.
+                    </p>
+                </div>
+                <PartnersMarquee />
+            </div>
+          </div>
       </section>
 
       <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">

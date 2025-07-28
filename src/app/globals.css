@@ -70,3 +70,12 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+}
