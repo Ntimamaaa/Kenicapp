@@ -1,9 +1,15 @@
+
+"use client";
+
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye, Target, CheckCircle, Award, Users, BookOpen, TrendingUp, History, Building, Heart, Zap, ShieldCheck } from 'lucide-react';
 import Link from "next/link";
 
 export default function AboutPage() {
+  const [isHistoryExpanded, setIsHistoryExpanded] = useState(false);
+
   return (
     <div className="bg-secondary flex-1">
       <div className="container mx-auto max-w-6xl py-12 px-4 md:px-6">
@@ -30,8 +36,20 @@ export default function AboutPage() {
                 <p>
                    KeNIC oversees a namespace that has seen 20% domain growth since 2017, reflecting Kenya's gradual digital development. With high internet penetration, KeNIC operates in one of Africa's most developed digital markets. The enabling presence of internet exchange points, government backing for e-services, and innovation hubs provide a supportive environment.
                 </p>
-                <Button variant="link" className="p-0 h-auto" asChild>
-                    <Link href="#">Read More</Link>
+                {isHistoryExpanded && (
+                    <div className="space-y-4">
+                        <p>As the sole .ke registry operator, KeNIC possesses specialized expertise in reliable management of domain name systems. The WHOIS database of registration details is also a unique asset.</p>
+                        <p>KeNIC collaborates across the internet industry to promote .ke domain visibility and adoption. Key partnerships include government agencies, financial institutions, tech hubs and industry forums.</p>
+                        <p>Factors like expanding internet access, digitization policies, and a supportive ecosystem position KeNIC to promote .ke domains as a leading African ccTLD registry.</p>
+                        <p>Kenya ranks 3rd in Africa in domain uptake analysis based on registered domains and local hosting metrics. With 85% internet penetration, Kenya is a continental leader in digital advancement.</p>
+                        <p>IANA delegated .ke administration to Dr. Shem Ochuocho in 1993, succeeded by KeNIC's 2000 formation as a non-profit entity under Kenyan law to manage Kenya's internet presence.</p>
+                        <p>As manager of Kenya's secure .ke namespace, KeNIC aims to operate an efficient registry aligned with global standards. Strategic priorities include opening .ke globally, improving domain registration experience, partnerships and talent development for sustainable growth.</p>
+                        <p>KeNIC offers a range of products and services, including comprehensive registry services, registrar accreditation, DNSSEC implementation, and the introduction of the Second-Level Domain Name Space, providing flexibility and customization for businesses and individuals within the .KE domain space. Continually investing in technical infrastructure enhancements, KeNIC ensures the reliability and security of the .KE domain registry, upholding its commitment to providing a stable and trustworthy platform for .KE domain name registration and management.</p>
+                        <p>In conclusion, KeNIC's role as the manager and administrator of .KE domains in Kenya is pivotal in shaping the nation's internet ecosystem and contributing to its digital economy growth. Through strategic partnerships, technical capabilities, and a diverse range of products and services, KeNIC remains at the forefront of promoting a secure, reliable, and inclusive online presence for businesses, organizations, and individuals across Kenya's digital landscape.</p>
+                    </div>
+                )}
+                <Button variant="link" className="p-0 h-auto" onClick={() => setIsHistoryExpanded(!isHistoryExpanded)}>
+                    {isHistoryExpanded ? "Read Less" : "Read More"}
                 </Button>
               </CardContent>
             </Card>
@@ -73,7 +91,7 @@ export default function AboutPage() {
             </Card>
           </div>
 
-          <div className="md:col-span-2 space-y-6 sticky top-24">
+          <aside className="md:col-span-2 space-y-6 sticky top-24">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
@@ -109,7 +127,7 @@ export default function AboutPage() {
                   <p className="flex items-center gap-3"><ShieldCheck className="text-primary h-5 w-5"/> Integrity Unshakeable</p>
               </CardContent>
             </Card>
-          </div>
+          </aside>
         </div>
       </div>
     </div>
