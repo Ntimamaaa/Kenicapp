@@ -2,7 +2,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Globe, CreditCard, Banknote, Smartphone } from "lucide-react";
+import { Download, Globe, CreditCard, Banknote, Smartphone, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -144,13 +144,16 @@ export default function ResourcesPage() {
             <CardContent className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {usefulLinks.map((link) => (
-                        <Button asChild variant="outline" className="justify-between h-auto py-3 items-center" key={link.name}>
-                            <Link href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        <Button asChild variant="outline" className="justify-start h-auto p-0" key={link.name}>
+                            <Link href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full p-4">
                                 <div className="flex items-center">
                                      <Globe className="mr-3 h-5 w-5 text-primary"/>
                                     <span className="font-semibold text-base">{link.name}</span>
                                 </div>
-                                <span className="text-sm text-muted-foreground">Go To Website</span>
+                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                    <span>Go To Website</span>
+                                    <ExternalLink className="h-4 w-4"/>
+                                </div>
                             </Link>
                         </Button>
                     ))}
@@ -245,5 +248,3 @@ export default function ResourcesPage() {
     </div>
   )
 }
-
-    
