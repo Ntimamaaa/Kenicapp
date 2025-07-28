@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'KeDomain Scout | Find Your Perfect .KE Domain',
+  title: 'KeNIC | Find Your Perfect .KE Domain',
   description:
     'Search for available .KE domains, get AI-powered suggestions, and register your domain with licensed registrars in Kenya.',
 };

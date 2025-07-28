@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Dna, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale } from 'lucide-react';
+import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -62,9 +62,9 @@ const navItems = [
 
 const Logo = () => (
   <Link href="/" className="flex items-center gap-2" prefetch={false}>
-    <Dna className="h-7 w-7 text-primary" />
+    <Globe className="h-7 w-7 text-primary" />
     <span className="font-headline text-xl font-bold tracking-tight">
-      KeDomain Scout
+      KeNIC
     </span>
   </Link>
 );

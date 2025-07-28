@@ -1,4 +1,4 @@
-import { Dna } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import Link from 'next/link';
 
 const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -59,9 +59,9 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <Dna className="h-7 w-7 text-primary" />
+              <Globe className="h-7 w-7 text-primary" />
               <span className="font-headline text-xl font-semibold">
-                KeDomain Scout
+                KeNIC
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
@@ -199,7 +199,7 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} KeDomain Scout. All rights
+            &copy; {new Date().getFullYear()} KeNIC. All rights
             reserved.
           </p>
         </div>
