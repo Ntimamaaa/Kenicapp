@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useActionState, useEffect } from "react";
@@ -83,18 +84,13 @@ export function DomainSuggester() {
           <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
             {state.suggestions.map((domain) => (
-              <div
+              <Link
                 key={domain}
-                className="flex items-center justify-between rounded-lg border bg-background p-3"
+                href={`/whois?domain=${domain}`}
+                className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors"
               >
                 <span className="font-medium">{domain}</span>
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href={`/whois?domain=${domain}`}>
-                    <Search className="mr-2 h-4 w-4" />
-                    Check
-                  </Link>
-                </Button>
-              </div>
+              </Link>
             ))}
           </div>
         </CardFooter>
