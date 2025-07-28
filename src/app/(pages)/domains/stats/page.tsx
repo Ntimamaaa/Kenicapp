@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -249,7 +248,7 @@ export default function DomainStatsPage() {
                         <BarChart data={restrictedDomainData} layout="vertical" margin={{ left: 10, right: 30}}>
                         <XAxis type="number" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
                         <YAxis type="category" dataKey="name" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                        <Tooltip cursor={{fill: 'hsl(var(--muted))'}} contentStyle={{backgroundColor: 'hsl(var(--background))'}}/>
+                        <Tooltip contentStyle={{backgroundColor: 'hsl(var(--background))'}}/>
                         <Bar dataKey="value" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} barSize={30}>
                              {restrictedDomainData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
