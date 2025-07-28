@@ -35,7 +35,7 @@ const restrictedDomainData = [
     { name: "go.ke", value: 863 },
 ]
 
-const COLORS = ["#007BFF", "#BE0AFF", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
+const COLORS = ["#060842", "#BE0AFF", "#28a745", "#ffc107", "#17a2b8", "#6f42c1", "#dc3545"];
 
 const renderActiveShape = (props: any) => {
   const RADIAN = Math.PI / 180;
@@ -264,4 +264,3 @@ export default function DomainStatsPage() {
     </div>
   );
 }
-
