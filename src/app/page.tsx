@@ -127,7 +127,7 @@ export default function Home() {
               </Card>
             </div>
              <Button asChild size="lg" variant="outline" className="flex items-center gap-2">
-                <Link href="/domains/stats">
+                <Link href="/domains/stats?from=home">
                     <BarChart className="h-5 w-5"/>
                     View Detailed Statistics
                 </Link>
