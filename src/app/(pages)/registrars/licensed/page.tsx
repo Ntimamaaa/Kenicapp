@@ -138,7 +138,6 @@ const registrars = [
   { name: "Zamoya Media Ltd", phone: "+254 725 385 168", email: "info@zamoya.com", website: "#", hint: "zamoya media" },
   { name: "Aja Limited", phone: "+254 776 526 101", email: "info@ajibu.com", website: "#", hint: "aja limited" },
   { name: "AirTouch Connections Ltd", phone: "+254 723 403 466", email: "aclsupport@airtouch.co.ke", website: "#", hint: "airtouch" },
-  { name: "Africa Blue Webs", phone: "+254 (20) 2345 229", email: "info@bluewebsafrica.co.ke", website: "#", hint: "blue webs" },
   { name: "Africa 118", phone: "+254 729 905 156", email: "info@africa118.com", website: "#", hint: "africa 118" },
   { name: "DeepAfrica Co Ltd", phone: "0712 500 500", email: "support@deepafrica.com", website: "#", hint: "deep africa" },
   { name: "Global Internet Fortunes", phone: "0705352288", email: "admin@globalfortunesinternet.com", website: "#", hint: "internet fortunes" },
