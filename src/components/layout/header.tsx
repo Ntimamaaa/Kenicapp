@@ -3,6 +3,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun, Info } from 'lucide-react';
 
@@ -65,7 +66,7 @@ const navItems = [
 
 const Logo = () => (
   <Link href="/" className="flex items-center gap-2" prefetch={false}>
-    <Globe className="h-7 w-7 text-primary" />
+    <Image src="https://placehold.co/32x32.png" alt="KeNIC Logo" width={28} height={28} data-ai-hint="logo" />
     <span className="font-headline text-xl font-bold tracking-tight">
       KeNIC
     </span>
