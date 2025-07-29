@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import {
   Bar,
@@ -16,7 +17,7 @@ import {
   Legend,
   Sector
 } from "recharts";
-import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCircle } from "lucide-react";
+import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCircle, ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -89,6 +90,7 @@ const renderActiveShape = (props: any) => {
 
 
 export default function DomainStatsPage() {
+    const router = useRouter();
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [activeRestrictedIndex, setActiveRestrictedIndex] = useState<number | null>(null);
 
@@ -111,6 +113,10 @@ export default function DomainStatsPage() {
   return (
     <div className="bg-secondary flex-1">
         <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
+        <Button variant="outline" onClick={() => router.back()} className="mb-8">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Go Back
+        </Button>
         <div className="space-y-4 text-center mb-12 animate-fade-in-up">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
             .KE Domain Statistics
