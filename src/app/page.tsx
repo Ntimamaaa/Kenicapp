@@ -4,7 +4,7 @@ import { PartnersMarquee } from '@/components/partners-marquee';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Search, Rocket, FileText } from 'lucide-react';
+import { CheckCircle, Search, Rocket, FileText, Users, Globe, BarChart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -83,10 +83,63 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="stats" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-12 text-center animate-fade-in-up">
+            <div className="space-y-2">
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+                .KE Domain Statistics
+              </h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                A vibrant and growing digital landscape for Kenya.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl">
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
+                    <CardTitle className="text-sm font-medium">.KE Domains</CardTitle>
+                    <Globe className="h-4 w-4 text-primary" />
+                </CardHeader>
+                <CardContent>
+                    <div className="text-4xl font-bold">110,000+</div>
+                    <p className="text-xs text-muted-foreground">registered globally</p>
+                </CardContent>
+              </Card>
+               <Card>
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
+                    <CardTitle className="text-sm font-medium">Top Level Domains</CardTitle>
+                    <FileText className="h-4 w-4 text-primary" />
+                </CardHeader>
+                <CardContent>
+                    <div className="text-4xl font-bold">10+</div>
+                    <p className="text-xs text-muted-foreground">extensions available</p>
+                </CardContent>
+              </Card>
+               <Card>
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
+                    <CardTitle className="text-sm font-medium">Registrars</CardTitle>
+                    <Users className="h-4 w-4 text-primary" />
+                </CardHeader>
+                <CardContent>
+                    <div className="text-4xl font-bold">500+</div>
+                    <p className="text-xs text-muted-foreground">accredited partners</p>
+                </CardContent>
+              </Card>
+            </div>
+             <Button asChild size="lg" variant="outline" className="flex items-center gap-2">
+                <Link href="/domains/stats">
+                    <BarChart className="h-5 w-5"/>
+                    View Detailed Statistics
+                </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
 
       <section
         id="features"
-        className="w-full py-12 md:py-24 lg:py-32 bg-secondary"
+        className="w-full py-12 md:py-24 lg:py-32"
       >
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center animate-fade-in-up">
@@ -156,7 +209,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ai-suggester" className="w-full py-12 md:py-24 lg:py-32">
+      <section id="ai-suggester" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
         <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
           <div className="space-y-3 animate-fade-in-up">
             <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
@@ -173,7 +226,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+      <section id="partners" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-8 text-center animate-fade-in-up">
                 <div className="space-y-2">
@@ -201,7 +254,7 @@ export default function Home() {
                 asChild
                 size="lg"
                 variant="secondary"
-                className="h-12 px-8 text-base font-semibold"
+                className="h-12 px-8 text-base font-semibold hover:bg-accent hover:text-accent-foreground"
               >
                 <Link href="/registrars/licensed">View Licensed Registrars</Link>
               </Button>
