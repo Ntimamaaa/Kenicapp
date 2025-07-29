@@ -195,18 +195,18 @@ const ListItem = React.forwardRef<
           href={href!}
           ref={ref}
           className={cn(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50',
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-background/80 focus:bg-background/80',
             className
           )}
           {...props}
         >
             <div className="flex items-center gap-3">
-                <div className="bg-chart-2/10 p-2 rounded-md">
+                <div className="bg-background/70 p-2 rounded-md">
                     <Icon className="h-5 w-5 text-chart-2" />
                 </div>
                 <div>
                     <div className="text-sm font-medium leading-none">{title}</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-gray-800 dark:text-gray-300">
+                    <p className="line-clamp-2 text-sm leading-snug text-foreground/80 dark:text-foreground/70">
                         {children}
                     </p>
                 </div>
