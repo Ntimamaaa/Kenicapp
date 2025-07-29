@@ -66,7 +66,7 @@ const navItems = [
 
 const Logo = () => (
   <Link href="/" className="flex items-center gap-2" prefetch={false}>
-    <Image src="https://placehold.co/32x32.png" alt="KeNIC Logo" width={28} height={28} data-ai-hint="logo" />
+    <Image src="/logo.png" alt="KeNIC Logo" width={28} height={28} />
     <span className="font-headline text-xl font-bold tracking-tight">
       KeNIC
     </span>

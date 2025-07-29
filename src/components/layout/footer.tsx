@@ -1,3 +1,4 @@
+
 import { Globe } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -60,7 +61,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="https://placehold.co/32x32.png" alt="KeNIC Logo" width={28} height={28} data-ai-hint="logo" />
+              <Image src="/logo.png" alt="KeNIC Logo" width={28} height={28} />
               <span className="font-headline text-xl font-semibold">
                 KeNIC
               </span>
