@@ -27,7 +27,7 @@ export default function HowToRegisterPage() {
             <p className="text-muted-foreground mb-4 flex-grow mt-4">
               Use the search box to find out if your chosen domain name is available to buy.
             </p>
-            <Button asChild>
+            <Button asChild variant="outline">
               <Link href="/whois">Search Now</Link>
             </Button>
           </div>
@@ -40,7 +40,7 @@ export default function HowToRegisterPage() {
             <p className="text-muted-foreground mb-4 flex-grow mt-4">
               Register your domain name with one of our accredited registrars.
             </p>
-            <Button asChild>
+            <Button asChild variant="outline">
               <Link href="/registrars/licensed">View Registrars</Link>
             </Button>
           </div>
