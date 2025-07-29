@@ -201,8 +201,8 @@ const ListItem = React.forwardRef<
           {...props}
         >
             <div className="flex items-center gap-3">
-                <div className="bg-primary/10 p-2 rounded-md">
-                    <Icon className="h-5 w-5 text-primary" />
+                <div className="bg-destructive/10 p-2 rounded-md">
+                    <Icon className="h-5 w-5 text-destructive" />
                 </div>
                 <div>
                     <div className="text-sm font-medium leading-none">{title}</div>
