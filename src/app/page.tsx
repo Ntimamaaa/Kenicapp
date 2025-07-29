@@ -200,7 +200,8 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="bg-accent text-accent-foreground h-12 px-8 text-base font-semibold hover:bg-accent/90"
+                variant="secondary"
+                className="h-12 px-8 text-base font-semibold"
               >
                 <Link href="/registrars/licensed">View Licensed Registrars</Link>
               </Button>
