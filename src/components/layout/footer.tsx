@@ -1,7 +1,6 @@
 
 import { Globe } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -61,7 +60,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="KeNIC Logo" width={28} height={28} />
+              <Globe className="h-7 w-7" />
               <span className="font-headline text-xl font-semibold">
                 KeNIC
               </span>
