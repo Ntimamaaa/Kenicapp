@@ -8,12 +8,12 @@ import Image from "next/image";
 
 
 const usefulLinks = [
-  { name: "ICANN", href: "#", hint: "ICANN logo", image: "https://images.unsplash.com/photo-1703432931202-0706a656c8bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxJQ0FOTiUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI3fDA&ixlib=rb-4.1.0&q=80&w=1080" },
-  { name: "AFTLD", href: "#", hint: "AFTLD logo", image: "https://images.unsplash.com/photo-1628322131627-312b59100847?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxBRlRMRCUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
-  { name: "CA (Communication Authority of Kenya)", href: "#", hint: "CA Kenya logo", image: "https://images.unsplash.com/photo-1628760584600-6c31148991e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Q0ElMjBLZW55YSUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
-  { name: "ICTA", href: "#", hint: "ICTA logo", image: "https://images.unsplash.com/photo-1703432931202-0706a656c8bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxJQ1RBJTIwbG9nb3xlbnwwfHx8fDE3NTM4Njc1MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080" },
-  { name: "KICTANET", href: "#", hint: "KICTANET logo", image: "https://images.unsplash.com/photo-1646394828039-0802101e1053?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxLSUNUQU5FVCUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
-  { name: "KENET", href: "#", hint: "KENET logo", image: "https://images.unsplash.com/photo-1628760584600-6c31148991e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxLRU5FVCUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
+  { name: "ICANN", href: "https://www.icann.org/", hint: "ICANN logo", image: "https://www.icann.org/sites/default/files/assets/logos/icann-logo-color-1200x630-en-8286916534-en.png" },
+  { name: "AFTLD", href: "https://aftld.org/", hint: "AFTLD logo", image: "https://aftld.org/wp-content/uploads/2021/04/aftld-logo-300x125-1.png" },
+  { name: "CA (Communication Authority of Kenya)", href: "https://www.ca.go.ke/", hint: "CA Kenya logo", image: "https://www.ca.go.ke/wp-content/uploads/2022/10/ca-logo-1.png" },
+  { name: "ICTA", href: "https://www.icta.go.ke/", hint: "ICTA logo", image: "https://www.icta.go.ke/wp-content/uploads/2022/07/cropped-logo-1-e1658405897131.png" },
+  { name: "KICTANET", href: "https://www.kictanet.or.ke/", hint: "KICTANET logo", image: "https://www.kictanet.or.ke/wp-content/uploads/2022/07/KICTANET_Main-Logo-e1658406253457.png" },
+  { name: "KENET", href: "https://www.kenet.or.ke/", hint: "KENET logo", image: "https://www.kenet.or.ke/sites/default/files/logo-kenet_1.png" },
 ];
 
 export default function ResourcesPage() {
