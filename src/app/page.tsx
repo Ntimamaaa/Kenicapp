@@ -25,40 +25,35 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="w-full bg-white dark:bg-gray-950 py-12 md:py-24 lg:py-32">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-            <div className="flex flex-col justify-center space-y-4 animate-fade-in-up">
-              <div className="space-y-2">
-                <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-primary">
+      <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-[-2]">
+          <video
+            src="/videos/herovideo.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        </div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
+        <div className="container relative z-10 mx-auto px-4 md:px-6 animate-fade-in-up">
+            <div className="flex flex-col items-center justify-center space-y-6">
+                 <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
                   Your Perfect .KE Domain Awaits
                 </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                <p className="max-w-[700px] text-lg text-white/90 md:text-xl">
                   Discover, register, and manage your .KE domains with ease. Our
                   powerful tools and AI assistant make finding your online
                   identity simple and fast.
                 </p>
-              </div>
-              <div className="w-full max-w-2xl">
-                <DomainChecker />
-              </div>
-              <p className="text-xs text-muted-foreground">
-                Get started by searching for your dream domain name.
-              </p>
+                <div className="w-full max-w-2xl bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+                    <DomainChecker />
+                </div>
+                <p className="text-xs text-white/70">
+                    Get started by searching for your dream domain name.
+                </p>
             </div>
-            <div className="mx-auto aspect-video overflow-hidden rounded-xl sm:w-full lg:order-last animate-fade-in">
-              <video
-                src="/videos/herovideo.mp4"
-                width="600"
-                height="400"
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </div>
-          </div>
         </div>
       </section>
 
