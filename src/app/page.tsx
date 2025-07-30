@@ -73,9 +73,7 @@ export default function Home() {
                     Your Perfect .KE Domain Awaits
                   </h1>
                   <p className="max-w-[700px] text-lg text-white/90 md:text-xl">
-                    Discover, register, and manage your .KE domains with ease. Our
-                    powerful tools and AI assistant make finding your online
-                    identity simple and fast.
+                    Search, register, and manage your .KE domains with powerful tools for your online identity.
                   </p>
                   <div className="w-full max-w-2xl bg-white/20 backdrop-blur-sm p-4 rounded-lg">
                       <DomainChecker />
@@ -212,11 +210,11 @@ export default function Home() {
                         </CardContent>
                     </div>
                 </div>
-                <Link href="/domains/stats?from=home">
-                    <Button size="lg" variant="outline" className="flex items-center gap-2">
-                        <ChartNoAxesColumnIncreasing className="h-5 w-5"/>
-                        View Detailed Statistics
-                    </Button>
+                 <Link href="/domains/stats?from=home">
+                  <Button size="lg" variant="outline" className="flex items-center gap-2">
+                      <ChartNoAxesColumnIncreasing className="h-5 w-5"/>
+                      View Detailed Statistics
+                  </Button>
                 </Link>
                 </div>
             </div>
