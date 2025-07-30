@@ -171,7 +171,7 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center justify-center space-y-12 text-center animate-fade-in-up">
                 <div className="space-y-2">
-                    <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-accent">
+                    <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
                     .KE Domain Statistics
                     </h2>
                     <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -182,7 +182,7 @@ export default function Home() {
                     <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-muted-foreground">.KE Domains</CardTitle>
-                            <Globe className="h-6 w-6 text-accent" />
+                            <Globe className="h-6 w-6 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">110,000+</div>
@@ -192,7 +192,7 @@ export default function Home() {
                      <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-muted-foreground">Top Level Domains</CardTitle>
-                            <FileText className="h-6 w-6 text-accent" />
+                            <FileText className="h-6 w-6 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">10+</div>
@@ -202,7 +202,7 @@ export default function Home() {
                      <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-muted-foreground">Registrars</CardTitle>
-                            <Users className="h-6 w-6 text-accent" />
+                            <Users className="h-6 w-6 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">500+</div>
