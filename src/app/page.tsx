@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles, FileText } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 export default function Home() {
@@ -28,6 +28,7 @@ export default function Home() {
 
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const animatedSectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (event: PointerEvent) => {
@@ -47,23 +48,45 @@ export default function Home() {
       statsSection.addEventListener('pointermove', handleMouseMove);
     }
     
-     const observer = new IntersectionObserver(
+    const handleScroll = () => {
+      setLastScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const currentScrollY = window.scrollY;
+          const isScrollingDown = currentScrollY > lastScrollY;
+
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            if (isScrollingDown) {
+              entry.target.classList.add('animate-in-up');
+              entry.target.classList.remove('prepare-down', 'animate-in-down');
+            } else {
+              entry.target.classList.add('animate-in-down');
+              entry.target.classList.remove('prepare-up', 'animate-in-up');
+            }
           } else {
-            entry.target.classList.remove('is-visible');
+             if (isScrollingDown) {
+              entry.target.classList.add('prepare-down');
+              entry.target.classList.remove('animate-in-up', 'prepare-up', 'animate-in-down');
+            } else {
+              entry.target.classList.add('prepare-up');
+               entry.target.classList.remove('animate-in-down', 'prepare-down', 'animate-in-up');
+            }
           }
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0.2,
       }
     );
 
     animatedSectionsRef.current.forEach((section) => {
       if (section) {
+        section.classList.add('prepare-up');
         observer.observe(section);
       }
     });
@@ -72,13 +95,14 @@ export default function Home() {
       if (statsSection) {
         statsSection.removeEventListener('pointermove', handleMouseMove);
       }
+      window.removeEventListener('scroll', handleScroll);
        animatedSectionsRef.current.forEach((section) => {
         if (section) {
           observer.unobserve(section);
         }
       });
     };
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <div className="flex flex-col">

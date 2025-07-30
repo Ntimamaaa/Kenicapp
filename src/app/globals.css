@@ -92,17 +92,23 @@ body {
     background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), hsla(var(--primary) / 0.1), transparent 80%);
   }
 
-  .animated-section .child-card,
-  .animated-section .animate-child > * {
+  .animated-section > * {
     opacity: 0;
-    transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
-
-  .animated-section.is-visible .child-card,
-  .animated-section.is-visible .animate-child > * {
+  .animated-section.animate-in-up > * {
     opacity: 1;
     transform: translateY(0);
+  }
+  .animated-section.animate-in-down > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animated-section.prepare-up > * {
+    transform: translateY(40px);
+  }
+  .animated-section.prepare-down > * {
+    transform: translateY(-40px);
   }
 }
 
