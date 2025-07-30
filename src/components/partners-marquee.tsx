@@ -18,7 +18,7 @@ const partners = [
 export function PartnersMarquee() {
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="flex w-max animate-marquee">
+      <div className="flex w-[200%] animate-marquee">
         {[...partners, ...partners].map((partner, index) => (
           <div key={index} className="flex-shrink-0 w-48 mx-4 flex items-center justify-center">
             <Image
