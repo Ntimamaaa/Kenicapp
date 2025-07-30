@@ -26,7 +26,7 @@ export function PartnersMarquee() {
               alt={partner.name}
               width={158}
               height={48}
-              className="object-contain"
+              className="object-contain dark:brightness-0 dark:invert"
               data-ai-hint={partner.hint}
             />
           </div>
