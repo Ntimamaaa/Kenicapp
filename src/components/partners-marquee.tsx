@@ -5,14 +5,18 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 const partners = [
-  { name: 'TIBS', logo: '/partners/TIBS.png', hint: 'TIBS logo' },
-  { name: 'Zoho', logo: '/partners/Zoho.png', hint: 'Zoho logo' },
-  { name: 'ICANN', logo: '/partners/ICANN.png', hint: 'ICANN logo' },
-  { name: 'AfTLD', logo: '/partners/AfTLD.png', hint: 'AfTLD logo' },
-  { name: 'Communications Authority of Kenya', logo: '/partners/CA.png', hint: 'CA Kenya logo' },
-  { name: 'ICT Authority', logo: '/partners/ICTA.png', hint: 'ICTA logo' },
-  { name: 'Eveminet', logo: '/partners/Eveminet.png', hint: 'Eveminet logo' },
-  { name: 'Elimu', logo: '/partners/Elimu.png', hint: 'Elimu Holdings logo' },
+  { name: 'KENET', logo: '/images/partners/kenet.png', hint: 'Kenet logo' },
+  { name: 'Zoho', logo: '/images/partners/zoho.png', hint: 'Zoho logo' },
+ { name: 'ICANN', logo: '/images/partners/icann.png', hint: 'ICANN logo' },
+ { name: 'AfTLD', logo: '/images/partners/aftld.png', hint: 'AfTLD logo' },
+ { name: 'Eldohub', logo: '/images/partners/eldohub.png', hint: 'eldo logo' },
+ { name: 'ICT Authority', logo: '/images/partners/ictauthority.png', hint: 'ICTA logo' },
+ { name: 'Eveminet', logo: '/images/partners/eveminet.png', hint: 'Eveminet logo' },
+ { name: 'Elimu', logo: '/images/partners/elimu.png', hint: 'Elimu Holdings logo' },
+  { name: 'TESPOK', logo: '/images/partners/tespok.png', hint: 'TESPOK logo' },
+  { name: 'Thika Institute', logo: '/images/partners/thikainst.png', hint: 'Thika Institute logo' },
+ { name: 'afralti', logo: '/images/partners/afralti.png', hint: 'afralti logo' },
+ { name: 'blue', logo: '/images/partners/blue.png', hint: 'blue logo' },
 ];
 
 export function PartnersMarquee() {
