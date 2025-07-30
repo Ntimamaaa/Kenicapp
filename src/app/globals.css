@@ -67,6 +67,30 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  .stat-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(239, 68, 68, 0.4), transparent 80%);
+      -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: -1;
+      pointer-events: none;
+      transition: background 0.3s;
+  }
+
+  .stat-card:hover::before {
+      background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(239, 68, 68, 0.7), transparent 80%);
+  }
+
+  .stats-cards-container:hover .stat-card:not(:hover)::before {
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(239, 68, 68, 0.1), transparent 80%);
+  }
 }
 
 @layer utilities {
