@@ -81,7 +81,7 @@ export default function Home() {
                       <DomainChecker />
                   </div>
                   <p className="text-xs text-white/70">
-                      Get started by searching for your dream domain name.
+                      Search for your domain.
                   </p>
               </div>
           </div>
