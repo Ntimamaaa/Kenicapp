@@ -2,7 +2,7 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import {
   Card,
   CardContent,
@@ -16,7 +16,7 @@ import { Loader2, CheckCircle, XCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { DomainChecker } from "@/components/domain-checker";
 
-export default function WhoisPage() {
+function WhoisPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const domainQuery = searchParams.get("domain");
@@ -41,7 +41,7 @@ export default function WhoisPage() {
   }, [domainQuery]);
 
   return (
-    <div className="container mx-auto max-w-4xl py-12 px-4 md:px-6">
+     <div className="container mx-auto max-w-4xl py-12 px-4 md:px-6">
        <Button variant="outline" onClick={() => router.back()} className="mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Go Back
@@ -104,5 +104,14 @@ export default function WhoisPage() {
         </Card>
       )}
     </div>
+  )
+}
+
+
+export default function WhoisPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <WhoisPageContent />
+    </Suspense>
   );
 }
