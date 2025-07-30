@@ -8,12 +8,12 @@ import Image from "next/image";
 
 
 const usefulLinks = [
-  { name: "ICANN", href: "#", hint: "ICANN logo" },
-  { name: "AFTLD", href: "#", hint: "AFTLD logo" },
-  { name: "CA (Communication Authority of Kenya)", href: "#", hint: "CA Kenya logo" },
-  { name: "ICTA", href: "#", hint: "ICTA logo" },
-  { name: "KICTANET", href: "#", hint: "KICTANET logo" },
-  { name: "KENET", href: "#", hint: "KENET logo" },
+  { name: "ICANN", href: "#", hint: "ICANN logo", image: "https://images.unsplash.com/photo-1703432931202-0706a656c8bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxJQ0FOTiUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI3fDA&ixlib=rb-4.1.0&q=80&w=1080" },
+  { name: "AFTLD", href: "#", hint: "AFTLD logo", image: "https://images.unsplash.com/photo-1628322131627-312b59100847?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxBRlRMRCUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
+  { name: "CA (Communication Authority of Kenya)", href: "#", hint: "CA Kenya logo", image: "https://images.unsplash.com/photo-1628760584600-6c31148991e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Q0ElMjBLZW55YSUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
+  { name: "ICTA", href: "#", hint: "ICTA logo", image: "https://images.unsplash.com/photo-1703432931202-0706a656c8bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxJQ1RBJTIwbG9nb3xlbnwwfHx8fDE3NTM4Njc1MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080" },
+  { name: "KICTANET", href: "#", hint: "KICTANET logo", image: "https://images.unsplash.com/photo-1646394828039-0802101e1053?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxLSUNUQU5FVCUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
+  { name: "KENET", href: "#", hint: "KENET logo", image: "https://images.unsplash.com/photo-1628760584600-6c31148991e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxLRU5FVCUyMGxvZ298ZW58MHx8fHwxNzUzODY3NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
 ];
 
 export default function ResourcesPage() {
@@ -145,7 +145,7 @@ export default function ResourcesPage() {
                 {usefulLinks.map((link) => (
                     <div key={link.name} className="flex items-start gap-4">
                         <div className="relative w-24 h-16 bg-muted rounded-lg flex-shrink-0">
-                           <Image src={`https://placehold.co/150x100.png`} alt={`${link.name} logo`} layout="fill" objectFit="contain" data-ai-hint={link.hint} className="p-2"/>
+                           <Image src={link.image} alt={`${link.name} logo`} layout="fill" objectFit="contain" data-ai-hint={link.hint} className="p-2"/>
                         </div>
                         <div className="flex-grow">
                             <h4 className="font-semibold text-lg mb-1">{link.name}</h4>
