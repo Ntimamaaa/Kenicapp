@@ -48,7 +48,7 @@ export default function Home() {
             </div>
             <div className="mx-auto aspect-video overflow-hidden rounded-xl sm:w-full lg:order-last animate-fade-in">
               <video
-                src="/herovideo.mp4"
+                src="/videos/herovideo.mp4"
                 width="600"
                 height="400"
                 className="w-full h-full object-cover"
