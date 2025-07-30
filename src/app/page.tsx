@@ -5,8 +5,7 @@ import { PartnersMarquee } from '@/components/partners-marquee';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { ChartNoAxesColumnIncreasing, CheckCircle, Search, Rocket, FileText, Users, Globe, BarChart, Sparkles, Wand2, Star, LayoutDashboard, Mail, LucideIcon } from 'lucide-react';
-import Image from 'next/image';
+import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
@@ -165,7 +164,7 @@ export default function Home() {
                  <Card>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                       <CardTitle className="text-sm font-medium">Top Level Domains</CardTitle>
-                      <FileText className="h-4 w-4 text-primary" />
+                      <Globe className="h-4 w-4 text-primary" />
                   </CardHeader>
                   <CardContent>
                       <div className="text-4xl font-bold">10+</div>
@@ -213,46 +212,60 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '200ms' }}>
+            <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
+               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '200ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3"> <Sparkles className="h-6 w-6 text-primary" /> </div>
+                  <div className="rounded-full bg-primary/10 p-3">
+                    <Sparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                  </div>
                   <CardTitle className="font-headline text-xl"> AI Suggestions </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p> </CardContent>
+                <CardContent className="flex-grow">
+                  <p> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p>
+                </CardContent>
                 <CardFooter>
                   <Link href="#ai-suggester" className="w-full">
                     <Button className="w-full" variant="outline">Try AI Suggester</Button>
                   </Link>
                 </CardFooter>
               </Card>
-              <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '300ms' }}>
+              <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '300ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3"> <Search className="h-6 w-6 text-primary" /> </div>
+                  <div className="rounded-full bg-primary/10 p-3">
+                    <Search className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                  </div>
                   <CardTitle className="font-headline text-xl"> Real-Time WHOIS </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p> </CardContent>
+                <CardContent className="flex-grow">
+                  <p> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p>
+                </CardContent>
                 <CardFooter>
                   <Link href="/whois" className="w-full">
                     <Button className="w-full" variant="outline">Check a Domain</Button>
                   </Link>
                 </CardFooter>
               </Card>
-               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '400ms' }}>
+               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '400ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3"> <Users className="h-6 w-6 text-primary" /> </div>
+                  <div className="rounded-full bg-primary/10 p-3">
+                    <Users className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                  </div>
                   <CardTitle className="font-headline text-xl"> Registrar Comparison </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p> </CardContent>
+                <CardContent className="flex-grow">
+                  <p> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p>
+                </CardContent>
                  <CardFooter>
                     <Link href="/registrars/licensed" className="w-full">
                         <Button className="w-full" variant="outline">Find a Registrar</Button>
                     </Link>
                  </CardFooter>
               </Card>
-              <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '500ms' }}>
+              <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '500ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3"> <Star className="h-6 w-6 text-primary" /> </div>
+                  <div className="rounded-full bg-primary/10 p-3">
+                    <Star className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                  </div>
                   <CardTitle className="font-headline text-xl"> Domain Valuation Tool </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -260,9 +273,11 @@ export default function Home() {
                 </CardContent>
                  <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
-              <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '600ms' }}>
+              <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '600ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3"> <Wand2 className="h-6 w-6 text-primary" /> </div>
+                  <div className="rounded-full bg-primary/10 p-3">
+                    <WandSparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                  </div>
                   <CardTitle className="font-headline text-xl"> One-Click Branding Kit </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -270,9 +285,11 @@ export default function Home() {
                 </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
-               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '700ms' }}>
+               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '700ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3"> <LayoutDashboard className="h-6 w-6 text-primary" /> </div>
+                  <div className="rounded-full bg-primary/10 p-3">
+                    <LayoutDashboard className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                  </div>
                   <CardTitle className="font-headline text-xl"> Management Dashboard </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
