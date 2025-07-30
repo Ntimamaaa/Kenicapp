@@ -393,7 +393,7 @@ export default function Home() {
                   Your new .KE domain is just a few clicks away. Find it, register
                   it, and start building your online presence today.
                 </p>
-                <Link href="/registrars/licensed">
+                <Link href="/registrars/licensed" className="inline-block mt-4">
                   <Button
                     size="lg"
                     variant="secondary"
