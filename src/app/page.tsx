@@ -181,30 +181,30 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container">
-                    <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-6 shadow-lg">
+                    <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-muted-foreground">.KE Domains</CardTitle>
-                            <Globe className="h-4 w-4 text-primary" />
+                            <Globe className="h-6 w-6 text-green-500" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">110,000+</div>
                             <p className="text-xs text-muted-foreground">registered globally</p>
                         </CardContent>
                     </div>
-                     <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-6 shadow-lg">
+                     <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-muted-foreground">Top Level Domains</CardTitle>
-                            <FileText className="h-4 w-4 text-primary" />
+                            <FileText className="h-6 w-6 text-green-500" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">10+</div>
                             <p className="text-xs text-muted-foreground">extensions available</p>
                         </CardContent>
                     </div>
-                     <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-6 shadow-lg">
+                     <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-muted-foreground">Registrars</CardTitle>
-                            <Users className="h-4 w-4 text-primary" />
+                            <Users className="h-6 w-6 text-green-500" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">500+</div>
