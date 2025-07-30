@@ -155,7 +155,7 @@ export default function LicensedRegistrarsPage() {
       <section className="relative w-full h-[50vh] md:h-[60vh] flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full z-[-2]">
           <video
-            src="/videos/bluepaint.mp4"
+            src="/videos/buildings.mp4"
             className="w-full h-full object-cover"
             autoPlay
             loop
