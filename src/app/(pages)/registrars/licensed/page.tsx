@@ -187,7 +187,7 @@ export default function LicensedRegistrarsPage() {
         </div>
       </section>
     
-      <div className="bg-secondary">
+      <div className="bg-muted">
         <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredRegistrars.map((registrar) => (
