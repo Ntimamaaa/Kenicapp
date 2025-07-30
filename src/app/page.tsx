@@ -93,8 +93,8 @@ export default function Home() {
                 <p className="text-muted-foreground mb-4 flex-grow mt-4">
                   Register your domain name with one of our accredited registrars.
                 </p>
-                <Link href="/registrars/licensed">
-                  <Button variant="outline">View Registrars</Button>
+                 <Link href="/registrars/licensed">
+                    <Button variant="outline">View Registrars</Button>
                 </Link>
               </div>
 
@@ -220,7 +220,11 @@ export default function Home() {
                   <CardTitle className="font-headline text-xl"> AI Suggestions </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p> </CardContent>
-                <CardFooter> <Button asChild className="w-full" variant="outline"> <Link href="#ai-suggester">Try AI Suggester</Link> </Button> </CardFooter>
+                <CardFooter>
+                  <Link href="#ai-suggester" className="w-full">
+                    <Button className="w-full" variant="outline">Try AI Suggester</Button>
+                  </Link>
+                </CardFooter>
               </Card>
               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '300ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
@@ -228,7 +232,11 @@ export default function Home() {
                   <CardTitle className="font-headline text-xl"> Real-Time WHOIS </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p> </CardContent>
-                <CardFooter> <Button asChild className="w-full" variant="outline"> <Link href="/whois">Check a Domain</Link> </Button> </CardFooter>
+                <CardFooter>
+                  <Link href="/whois" className="w-full">
+                    <Button className="w-full" variant="outline">Check a Domain</Button>
+                  </Link>
+                </CardFooter>
               </Card>
                <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '400ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
@@ -236,7 +244,11 @@ export default function Home() {
                   <CardTitle className="font-headline text-xl"> Registrar Comparison </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p> </CardContent>
-                 <CardFooter> <Button asChild className="w-full" variant="outline"> <Link href="/registrars/licensed">Find a Registrar</Link> </Button> </CardFooter>
+                 <CardFooter>
+                    <Link href="/registrars/licensed" className="w-full">
+                        <Button className="w-full" variant="outline">Find a Registrar</Button>
+                    </Link>
+                 </CardFooter>
               </Card>
               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '500ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
