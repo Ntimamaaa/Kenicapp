@@ -72,7 +72,7 @@ body {
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      padding: 1px;
+      padding: 2px;
       background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), hsla(var(--primary) / 0.4), transparent 80%);
       -webkit-mask:
           linear-gradient(#fff 0 0) content-box,
