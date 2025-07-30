@@ -4,8 +4,8 @@ import { DomainSuggester } from '@/components/domain-suggester';
 import { PartnersMarquee } from '@/components/partners-marquee';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Search, Rocket, FileText, Users, Globe, BarChart } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { CheckCircle, Search, Rocket, FileText, Users, Globe, BarChart, Sparkles, Wand2, Star, LayoutDashboard, Mail, LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -29,7 +29,7 @@ export default function Home() {
         <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full z-[-2]">
             <video
-              src="/videos/globevideo.mp4"
+              src="/herovideo.mp4"
               className="w-full h-full object-cover"
               autoPlay
               loop
@@ -80,9 +80,9 @@ export default function Home() {
                 <p className="text-muted-foreground mb-4 flex-grow mt-4">
                   Use the search box to find out if your chosen domain name is available to buy.
                 </p>
-                <Button asChild variant="outline">
-                  <Link href="/whois">Search Now</Link>
-                </Button>
+                <Link href="/whois">
+                  <Button variant="outline">Search Now</Button>
+                </Link>
               </div>
 
               <div className="relative flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
@@ -93,9 +93,9 @@ export default function Home() {
                 <p className="text-muted-foreground mb-4 flex-grow mt-4">
                   Register your domain name with one of our accredited registrars.
                 </p>
-                <Button asChild variant="outline">
-                  <Link href="/registrars/licensed">View Registrars</Link>
-                </Button>
+                <Link href="/registrars/licensed">
+                  <Button variant="outline">View Registrars</Button>
+                </Link>
               </div>
 
               <div className="relative flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
@@ -106,9 +106,9 @@ export default function Home() {
                 <p className="text-muted-foreground mb-4 flex-grow mt-4">
                   Buy your domain to get started and build your online presence.
                 </p>
-                <Button asChild variant="outline">
-                  <Link href="/registrars/licensed">Get Started</Link>
-                </Button>
+                <Link href="/registrars/licensed">
+                  <Button variant="outline">Get Started</Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -214,53 +214,53 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-              <Card className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <Search className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="font-headline text-xl">
-                    Domain Checker
-                  </CardTitle>
+               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '200ms' }}>
+                <CardHeader className="flex-row items-center gap-4">
+                  <div className="rounded-full bg-primary/10 p-3"> <Sparkles className="h-6 w-6 text-primary" /> </div>
+                  <CardTitle className="font-headline text-xl"> AI Suggestions </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>
-                    Instantly check the availability of any .KE domain with our
-                    real-time search.
-                  </p>
-                </CardContent>
+                <CardContent className="flex-grow"> <p> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p> </CardContent>
+                <CardFooter> <Button asChild className="w-full" variant="outline"> <Link href="#ai-suggester">Try AI Suggester</Link> </Button> </CardFooter>
               </Card>
-              <Card className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <Rocket className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="font-headline text-xl">
-                    AI Suggestions
-                  </CardTitle>
+              <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '300ms' }}>
+                <CardHeader className="flex-row items-center gap-4">
+                  <div className="rounded-full bg-primary/10 p-3"> <Search className="h-6 w-6 text-primary" /> </div>
+                  <CardTitle className="font-headline text-xl"> Real-Time WHOIS </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>
-                    Stuck for ideas? Use our AI tool to generate creative and
-                    available domain names.
-                  </p>
-                </CardContent>
+                <CardContent className="flex-grow"> <p> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p> </CardContent>
+                <CardFooter> <Button asChild className="w-full" variant="outline"> <Link href="/whois">Check a Domain</Link> </Button> </CardFooter>
               </Card>
-              <Card className="animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <FileText className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="font-headline text-xl">
-                    WhoIs Lookup
-                  </CardTitle>
+               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '400ms' }}>
+                <CardHeader className="flex-row items-center gap-4">
+                  <div className="rounded-full bg-primary/10 p-3"> <Users className="h-6 w-6 text-primary" /> </div>
+                  <CardTitle className="font-headline text-xl"> Registrar Comparison </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>
-                    Access public registration data for any .KE domain with our
-                    comprehensive WhoIs service.
-                  </p>
-                </CardContent>
+                <CardContent className="flex-grow"> <p> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p> </CardContent>
+                 <CardFooter> <Button asChild className="w-full" variant="outline"> <Link href="/registrars/licensed">Find a Registrar</Link> </Button> </CardFooter>
+              </Card>
+              <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '500ms' }}>
+                <CardHeader className="flex-row items-center gap-4">
+                  <div className="rounded-full bg-primary/10 p-3"> <Star className="h-6 w-6 text-primary" /> </div>
+                  <CardTitle className="font-headline text-xl"> Domain Valuation Tool </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow"> <p> Estimate the market value of any domain based on length, keywords, TLD, and current trends. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </p> </CardContent>
+                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
+              </Card>
+              <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '600ms' }}>
+                <CardHeader className="flex-row items-center gap-4">
+                  <div className="rounded-full bg-primary/10 p-3"> <Wand2 className="h-6 w-6 text-primary" /> </div>
+                  <CardTitle className="font-headline text-xl"> One-Click Branding Kit </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow"> <p> Instantly generate a logo, brand colors, and social media handle ideas right after you register your new domain. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </p> </CardContent>
+                <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
+              </Card>
+               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '700ms' }}>
+                <CardHeader className="flex-row items-center gap-4">
+                  <div className="rounded-full bg-primary/10 p-3"> <LayoutDashboard className="h-6 w-6 text-primary" /> </div>
+                  <CardTitle className="font-headline text-xl"> Management Dashboard </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow"> <p> Track, renew, transfer, and manage all your domains from one simple and intuitive dashboard. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </p> </CardContent>
+                <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
             </div>
           </div>
