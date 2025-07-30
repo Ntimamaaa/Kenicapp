@@ -5,7 +5,7 @@ import { PartnersMarquee } from '@/components/partners-marquee';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { CheckCircle, Search, Rocket, FileText, Users, Globe, BarChart, Sparkles, Wand2, Star, LayoutDashboard, Mail, LucideIcon } from 'lucide-react';
+import { ChartNoAxesColumnIncreasing, CheckCircle, Search, Rocket, FileText, Users, Globe, BarChart, Sparkles, Wand2, Star, LayoutDashboard, Mail, LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -183,12 +183,12 @@ export default function Home() {
                   </CardContent>
                 </Card>
               </div>
-               <Button asChild size="lg" variant="outline" className="flex items-center gap-2">
-                  <Link href="/domains/stats?from=home">
-                      <BarChart className="h-5 w-5"/>
-                      View Detailed Statistics
-                  </Link>
-              </Button>
+               <Link href="/domains/stats?from=home">
+                 <Button size="lg" variant="outline" className="flex items-center gap-2">
+                    <ChartNoAxesColumnIncreasing className="h-5 w-5"/>
+                    View Detailed Statistics
+                 </Button>
+               </Link>
             </div>
           </div>
         </section>
@@ -255,7 +255,9 @@ export default function Home() {
                   <div className="rounded-full bg-primary/10 p-3"> <Star className="h-6 w-6 text-primary" /> </div>
                   <CardTitle className="font-headline text-xl"> Domain Valuation Tool </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Estimate the market value of any domain based on length, keywords, TLD, and current trends. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </p> </CardContent>
+                <CardContent className="flex-grow">
+                  <div className="text-muted-foreground"> Estimate the market value of any domain based on length, keywords, TLD, and current trends. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </div>
+                </CardContent>
                  <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
               <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '600ms' }}>
@@ -263,7 +265,9 @@ export default function Home() {
                   <div className="rounded-full bg-primary/10 p-3"> <Wand2 className="h-6 w-6 text-primary" /> </div>
                   <CardTitle className="font-headline text-xl"> One-Click Branding Kit </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Instantly generate a logo, brand colors, and social media handle ideas right after you register your new domain. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </p> </CardContent>
+                <CardContent className="flex-grow">
+                   <div className="text-muted-foreground"> Instantly generate a logo, brand colors, and social media handle ideas right after you register your new domain. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </div>
+                </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
                <Card className="animate-fade-in-up flex flex-col" style={{ animationDelay: '700ms' }}>
@@ -271,7 +275,9 @@ export default function Home() {
                   <div className="rounded-full bg-primary/10 p-3"> <LayoutDashboard className="h-6 w-6 text-primary" /> </div>
                   <CardTitle className="font-headline text-xl"> Management Dashboard </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Track, renew, transfer, and manage all your domains from one simple and intuitive dashboard. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </p> </CardContent>
+                <CardContent className="flex-grow">
+                   <div className="text-muted-foreground"> Track, renew, transfer, and manage all your domains from one simple and intuitive dashboard. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </div>
+                </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
             </div>
@@ -319,14 +325,15 @@ export default function Home() {
                   Your new .KE domain is just a few clicks away. Find it, register
                   it, and start building your online presence today.
                 </p>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="secondary"
-                  className="h-12 px-8 text-base font-semibold hover:bg-accent hover:text-accent-foreground"
-                >
-                  <Link href="/registrars/licensed">View Licensed Registrars</Link>
-                </Button>
+                <Link href="/registrars/licensed">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="h-12 px-8 text-base font-semibold hover:bg-accent hover:text-accent-foreground"
+                  >
+                    View Licensed Registrars
+                  </Button>
+                </Link>
               </div>
             </div>
           </section>
