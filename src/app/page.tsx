@@ -58,7 +58,7 @@ export default function Home() {
         <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full z-[-2]">
             <video
-              src="/globevideo.mp4"
+              src="/herovideo.mp4"
               className="w-full h-full object-cover"
               autoPlay
               loop
@@ -169,51 +169,51 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="stats-section-interactive" className="w-full py-12 md:py-24 lg:py-32 bg-[#111] text-white relative overflow-hidden">
+        <section id="stats-section-interactive" className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground relative overflow-hidden">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center justify-center space-y-12 text-center animate-fade-in-up">
                 <div className="space-y-2">
-                    <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-white">
+                    <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
                     .KE Domain Statistics
                     </h2>
-                    <p className="max-w-[900px] text-neutral-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     A vibrant and growing digital landscape for Kenya.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container">
-                    <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-primary/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
+                    <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-6 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-base font-medium text-neutral-200">.KE Domains</CardTitle>
+                            <CardTitle className="text-base font-medium text-muted-foreground">.KE Domains</CardTitle>
                             <Globe className="h-4 w-4 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">110,000+</div>
-                            <p className="text-xs text-neutral-400">registered globally</p>
+                            <p className="text-xs text-muted-foreground">registered globally</p>
                         </CardContent>
                     </div>
-                     <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-primary/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
+                     <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-6 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-base font-medium text-neutral-200">Top Level Domains</CardTitle>
+                            <CardTitle className="text-base font-medium text-muted-foreground">Top Level Domains</CardTitle>
                             <FileText className="h-4 w-4 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">10+</div>
-                            <p className="text-xs text-neutral-400">extensions available</p>
+                            <p className="text-xs text-muted-foreground">extensions available</p>
                         </CardContent>
                     </div>
-                     <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-primary/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
+                     <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-6 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-base font-medium text-neutral-200">Registrars</CardTitle>
+                            <CardTitle className="text-base font-medium text-muted-foreground">Registrars</CardTitle>
                             <Users className="h-4 w-4 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">500+</div>
-                            <p className="text-xs text-neutral-400">accredited partners</p>
+                            <p className="text-xs text-muted-foreground">accredited partners</p>
                         </CardContent>
                     </div>
                 </div>
                 <Link href="/domains/stats?from=home">
-                    <Button size="lg" variant="outline" className="flex items-center gap-2 bg-transparent text-white border-white hover:bg-white hover:text-black">
+                    <Button size="lg" variant="outline" className="flex items-center gap-2">
                         <ChartNoAxesColumnIncreasing className="h-5 w-5"/>
                         View Detailed Statistics
                     </Button>
