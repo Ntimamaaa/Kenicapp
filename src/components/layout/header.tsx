@@ -29,7 +29,6 @@ const navItems = [
   {
     title: '.KE Domains',
     subItems: [
-      { title: 'How To Register', href: '/domains/how-to-register', description: 'Step-by-step guide to registering your domain.', icon: BookOpen },
       { title: 'Domain Statistics', href: '/domains/stats', description: 'View trends and statistics of the .KE namespace.', icon: Users },
       { title: 'Value Proposition', href: '/domains/value-prop', description: 'Why choosing a .KE domain is the best for you.', icon: Star },
       { title: 'Deleted Domains', href: '/domains/deleted', description: 'Browse recently deleted and available domains.', icon: Download },
