@@ -73,7 +73,7 @@ body {
       inset: 0;
       border-radius: inherit;
       padding: 2px;
-      background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), #10b981, transparent 80%);
+      background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), hsl(var(--accent)), transparent 80%);
       -webkit-mask:
           linear-gradient(#fff 0 0) content-box,
           linear-gradient(#fff 0 0);
@@ -85,11 +85,11 @@ body {
   }
 
   .stat-card:hover::before {
-      background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), #10b981, transparent 80%);
+      background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), hsl(var(--accent)), transparent 80%);
   }
 
   .stats-cards-container:hover .stat-card:not(:hover)::before {
-    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(16, 185, 129, 0.1), transparent 80%);
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), hsla(var(--accent) / 0.1), transparent 80%);
   }
 }
 
