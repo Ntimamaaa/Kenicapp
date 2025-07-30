@@ -4,7 +4,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun, Info } from 'lucide-react';
+import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun, Info, UserPlus } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -54,6 +54,7 @@ const navItems = [
     title: 'Registrars',
     subItems: [
         { title: 'Licensed Registrars', href: '/registrars/licensed', description: 'Find an accredited registrar to manage your domain.', icon: Users },
+        { title: 'Become a Registrar', href: '/registrars/become-a-registrar', description: 'Learn how to become an accredited .KE registrar.', icon: UserPlus },
     ]
   },
   { title: 'WhoIs', href: '/whois' },
