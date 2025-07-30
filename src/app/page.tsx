@@ -65,7 +65,7 @@ export default function Home() {
         <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full z-[-2]">
             <video
-              src="/herovideo.mp4"
+              src="videos/globevideo1.mp4"
               className="w-full h-full object-cover"
               autoPlay
               loop
@@ -191,7 +191,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container">
                     <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-red-500/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-sm font-medium text-neutral-200">.KE Domains</CardTitle>
+                            <CardTitle className="text-base font-medium text-neutral-200">.KE Domains</CardTitle>
                             <Globe className="h-4 w-4 text-red-500" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
@@ -201,7 +201,7 @@ export default function Home() {
                     </div>
                      <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-red-500/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-sm font-medium text-neutral-200">Top Level Domains</CardTitle>
+                            <CardTitle className="text-base font-medium text-neutral-200">Top Level Domains</CardTitle>
                             <FileText className="h-4 w-4 text-red-500" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
@@ -211,7 +211,7 @@ export default function Home() {
                     </div>
                      <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-red-500/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-sm font-medium text-neutral-200">Registrars</CardTitle>
+                            <CardTitle className="text-base font-medium text-neutral-200">Registrars</CardTitle>
                             <Users className="h-4 w-4 text-red-500" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
@@ -259,9 +259,11 @@ export default function Home() {
                   <CardTitle className="font-headline text-xl"> AI Suggestions </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p> </CardContent>
-                <CardFooter> <Link href="#ai-suggester" className="w-full">
-                    <Button className="w-full" variant="outline">Try AI Suggester</Button>
-                  </Link> </CardFooter>
+                <CardFooter>
+                    <Link href="#ai-suggester" className="w-full">
+                        <Button className="w-full" variant="outline">Try AI Suggester</Button>
+                    </Link>
+                </CardFooter>
               </Card>
               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '300ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
@@ -271,9 +273,11 @@ export default function Home() {
                   <CardTitle className="font-headline text-xl"> Real-Time WHOIS </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p> </CardContent>
-                <CardFooter> <Link href="/whois" className="w-full">
-                    <Button className="w-full" variant="outline">Check a Domain</Button>
-                  </Link> </CardFooter>
+                <CardFooter>
+                    <Link href="/whois" className="w-full">
+                        <Button className="w-full" variant="outline">Check a Domain</Button>
+                    </Link>
+                </CardFooter>
               </Card>
                <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '400ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
@@ -283,9 +287,11 @@ export default function Home() {
                   <CardTitle className="font-headline text-xl"> Registrar Comparison </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p> </CardContent>
-                 <CardFooter> <Link href="/registrars/licensed" className="w-full">
-                    <Button className="w-full" variant="outline">Find a Registrar</Button>
-                  </Link> </CardFooter>
+                 <CardFooter>
+                    <Link href="/registrars/licensed" className="w-full">
+                        <Button className="w-full" variant="outline">Find a Registrar</Button>
+                    </Link>
+                </CardFooter>
               </Card>
               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '500ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
