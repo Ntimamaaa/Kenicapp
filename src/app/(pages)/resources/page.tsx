@@ -171,7 +171,7 @@ export default function ResourcesPage() {
                 <div className="grid md:grid-cols-3 gap-8 items-start">
                     <div className="md:col-span-1">
                         <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
-                            <Image src="https://placehold.co/300x160.png" alt="Credit Card" layout="fill" objectFit="contain" data-ai-hint="credit card payment" className="rounded-lg"/>
+                            <Image src="https://images.unsplash.com/photo-1556742077-0a6b6a4a4ac4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjcmVkaXQlMjBjYXJkJTIwcGF5bWVudHxlbnwwfHx8fDE3NTM4NjczNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Credit Card" layout="fill" objectFit="cover" data-ai-hint="credit card payment" className="rounded-lg"/>
                         </div>
                     </div>
                     <div className="md:col-span-2">
@@ -184,7 +184,7 @@ export default function ResourcesPage() {
                 <div className="grid md:grid-cols-3 gap-8 items-start">
                      <div className="md:col-span-1">
                         <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
-                            <Image src="https://placehold.co/300x160.png" alt="Bank Transfer" layout="fill" objectFit="contain" data-ai-hint="bank transfer" className="rounded-lg"/>
+                            <Image src="https://images.unsplash.com/photo-1582420447426-edb89473882b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiYW5rJTIwdHJhbnNmZXJ8ZW58MHx8fHwxNzUzODY3MzczfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Bank Transfer" layout="fill" objectFit="cover" data-ai-hint="bank transfer" className="rounded-lg"/>
                         </div>
                     </div>
                     <div className="md:col-span-2">
@@ -206,7 +206,7 @@ export default function ResourcesPage() {
                 <div className="grid md:grid-cols-3 gap-8 items-start">
                      <div className="md:col-span-1">
                         <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
-                           <Image src="https://placehold.co/300x160.png" alt="iPay" layout="fill" objectFit="contain" data-ai-hint="mobile payment" className="rounded-lg"/>
+                           <Image src="https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBwYXltZW50fGVufDB8fHx8MTc1Mzc2NTk2Nnww&ixlib=rb-4.1.0&q=80&w=1080" alt="iPay" layout="fill" objectFit="cover" data-ai-hint="mobile payment" className="rounded-lg"/>
                         </div>
                     </div>
                     <div className="md:col-span-2">
@@ -225,7 +225,7 @@ export default function ResourcesPage() {
                  <div className="grid md:grid-cols-3 gap-8 items-start">
                      <div className="md:col-span-1">
                         <div className="relative w-full h-40 bg-muted rounded-lg flex items-center justify-center">
-                            <Image src="https://placehold.co/300x160.png" alt="M-PESA" layout="fill" objectFit="contain" data-ai-hint="mobile money" className="rounded-lg"/>
+                            <Image src="https://images.unsplash.com/photo-1533234944761-2f5337579079?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBtb25leXxlbnwwfHx8fDE3NTM4NjczNzN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="M-PESA" layout="fill" objectFit="cover" data-ai-hint="mobile money" className="rounded-lg"/>
                         </div>
                     </div>
                     <div className="md:col-span-2">
