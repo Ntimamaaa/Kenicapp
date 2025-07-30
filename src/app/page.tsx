@@ -25,19 +25,12 @@ export default function Home() {
     '.ac.ke',
   ];
 
-  const blobRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const handleMouseMove = (event: PointerEvent) => {
       const { clientX, clientY } = event;
-      if (blobRef.current) {
-        blobRef.current.animate({
-            left: `${clientX}px`,
-            top: `${clientY}px`
-        }, { duration: 3000, fill: "forwards" });
-      }
-
+      
       cardsRef.current.forEach(card => {
         if (card) {
           const rect = card.getBoundingClientRect();
@@ -65,7 +58,7 @@ export default function Home() {
         <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full z-[-2]">
             <video
-              src="videos/globevideo1.mp4"
+              src="/herovideo.mp4"
               className="w-full h-full object-cover"
               autoPlay
               loop
@@ -177,7 +170,6 @@ export default function Home() {
         </section>
 
         <section id="stats-section-interactive" className="w-full py-12 md:py-24 lg:py-32 bg-[#111] text-white relative overflow-hidden">
-            <div ref={blobRef} className="absolute left-1/2 top-1/2 size-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,_rgba(220,38,38,0.4)_0,_rgba(220,38,38,0)_50%)]"></div>
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center justify-center space-y-12 text-center animate-fade-in-up">
                 <div className="space-y-2">
@@ -189,30 +181,30 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container">
-                    <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-red-500/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
+                    <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-primary/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-neutral-200">.KE Domains</CardTitle>
-                            <Globe className="h-4 w-4 text-red-500" />
+                            <Globe className="h-4 w-4 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">110,000+</div>
                             <p className="text-xs text-neutral-400">registered globally</p>
                         </CardContent>
                     </div>
-                     <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-red-500/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
+                     <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-primary/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-neutral-200">Top Level Domains</CardTitle>
-                            <FileText className="h-4 w-4 text-red-500" />
+                            <FileText className="h-4 w-4 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">10+</div>
                             <p className="text-xs text-neutral-400">extensions available</p>
                         </CardContent>
                     </div>
-                     <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-red-500/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
+                     <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-primary/20 bg-black/20 p-6 shadow-lg backdrop-blur-sm">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-neutral-200">Registrars</CardTitle>
-                            <Users className="h-4 w-4 text-red-500" />
+                            <Users className="h-4 w-4 text-primary" />
                         </CardHeader>
                         <CardContent className="p-0 pt-2">
                             <div className="text-4xl font-bold">500+</div>
@@ -260,9 +252,9 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p> </CardContent>
                 <CardFooter>
-                    <Link href="#ai-suggester" className="w-full">
-                        <Button className="w-full" variant="outline">Try AI Suggester</Button>
-                    </Link>
+                  <Link href="#ai-suggester" className="w-full">
+                    <Button className="w-full" variant="outline">Try AI Suggester</Button>
+                  </Link>
                 </CardFooter>
               </Card>
               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '300ms' }}>
@@ -274,9 +266,9 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p> </CardContent>
                 <CardFooter>
-                    <Link href="/whois" className="w-full">
-                        <Button className="w-full" variant="outline">Check a Domain</Button>
-                    </Link>
+                  <Link href="/whois" className="w-full">
+                    <Button className="w-full" variant="outline">Check a Domain</Button>
+                  </Link>
                 </CardFooter>
               </Card>
                <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '400ms' }}>
@@ -288,9 +280,9 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="flex-grow"> <p> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p> </CardContent>
                  <CardFooter>
-                    <Link href="/registrars/licensed" className="w-full">
-                        <Button className="w-full" variant="outline">Find a Registrar</Button>
-                    </Link>
+                  <Link href="/registrars/licensed" className="w-full">
+                    <Button className="w-full" variant="outline">Find a Registrar</Button>
+                  </Link>
                 </CardFooter>
               </Card>
               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '500ms' }}>
