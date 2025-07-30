@@ -25,8 +25,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-[-2]">
+      <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full z-[-2]">
           <video
             src="/videos/herovideo.mp4"
             className="w-full h-full object-cover"
@@ -59,7 +59,7 @@ export default function Home() {
 
       <section id="how-to-register" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
-          <div className="space-y-4 text-center mb-12">
+          <div className="space-y-4 text-center mb-12 animate-fade-in-up">
             <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
               How to Register Your .KE Domain
             </h2>
@@ -71,7 +71,7 @@ export default function Home() {
           <div className="relative grid gap-12 md:grid-cols-3 md:gap-8">
               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 hidden md:block" />
               <div className="absolute top-0 left-1/2 w-0.5 h-full bg-border -translate-x-1/2 md:hidden" />
-            <div className="relative flex flex-col items-center text-center">
+            <div className="relative flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                 <Search className="h-8 w-8" />
               </div>
@@ -84,7 +84,7 @@ export default function Home() {
               </Button>
             </div>
 
-            <div className="relative flex flex-col items-center text-center">
+            <div className="relative flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                 <Users className="h-8 w-8" />
               </div>
@@ -97,7 +97,7 @@ export default function Home() {
               </Button>
             </div>
 
-            <div className="relative flex flex-col items-center text-center">
+            <div className="relative flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                 <Rocket className="h-8 w-8" />
               </div>
