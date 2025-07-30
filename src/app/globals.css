@@ -73,7 +73,7 @@ body {
       inset: 0;
       border-radius: inherit;
       padding: 2px;
-      background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), hsl(var(--primary)), transparent 80%);
+      background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), hsl(var(--foreground)), transparent 80%);
       -webkit-mask:
           linear-gradient(#fff 0 0) content-box,
           linear-gradient(#fff 0 0);
@@ -85,11 +85,24 @@ body {
   }
 
   .stat-card:hover::before {
-      background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), hsl(var(--primary)), transparent 80%);
+      background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), hsl(var(--foreground)), transparent 80%);
   }
 
   .stats-cards-container:hover .stat-card:not(:hover)::before {
     background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), hsla(var(--primary) / 0.1), transparent 80%);
+  }
+
+  .animated-section .child-card,
+  .animated-section .animate-child > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animated-section.is-visible .child-card,
+  .animated-section.is-visible .animate-child > * {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

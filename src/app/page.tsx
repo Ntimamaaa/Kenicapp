@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
   const extensions = [
@@ -26,6 +27,7 @@ export default function Home() {
   ];
 
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const animatedSectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const handleMouseMove = (event: PointerEvent) => {
@@ -45,10 +47,35 @@ export default function Home() {
       statsSection.addEventListener('pointermove', handleMouseMove);
     }
     
+     const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    animatedSectionsRef.current.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
     return () => {
       if (statsSection) {
         statsSection.removeEventListener('pointermove', handleMouseMove);
       }
+       animatedSectionsRef.current.forEach((section) => {
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
     };
   }, []);
 
@@ -67,7 +94,7 @@ export default function Home() {
             />
           </div>
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
-          <div className="container relative z-10 mx-auto px-4 md:px-6 animate-fade-in-up">
+          <div className="container relative z-10 mx-auto px-4 md:px-6">
               <div className="flex flex-col items-center justify-center space-y-6">
                    <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
                     Your Perfect .KE Domain Awaits
@@ -85,13 +112,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how-to-register" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+        <section id="how-to-register" ref={(el) => (animatedSectionsRef.current[0] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section">
           <div className="container mx-auto max-w-5xl px-4 md:px-6">
-            <div className="space-y-4 text-center mb-12 animate-fade-in-up">
+            <div className="space-y-4 text-center mb-12 animate-child">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                 How to Register Your .KE Domain
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground" style={{ animationDelay: '200ms' }}>
                 Follow these three simple steps to secure your online identity.
               </p>
             </div>
@@ -99,7 +126,7 @@ export default function Home() {
             <div className="relative grid gap-12 md:grid-cols-3 md:gap-8">
                 <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 hidden md:block" />
                 <div className="absolute top-0 left-1/2 w-0.5 h-full bg-border -translate-x-1/2 md:hidden" />
-              <div className="relative flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <div className="relative flex flex-col items-center text-center child-card" style={{ animationDelay: '400ms' }}>
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Search className="h-8 w-8" />
                 </div>
@@ -112,7 +139,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="relative flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="relative flex flex-col items-center text-center child-card" style={{ animationDelay: '600ms' }}>
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Users className="h-8 w-8" />
                 </div>
@@ -125,7 +152,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="relative flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+              <div className="relative flex flex-col items-center text-center child-card" style={{ animationDelay: '800ms' }}>
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Rocket className="h-8 w-8" />
                 </div>
@@ -141,18 +168,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="extensions" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="extensions" ref={(el) => (animatedSectionsRef.current[1] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-8 text-center">
+            <div className="flex flex-col items-center justify-center space-y-8 text-center animate-child">
               <div className="space-y-2">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                   Explore Our Domain Extensions
                 </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '200ms' }}>
                   We offer a wide range of .KE extensions to suit every need.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-4" style={{ animationDelay: '400ms' }}>
                 {extensions.map((ext) => (
                   <Badge
                     key={ext}
@@ -167,18 +194,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="stats-section-interactive" className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground relative overflow-hidden">
+        <section id="stats-section-interactive" ref={(el) => (animatedSectionsRef.current[2] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground relative overflow-hidden animated-section">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="flex flex-col items-center justify-center space-y-12 text-center animate-fade-in-up">
+                <div className="flex flex-col items-center justify-center space-y-12 text-center animate-child">
                 <div className="space-y-2">
-                    <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
+                    <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-foreground">
                     .KE Domain Statistics
                     </h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '200ms' }}>
                     A vibrant and growing digital landscape for Kenya.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container" style={{ animationDelay: '400ms' }}>
                     <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-muted-foreground">.KE Domains</CardTitle>
@@ -210,7 +237,7 @@ export default function Home() {
                         </CardContent>
                     </div>
                 </div>
-                 <Link href="/domains/stats?from=home">
+                 <Link href="/domains/stats?from=home" style={{ animationDelay: '600ms' }}>
                   <Button size="lg" variant="outline" className="flex items-center gap-2">
                       <ChartNoAxesColumnIncreasing className="h-5 w-5"/>
                       View Detailed Statistics
@@ -223,25 +250,26 @@ export default function Home() {
 
         <section
           id="features"
-          className="w-full py-12 md:py-24 lg:py-32"
+          ref={(el) => (animatedSectionsRef.current[3] = el)}
+          className="w-full py-12 md:py-24 lg:py-32 animated-section"
         >
           <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center animate-fade-in-up">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center animate-child">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
                   Key Features
                 </div>
-                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">
+                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl" style={{ animationDelay: '200ms' }}>
                   Everything You Need for .KE Domains
                 </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '400ms' }}>
                   From real-time checks to AI-powered suggestions, we provide a
                   comprehensive suite of tools for your domain needs.
                 </p>
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '200ms' }}>
+               <Card className="child-card flex flex-col group" style={{ animationDelay: '200ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Sparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -255,7 +283,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-              <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '300ms' }}>
+              <Card className="child-card flex flex-col group" style={{ animationDelay: '300ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Search className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -269,7 +297,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '400ms' }}>
+               <Card className="child-card flex flex-col group" style={{ animationDelay: '400ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Users className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -283,7 +311,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-              <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '500ms' }}>
+              <Card className="child-card flex flex-col group" style={{ animationDelay: '500ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Star className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -295,7 +323,7 @@ export default function Home() {
                 </CardContent>
                  <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
-              <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '600ms' }}>
+              <Card className="child-card flex flex-col group" style={{ animationDelay: '600ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <WandSparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -307,7 +335,7 @@ export default function Home() {
                 </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
-               <Card className="animate-fade-in-up flex flex-col group" style={{ animationDelay: '700ms' }}>
+               <Card className="child-card flex flex-col group" style={{ animationDelay: '700ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <LayoutDashboard className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -323,29 +351,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="ai-suggester" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+        <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section">
           <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
-            <div className="space-y-3 animate-fade-in-up">
+            <div className="space-y-3 animate-child">
               <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
                 Unleash Creativity with our AI Domain Suggester
               </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '200ms' }}>
                 Don't just search. Discover. Enter a few keywords and let our AI
                 find the perfect, available domain for you.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-2xl animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <div className="mx-auto w-full max-w-2xl animate-child" style={{ animationDelay: '400ms' }}>
               <DomainSuggester />
             </div>
           </div>
         </section>
 
-        <section id="partners" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="partners" ref={(el) => (animatedSectionsRef.current[5] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="flex flex-col items-center justify-center space-y-8 text-center animate-fade-in-up">
+              <div className="flex flex-col items-center justify-center space-y-8 text-center animate-child">
                   <div className="space-y-2">
                       <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Our Partners &amp; Collaborators</h2>
-                      <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                      <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '200ms' }}>
                           We are proud to work with a diverse range of organizations to build a better digital Kenya.
                       </p>
                   </div>
@@ -354,17 +382,17 @@ export default function Home() {
             </div>
         </section>
 
-        <section className="w-full py-20 md:py-28 lg:py-32 bg-primary text-primary-foreground">
+        <section ref={(el) => (animatedSectionsRef.current[6] = el)} className="w-full py-20 md:py-28 lg:py-32 bg-primary text-primary-foreground animated-section">
             <div className="container mx-auto px-4 md:px-6 text-center">
-              <div className="mx-auto max-w-3xl space-y-6 animate-fade-in-up">
+              <div className="mx-auto max-w-3xl space-y-6 animate-child">
                 <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
                   Ready to Get Started?
                 </h2>
-                <p className="text-lg text-primary-foreground/80 md:text-xl">
+                <p className="text-lg text-primary-foreground/80 md:text-xl" style={{ animationDelay: '200ms' }}>
                   Your new .KE domain is just a few clicks away. Find it, register
                   it, and start building your online presence today.
                 </p>
-                <Link href="/registrars/licensed">
+                <Link href="/registrars/licensed" style={{ animationDelay: '400ms' }}>
                   <Button
                     size="lg"
                     variant="secondary"
