@@ -28,7 +28,7 @@ export default function Home() {
       <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full z-[-2]">
           <video
-            src="/videos/herovideo.mp4"
+            src="/videos/globevideo.mp4"
             className="w-full h-full object-cover"
             autoPlay
             loop

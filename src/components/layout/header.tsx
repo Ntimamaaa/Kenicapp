@@ -54,7 +54,6 @@ const navItems = [
     title: 'Registrars',
     subItems: [
         { title: 'Licensed Registrars', href: '/registrars/licensed', description: 'Find an accredited registrar to manage your domain.', icon: Users },
-        { title: 'Become a Registrar', href: '/registrars/become', description: 'Join our network of licensed registrars.', icon: Briefcase },
     ]
   },
   { title: 'WhoIs', href: '/whois' },
@@ -74,9 +73,22 @@ const Logo = () => (
 
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300",
+        scrolled ? "border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "border-b border-transparent"
+    )}>
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-6">
             <Logo />
