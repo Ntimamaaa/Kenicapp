@@ -1,3 +1,4 @@
+
 import { DomainChecker } from '@/components/domain-checker';
 import { DomainSuggester } from '@/components/domain-suggester';
 import { PartnersMarquee } from '@/components/partners-marquee';
@@ -45,14 +46,18 @@ export default function Home() {
                 Get started by searching for your dream domain name.
               </p>
             </div>
-            <Image
-              src="https://placehold.co/600x400.png"
-              data-ai-hint="domain registration abstract"
-              alt="Hero"
-              width="600"
-              height="400"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last animate-fade-in"
-            />
+            <div className="mx-auto aspect-video overflow-hidden rounded-xl sm:w-full lg:order-last animate-fade-in">
+              <video
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
+                width="600"
+                height="400"
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
           </div>
         </div>
       </section>
