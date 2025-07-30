@@ -52,7 +52,8 @@ export default function Home() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove('is-visible');
           }
         });
       },
@@ -118,7 +119,7 @@ export default function Home() {
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                 How to Register Your .KE Domain
               </h2>
-              <p className="text-lg text-muted-foreground" style={{ animationDelay: '200ms' }}>
+              <p className="text-lg text-muted-foreground">
                 Follow these three simple steps to secure your online identity.
               </p>
             </div>
@@ -175,11 +176,11 @@ export default function Home() {
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                   Explore Our Domain Extensions
                 </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '200ms' }}>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   We offer a wide range of .KE extensions to suit every need.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4" style={{ animationDelay: '400ms' }}>
+              <div className="flex flex-wrap justify-center gap-4">
                 {extensions.map((ext) => (
                   <Badge
                     key={ext}
@@ -201,11 +202,11 @@ export default function Home() {
                     <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-foreground">
                     .KE Domain Statistics
                     </h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '200ms' }}>
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     A vibrant and growing digital landscape for Kenya.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container" style={{ animationDelay: '400ms' }}>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container">
                     <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
                             <CardTitle className="text-base font-medium text-muted-foreground">.KE Domains</CardTitle>
@@ -237,7 +238,7 @@ export default function Home() {
                         </CardContent>
                     </div>
                 </div>
-                 <Link href="/domains/stats?from=home" style={{ animationDelay: '600ms' }}>
+                 <Link href="/domains/stats?from=home">
                   <Button size="lg" variant="outline" className="flex items-center gap-2">
                       <ChartNoAxesColumnIncreasing className="h-5 w-5"/>
                       View Detailed Statistics
@@ -259,10 +260,10 @@ export default function Home() {
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
                   Key Features
                 </div>
-                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl" style={{ animationDelay: '200ms' }}>
+                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">
                   Everything You Need for .KE Domains
                 </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '400ms' }}>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   From real-time checks to AI-powered suggestions, we provide a
                   comprehensive suite of tools for your domain needs.
                 </p>
@@ -357,12 +358,12 @@ export default function Home() {
               <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
                 Unleash Creativity with our AI Domain Suggester
               </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '200ms' }}>
+              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Don't just search. Discover. Enter a few keywords and let our AI
                 find the perfect, available domain for you.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-2xl animate-child" style={{ animationDelay: '400ms' }}>
+            <div className="mx-auto w-full max-w-2xl animate-child">
               <DomainSuggester />
             </div>
           </div>
@@ -373,7 +374,7 @@ export default function Home() {
               <div className="flex flex-col items-center justify-center space-y-8 text-center animate-child">
                   <div className="space-y-2">
                       <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Our Partners &amp; Collaborators</h2>
-                      <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" style={{ animationDelay: '200ms' }}>
+                      <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                           We are proud to work with a diverse range of organizations to build a better digital Kenya.
                       </p>
                   </div>
@@ -388,11 +389,11 @@ export default function Home() {
                 <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
                   Ready to Get Started?
                 </h2>
-                <p className="text-lg text-primary-foreground/80 md:text-xl" style={{ animationDelay: '200ms' }}>
+                <p className="text-lg text-primary-foreground/80 md:text-xl">
                   Your new .KE domain is just a few clicks away. Find it, register
                   it, and start building your online presence today.
                 </p>
-                <Link href="/registrars/licensed" style={{ animationDelay: '400ms' }}>
+                <Link href="/registrars/licensed">
                   <Button
                     size="lg"
                     variant="secondary"
