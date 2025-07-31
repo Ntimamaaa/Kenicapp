@@ -2,7 +2,7 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense, useMemo } from "react";
 import {
   Card,
   CardContent,
@@ -12,9 +12,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle, XCircle, ArrowLeft } from "lucide-react";
+import { Loader2, CheckCircle, XCircle, ArrowLeft, TrendingUp, Key, Ruler, Star, Check } from "lucide-react";
 import Link from "next/link";
 import { DomainChecker } from "@/components/domain-checker";
+import { Progress } from "@/components/ui/progress";
 
 function WhoisPageContent() {
   const searchParams = useSearchParams();
@@ -24,11 +25,82 @@ function WhoisPageContent() {
   const [isLoading, setIsLoading] = useState(false);
   const [isAvailable, setIsAvailable] = useState(false);
   const [domain, setDomain] = useState("");
+  const [estimatedValue, setEstimatedValue] = useState(0);
+  const [valueReasons, setValueReasons] = useState<string[]>([]);
+  const [showEstimator, setShowEstimator] = useState(false);
+
+  const estimateDomainValue = (name: string) => {
+    if (name.length < 3) {
+      setShowEstimator(false);
+      setEstimatedValue(0);
+      setValueReasons([]);
+      return;
+    }
+    
+    setShowEstimator(true);
+    let score = 0;
+    const reasons: string[] = [];
+
+    // Length
+    if (name.length <= 5) {
+      score += 30;
+      reasons.push("Short length (5 chars or less)");
+    } else if (name.length <= 8) {
+      score += 15;
+      reasons.push("Concise length (6-8 chars)");
+    }
+
+    // Extension
+    if (name.endsWith('.ke')) {
+        score += 10;
+        reasons.push("Broad .ke extension");
+    }
+    if (name.endsWith('.co.ke')) {
+      score += 20;
+      reasons.push("Popular .co.ke extension");
+    }
+    if (name.endsWith('.go.ke') || name.endsWith('.ac.ke')) {
+        score += 5;
+        reasons.push("Official/Academic extension");
+    }
+     if (name.endsWith('.or.ke')) {
+        score += 15;
+        reasons.push("Common .or.ke extension");
+    }
+
+    // Keywords
+    const premiumKeywords = ["shop", "market", "tech", "pay", "cash", "bank", "credit", "art", "news", "kenya"];
+    const containsPremium = premiumKeywords.some(kw => name.includes(kw));
+    if (containsPremium) {
+      score += 25;
+      reasons.push("Contains a premium keyword");
+    }
+
+    // Hyphens
+    if (name.includes('-')) {
+        score -= 10;
+    } else {
+        reasons.push("No hyphens");
+    }
+    
+    // Numbers
+    if (/\d/.test(name)) {
+        score -= 5;
+    } else {
+        reasons.push("No numbers");
+    }
+
+    score = Math.max(0, Math.min(100, score));
+    setEstimatedValue(score);
+    setValueReasons(reasons);
+  };
+
 
   useEffect(() => {
     if (domainQuery) {
       setDomain(domainQuery);
       setIsLoading(true);
+      setShowEstimator(false);
       // Simulate API call for checking domain availability
       const timer = setTimeout(() => {
         setIsAvailable(Math.random() > 0.5); // Randomly available or not
@@ -41,6 +113,12 @@ function WhoisPageContent() {
   }, [domainQuery]);
 
   const fromDeleted = searchParams.get("from") === 'deleted-domains';
+  
+  const valueColor = useMemo(() => {
+    if (estimatedValue > 70) return "text-green-500";
+    if (estimatedValue > 40) return "text-yellow-500";
+    return "text-red-500";
+  }, [estimatedValue]);
 
   return (
     <div className="flex-1">
@@ -65,7 +143,7 @@ function WhoisPageContent() {
                         Check the availability of any .KE domain instantly.
                     </p>
                     <div className="my-8 w-full max-w-2xl">
-                        <DomainChecker />
+                        <DomainChecker onValueChange={estimateDomainValue} />
                     </div>
                 </div>
             </div>
@@ -79,6 +157,33 @@ function WhoisPageContent() {
                     Go Back to Home
                   </Link>
                 </Button>
+                {showEstimator && !domainQuery && (
+                    <Card className="mb-8">
+                        <CardHeader>
+                            <CardTitle className="font-headline flex items-center gap-2">
+                                <TrendingUp className="text-primary"/>
+                                Domain Value Estimate
+                            </CardTitle>
+                            <CardDescription>
+                                This is an estimate based on common valuation factors.
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                           <Progress value={estimatedValue} />
+                           <p className="text-right font-bold text-lg">
+                                Potential Value: <span className={valueColor}>{estimatedValue}%</span>
+                           </p>
+                           <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                            {valueReasons.map(reason => (
+                                <div key={reason} className="flex items-center gap-2">
+                                    <Check className="h-4 w-4 text-green-500" />
+                                    <span>{reason}</span>
+                                </div>
+                            ))}
+                           </div>
+                        </CardContent>
+                    </Card>
+                )}
                  {domainQuery && (
                     <>
                         <Card>
@@ -125,7 +230,7 @@ function WhoisPageContent() {
                         </Card>
                     </>
                 )}
-                 {!domainQuery && (
+                 {!domainQuery && !showEstimator && (
                      <div className="text-center text-muted-foreground p-8">
                         <p>Enter a domain name above to check its availability.</p>
                     </div>
@@ -144,3 +249,5 @@ export default function WhoisPage() {
     </Suspense>
   );
 }
+
+    

@@ -32,7 +32,11 @@ const placeholderSuggestions = [
   "my-awesome-blog.me.ke",
 ];
 
-export function DomainChecker() {
+interface DomainCheckerProps {
+    onValueChange?: (value: string) => void;
+}
+
+export function DomainChecker({ onValueChange }: DomainCheckerProps) {
   const router = useRouter();
   const [placeholder, setPlaceholder] = useState(placeholderSuggestions[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -100,6 +104,13 @@ export function DomainChecker() {
     router.push(`/whois?domain=${data.domain}`);
   }
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      form.setValue('domain', e.target.value);
+      if (onValueChange) {
+          onValueChange(e.target.value);
+      }
+  }
+
   return (
     <Form {...form}>
       <form
@@ -118,6 +129,7 @@ export function DomainChecker() {
                     placeholder={placeholder + '|'}
                     className="pl-10 h-12 text-lg"
                     {...field}
+                    onChange={handleInputChange}
                   />
                 </div>
               </FormControl>
@@ -132,3 +144,5 @@ export function DomainChecker() {
     </Form>
   );
 }
+
+    
