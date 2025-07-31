@@ -5,6 +5,7 @@ import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import { Rocket, Loader2, Search } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { getSuggestions } from "@/app/actions";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -58,29 +59,42 @@ export function DomainSuggester() {
   }, [state, toast]);
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="font-headline text-2xl">
-          AI Domain Suggester
-        </CardTitle>
-        <CardDescription>
-          Enter keywords to generate available .KE domain ideas.
-        </CardDescription>
-      </CardHeader>
-      <form action={formAction}>
-        <CardContent className="space-y-4">
-          <Input
-            name="keywords"
-            id="keywords"
-            placeholder="e.g. kenyan coffee, nairobi tech"
-            className="text-base"
-            required
-          />
-          <SubmitButton />
-        </CardContent>
-      </form>
+    <Card className="w-full overflow-hidden">
+      <div className="grid md:grid-cols-2 items-center">
+        <div className="p-8 order-2 md:order-1">
+          <CardHeader className="p-0 mb-6">
+            <CardTitle className="font-headline text-2xl">
+              AI Domain Suggester
+            </CardTitle>
+            <CardDescription>
+              Enter keywords to generate available .KE domain ideas.
+            </CardDescription>
+          </CardHeader>
+          <form action={formAction}>
+            <CardContent className="p-0 space-y-4">
+              <Input
+                name="keywords"
+                id="keywords"
+                placeholder="e.g. kenyan coffee, nairobi tech"
+                className="text-base"
+                required
+              />
+              <SubmitButton />
+            </CardContent>
+          </form>
+        </div>
+        <div className="relative h-64 md:h-full w-full order-1 md:order-2">
+            <Image 
+                src="https://placehold.co/400x400.png"
+                alt="AI Suggester"
+                layout="fill"
+                objectFit="cover"
+                data-ai-hint="robot future"
+            />
+        </div>
+      </div>
       {state.suggestions && state.suggestions.length > 0 && (
-        <CardFooter className="flex flex-col items-start gap-4">
+        <CardFooter className="flex flex-col items-start gap-4 p-8">
           <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
             {state.suggestions.map((domain) => (
@@ -90,6 +104,7 @@ export function DomainSuggester() {
                 className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors"
               >
                 <span className="font-medium">{domain}</span>
+                <Search className="h-4 w-4 text-muted-foreground" />
               </Link>
             ))}
           </div>
