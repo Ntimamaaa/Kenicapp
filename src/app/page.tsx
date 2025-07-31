@@ -349,7 +349,7 @@ export default function Home() {
         </section>
 
         <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section">
-          <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
+          <div className="container mx-auto grid items-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
                 Unleash Creativity with our AI Domain Suggester
@@ -359,7 +359,7 @@ export default function Home() {
                 find the perfect, available domain for you.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-5xl">
+            <div className="w-full">
               <DomainSuggester />
             </div>
           </div>
