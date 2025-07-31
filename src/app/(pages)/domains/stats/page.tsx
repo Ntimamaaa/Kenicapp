@@ -113,183 +113,201 @@ function StatsPageContent() {
   }
 
   return (
-    <div className="bg-secondary flex-1">
-        <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
-        {fromHome && (
-            <Button variant="outline" onClick={() => router.back()} className="mb-8">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Go Back
-            </Button>
-        )}
-        <div className="space-y-4 text-center mb-12 animate-fade-in-up">
-            <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
-            .KE Domain Statistics
-            </h1>
-            <p className="text-lg text-muted-foreground">
-            Live insights and trends from the .KE domain namespace.
-            </p>
-        </div>
+    <div className="flex-1">
+        <section className="relative w-full h-[50vh] flex items-center justify-center text-center text-white overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full z-[-2]">
+                <video
+                    src="/videos/globevideo.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                />
+            </div>
+            <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[-1]"></div>
+             <div className="container relative z-10 mx-auto px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-6 animate-fade-in-up">
+                    <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                        .KE Domain Statistics
+                    </h1>
+                    <p className="max-w-[700px] text-lg text-white/90 md:text-xl">
+                        Live insights and trends from the .KE domain namespace.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <div className="bg-secondary">
+            <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
+                {fromHome && (
+                    <Button variant="outline" onClick={() => router.back()} className="mb-8">
+                        <ArrowLeft className="mr-2 h-4 w-4" />
+                        Go Back
+                    </Button>
+                )}
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
-            <Card className="animate-fade-in-up flex flex-col" style={{animationDelay: '200ms'}}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                Total Domains
-                </CardTitle>
-                <Globe className="h-4 w-4 text-primary" />
-            </CardHeader>
-            <CardContent className="flex-grow">
-                <div className="text-2xl font-bold">112,801</div>
-                <p className="text-xs text-muted-foreground">
-                All registered .KE domains
-                </p>
-            </CardContent>
-            <CardFooter>
-                <Button asChild className="w-full">
-                    <Link href="/registrars/licensed">Register Domain</Link>
-                </Button>
-            </CardFooter>
-            </Card>
-            <Card className="animate-fade-in-up flex flex-col" style={{animationDelay: '400ms'}}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                Licensed Registrars
-                </CardTitle>
-                <Users className="h-4 w-4 text-primary" />
-            </CardHeader>
-            <CardContent className="flex-grow">
-                <div className="text-2xl font-bold">512</div>
-                <p className="text-xs text-muted-foreground">
-                Accredited partners
-                </p>
-            </CardContent>
-             <CardFooter>
-                <Button asChild className="w-full" variant="outline">
-                    <Link href="/registrars/licensed">View Registrars</Link>
-                </Button>
-            </CardFooter>
-            </Card>
-             <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Generic Domains</CardTitle>
-                <GanttChartSquare className="h-4 w-4 text-primary" />
-            </CardHeader>
-            <CardContent>
-                <div className="text-2xl font-bold">109,526</div>
-                <p className="text-xs text-muted-foreground">e.g. .co.ke, .or.ke</p>
-            </CardContent>
-            </Card>
-            <Card className="animate-fade-in-up" style={{animationDelay: '800ms'}}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Restricted Domains</CardTitle>
-                <Package className="h-4 w-4 text-primary" />
-            </CardHeader>
-            <CardContent>
-                <div className="text-2xl font-bold">3,275</div>
-                <p className="text-xs text-muted-foreground">e.g. .ac.ke, .go.ke</p>
-            </CardContent>
-            </Card>
-        </div>
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
+                    <Card className="animate-fade-in-up flex flex-col" style={{animationDelay: '200ms'}}>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium">
+                        Total Domains
+                        </CardTitle>
+                        <Globe className="h-4 w-4 text-primary" />
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <div className="text-2xl font-bold">112,801</div>
+                        <p className="text-xs text-muted-foreground">
+                        All registered .KE domains
+                        </p>
+                    </CardContent>
+                    <CardFooter>
+                        <Button asChild className="w-full">
+                            <Link href="/registrars/licensed">Register Domain</Link>
+                        </Button>
+                    </CardFooter>
+                    </Card>
+                    <Card className="animate-fade-in-up flex flex-col" style={{animationDelay: '400ms'}}>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium">
+                        Licensed Registrars
+                        </CardTitle>
+                        <Users className="h-4 w-4 text-primary" />
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <div className="text-2xl font-bold">512</div>
+                        <p className="text-xs text-muted-foreground">
+                        Accredited partners
+                        </p>
+                    </CardContent>
+                    <CardFooter>
+                        <Button asChild className="w-full" variant="outline">
+                            <Link href="/registrars/licensed">View Registrars</Link>
+                        </Button>
+                    </CardFooter>
+                    </Card>
+                    <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium">Generic Domains</CardTitle>
+                        <GanttChartSquare className="h-4 w-4 text-primary" />
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">109,526</div>
+                        <p className="text-xs text-muted-foreground">e.g. .co.ke, .or.ke</p>
+                    </CardContent>
+                    </Card>
+                    <Card className="animate-fade-in-up" style={{animationDelay: '800ms'}}>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium">Restricted Domains</CardTitle>
+                        <Package className="h-4 w-4 text-primary" />
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">3,275</div>
+                        <p className="text-xs text-muted-foreground">e.g. .ac.ke, .go.ke</p>
+                    </CardContent>
+                    </Card>
+                </div>
 
-        <div className="grid gap-8 lg:grid-cols-2 mb-8">
-            <Card className="animate-fade-in-up" style={{animationDelay: '400ms'}}>
-                <CardHeader>
-                    <CardTitle className="font-headline flex items-center gap-2"><PlusCircle className="text-primary"/>New Domains</CardTitle>
-                    <CardDescription>Domains registered recently</CardDescription>
-                </CardHeader>
-                <CardContent>
-                   <div className="grid grid-cols-2 text-center">
-                        <div className="p-4 border-r border-transparent">
-                            <p className="text-sm text-muted-foreground">Last 24 Hours</p>
-                            <p className="text-3xl font-bold">98</p>
+                <div className="grid gap-8 lg:grid-cols-2 mb-8">
+                    <Card className="animate-fade-in-up" style={{animationDelay: '400ms'}}>
+                        <CardHeader>
+                            <CardTitle className="font-headline flex items-center gap-2"><PlusCircle className="text-primary"/>New Domains</CardTitle>
+                            <CardDescription>Domains registered recently</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                        <div className="grid grid-cols-2 text-center">
+                                <div className="p-4 border-r border-transparent">
+                                    <p className="text-sm text-muted-foreground">Last 24 Hours</p>
+                                    <p className="text-3xl font-bold">98</p>
+                                </div>
+                                <div className="p-4">
+                                    <p className="text-sm text-muted-foreground">Last 30 Days</p>
+                                    <p className="text-3xl font-bold">4,275</p>
+                                </div>
                         </div>
-                         <div className="p-4">
-                            <p className="text-sm text-muted-foreground">Last 30 Days</p>
-                            <p className="text-3xl font-bold">4,275</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
+                        <CardHeader>
+                            <CardTitle className="font-headline flex items-center gap-2"><RefreshCw className="text-primary"/>Domain Renewals</CardTitle>
+                            <CardDescription>Domains renewed recently</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                        <div className="grid grid-cols-2 text-center">
+                                <div className="p-4 border-r border-transparent">
+                                    <p className="text-sm text-muted-foreground">Last 24 Hours</p>
+                                    <p className="text-3xl font-bold">118</p>
+                                </div>
+                                <div className="p-4">
+                                    <p className="text-sm text-muted-foreground">Last 30 Days</p>
+                                    <p className="text-3xl font-bold">4,785</p>
+                                </div>
                         </div>
-                   </div>
-                </CardContent>
-            </Card>
-            <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
-                <CardHeader>
-                    <CardTitle className="font-headline flex items-center gap-2"><RefreshCw className="text-primary"/>Domain Renewals</CardTitle>
-                    <CardDescription>Domains renewed recently</CardDescription>
-                </CardHeader>
-                <CardContent>
-                   <div className="grid grid-cols-2 text-center">
-                        <div className="p-4 border-r border-transparent">
-                            <p className="text-sm text-muted-foreground">Last 24 Hours</p>
-                            <p className="text-3xl font-bold">118</p>
-                        </div>
-                         <div className="p-4">
-                            <p className="text-sm text-muted-foreground">Last 30 Days</p>
-                            <p className="text-3xl font-bold">4,785</p>
-                        </div>
-                   </div>
-                </CardContent>
-            </Card>
-        </div>
+                        </CardContent>
+                    </Card>
+                </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
-            <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
-                <CardHeader>
-                <CardTitle className="font-headline">
-                    Generic Domain Distribution
-                </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ResponsiveContainer width="100%" height={300}>
-                         <PieChart>
-                            <Pie
-                                data={genericDomainData}
-                                cx="50%"
-                                cy="50%"
-                                outerRadius={100}
-                                innerRadius={60}
-                                fill="hsl(var(--primary))"
-                                dataKey="value"
-                                activeIndex={activeIndex ?? undefined}
-                                activeShape={renderActiveShape}
-                                onMouseEnter={onPieEnter}
-                                onMouseLeave={onPieLeave}
-                            >
-                                {genericDomainData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} 
-                                    className={cn(
-                                        "transition-opacity",
-                                        activeIndex !== null && activeIndex !== index ? "opacity-30" : "opacity-100"
-                                    )}
-                                />
-                                ))}
-                            </Pie>
-                            <Tooltip contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', color: 'hsl(var(--foreground))'}} formatter={(value, name) => [value.toLocaleString(), name]}/>
-                            <Legend wrapperStyle={{color: 'hsl(var(--foreground))'}} onMouseEnter={onLegendEnter} onMouseLeave={onLegendLeave} />
-                        </PieChart>
-                    </ResponsiveContainer>
-                </CardContent>
-            </Card>
-            <Card className="animate-fade-in-up" style={{animationDelay: '800ms'}}>
-                <CardHeader>
-                <CardTitle className="font-headline">
-                    Restricted Domain Distribution
-                </CardTitle>
-                </CardHeader>
-                <CardContent>
-                     <ResponsiveContainer width="100%" height={300}>
-                        <BarChart data={restrictedDomainData} layout="vertical" margin={{ left: 10, right: 30}}>
-                        <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
-                        <YAxis type="category" dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
-                        <Tooltip cursor={{fill: 'hsl(var(--accent))', opacity: 0.5}} contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', color: 'hsl(var(--foreground))'}}/>
-                        <Bar dataKey="value" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} barSize={30}>
-                             {restrictedDomainData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                            ))}
-                        </Bar>
-                        </BarChart>
-                    </ResponsiveContainer>
-                </CardContent>
-            </Card>
-        </div>
+                <div className="grid gap-8 lg:grid-cols-2">
+                    <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
+                        <CardHeader>
+                        <CardTitle className="font-headline">
+                            Generic Domain Distribution
+                        </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <ResponsiveContainer width="100%" height={300}>
+                                <PieChart>
+                                    <Pie
+                                        data={genericDomainData}
+                                        cx="50%"
+                                        cy="50%"
+                                        outerRadius={100}
+                                        innerRadius={60}
+                                        fill="hsl(var(--primary))"
+                                        dataKey="value"
+                                        activeIndex={activeIndex ?? undefined}
+                                        activeShape={renderActiveShape}
+                                        onMouseEnter={onPieEnter}
+                                        onMouseLeave={onPieLeave}
+                                    >
+                                        {genericDomainData.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} 
+                                            className={cn(
+                                                "transition-opacity",
+                                                activeIndex !== null && activeIndex !== index ? "opacity-30" : "opacity-100"
+                                            )}
+                                        />
+                                        ))}
+                                    </Pie>
+                                    <Tooltip contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', color: 'hsl(var(--foreground))'}} formatter={(value, name) => [value.toLocaleString(), name]}/>
+                                    <Legend wrapperStyle={{color: 'hsl(var(--foreground))'}} onMouseEnter={onLegendEnter} onMouseLeave={onLegendLeave} />
+                                </PieChart>
+                            </ResponsiveContainer>
+                        </CardContent>
+                    </Card>
+                    <Card className="animate-fade-in-up" style={{animationDelay: '800ms'}}>
+                        <CardHeader>
+                        <CardTitle className="font-headline">
+                            Restricted Domain Distribution
+                        </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <ResponsiveContainer width="100%" height={300}>
+                                <BarChart data={restrictedDomainData} layout="vertical" margin={{ left: 10, right: 30}}>
+                                <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
+                                <YAxis type="category" dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
+                                <Tooltip cursor={{fill: 'hsl(var(--accent))', opacity: 0.5}} contentStyle={{backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', color: 'hsl(var(--foreground))'}}/>
+                                <Bar dataKey="value" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} barSize={30}>
+                                    {restrictedDomainData.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                    ))}
+                                </Bar>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
         </div>
     </div>
   );
