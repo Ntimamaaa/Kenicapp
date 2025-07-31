@@ -182,6 +182,11 @@ export default function LicensedRegistrarsPage() {
                         className="pl-10 text-base h-12 bg-white/20 border-white/30 placeholder:text-white/70 focus:ring-primary"
                     />
                     </div>
+                    <Button asChild variant="link" className="mt-4 text-white">
+                        <Link href="/whois">
+                            Or check domain availability
+                        </Link>
+                    </Button>
                 </div>
             </div>
         </div>
@@ -231,3 +236,5 @@ export default function LicensedRegistrarsPage() {
     </div>
   );
 }
+
+    
