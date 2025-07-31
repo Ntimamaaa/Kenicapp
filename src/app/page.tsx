@@ -330,7 +330,7 @@ export default function Home() {
                             key={feature.title}
                             href={feature.href}
                             className={cn(
-                                "group relative flex h-48 flex-col justify-between border-b border-r p-6 overflow-hidden transition-colors",
+                                "group relative flex h-64 flex-col justify-between border-b border-r p-6 overflow-hidden transition-colors",
                                 feature.disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"
                             )}
                         >
