@@ -7,11 +7,12 @@ import { PartnersMarquee } from '@/components/partners-marquee';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles, FileText } from 'lucide-react';
+import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles, FileText, Divide } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { PageAnchorNav } from '@/components/layout/page-anchor-nav';
 
 export default function Home() {
   const extensions = [
@@ -83,8 +84,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
+      <PageAnchorNav />
       <main className="flex-1">
-        <section className="relative w-full h-screen flex items-center justify-center text-center text-white overflow-hidden -mt-[4rem]">
+        <section id="hero" className="relative w-full h-screen flex items-center justify-center text-center text-white overflow-hidden -mt-[4rem]">
           <div className="absolute top-0 left-0 w-full h-full z-[-2]">
             <video
               src="/videos/globevideo.mp4"
@@ -207,38 +209,27 @@ export default function Home() {
                     A vibrant and growing digital landscape for Kenya.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl stats-cards-container">
-                    <div ref={el => cardsRef.current[0] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
-                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-base font-medium text-muted-foreground">.KE Domains</CardTitle>
-                            <Globe className="h-6 w-6 text-primary" />
-                        </CardHeader>
-                        <CardContent className="p-0 pt-2">
-                            <div className="text-4xl font-bold">110,000+</div>
-                            <p className="text-xs text-muted-foreground">registered globally</p>
-                        </CardContent>
-                    </div>
-                     <div ref={el => cardsRef.current[1] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
-                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-base font-medium text-muted-foreground">Top Level Domains</CardTitle>
-                            <FileText className="h-6 w-6 text-primary" />
-                        </CardHeader>
-                        <CardContent className="p-0 pt-2">
-                            <div className="text-4xl font-bold">10+</div>
-                            <p className="text-xs text-muted-foreground">extensions available</p>
-                        </CardContent>
-                    </div>
-                     <div ref={el => cardsRef.current[2] = el} className="stat-card relative rounded-lg border border-transparent bg-background p-8 shadow-lg">
-                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-0">
-                            <CardTitle className="text-base font-medium text-muted-foreground">Registrars</CardTitle>
-                            <Users className="h-6 w-6 text-primary" />
-                        </CardHeader>
-                        <CardContent className="p-0 pt-2">
-                            <div className="text-4xl font-bold">500+</div>
-                            <p className="text-xs text-muted-foreground">accredited partners</p>
-                        </CardContent>
-                    </div>
-                </div>
+                <Card className="w-full max-w-5xl">
+                    <CardContent className="p-8 grid grid-cols-1 sm:grid-cols-3 gap-8 items-center">
+                        <div className="flex flex-col items-center gap-2">
+                            <Globe className="h-10 w-10 text-primary mb-2" />
+                            <p className="text-4xl font-bold text-foreground">110,000+</p>
+                            <p className="text-sm text-muted-foreground">Registered Domains</p>
+                        </div>
+                        <div className="hidden sm:block h-24 w-px bg-border" />
+                        <div className="flex flex-col items-center gap-2">
+                            <FileText className="h-10 w-10 text-primary mb-2" />
+                            <p className="text-4xl font-bold text-foreground">10+</p>
+                            <p className="text-sm text-muted-foreground">Top Level Domains</p>
+                        </div>
+                         <div className="hidden sm:block h-24 w-px bg-border" />
+                        <div className="flex flex-col items-center gap-2">
+                            <Users className="h-10 w-10 text-primary mb-2" />
+                            <p className="text-4xl font-bold text-foreground">500+</p>
+                            <p className="text-sm text-muted-foreground">Accredited Registrars</p>
+                        </div>
+                    </CardContent>
+                </Card>
                  <Link href="/domains/stats?from=home">
                   <Button size="lg" variant="outline" className="flex items-center gap-2">
                       <ChartNoAxesColumnIncreasing className="h-5 w-5"/>
@@ -337,7 +328,7 @@ export default function Home() {
                   <CardTitle className="font-headline text-xl"> One-Click Branding Kit </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                   <div className="text-muted-foreground"> Instantly generate a logo, brand colors, and social media handle ideas right after you register your new domain. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </div>
+                   <div className="text-muted-foreground"> Instantly generate a logo, brand colors, and social media handle ideas right after you register your new domain. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> d  </div>
                 </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
@@ -388,7 +379,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section ref={(el) => (animatedSectionsRef.current[6] = el)} className="w-full py-20 md:py-28 lg:py-32 bg-primary text-primary-foreground animated-section">
+        <section id="cta" ref={(el) => (animatedSectionsRef.current[6] = el)} className="w-full py-20 md:py-28 lg:py-32 bg-primary text-primary-foreground animated-section">
             <div className="container mx-auto px-4 md:px-6 text-center">
               <div className="mx-auto max-w-3xl space-y-6">
                 <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
