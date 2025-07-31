@@ -359,7 +359,7 @@ export default function Home() {
                 find the perfect, available domain for you.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-4xl">
+            <div className="mx-auto w-full max-w-5xl">
               <DomainSuggester />
             </div>
           </div>

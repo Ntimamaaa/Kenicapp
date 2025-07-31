@@ -107,7 +107,7 @@ function WhoisPageContent() {
         <section className="relative w-full h-[60vh] flex items-center justify-center text-center text-white overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-full z-[-2]">
                 <video
-                    src="/videos/connection.mp4"
+                    src="/videos/globe3.mp4"
                     className="w-full h-full object-cover"
                     autoPlay
                     loop

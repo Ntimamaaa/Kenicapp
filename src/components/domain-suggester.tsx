@@ -84,13 +84,10 @@ export function DomainSuggester() {
           </form>
         </div>
         <div className="relative h-64 md:h-full w-full order-1 md:order-2">
-            <Image 
-                src="https://placehold.co/400x400.png"
-                alt="AI Suggester"
-                layout="fill"
-                objectFit="cover"
-                data-ai-hint="robot future"
-            />
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/videos/aiicon.mp4" // Replace with your video URL
+            autoPlay loop muted playsInline></video>
         </div>
       </div>
       {state.suggestions && state.suggestions.length > 0 && (
