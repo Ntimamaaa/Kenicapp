@@ -27,71 +27,60 @@ function WhoisPageContent() {
   const [domain, setDomain] = useState("");
   const [estimatedValue, setEstimatedValue] = useState(0);
   const [valueReasons, setValueReasons] = useState<string[]>([]);
-  const [showEstimator, setShowEstimator] = useState(false);
+  const [hasInput, setHasInput] = useState(false);
+
 
   const estimateDomainValue = (name: string) => {
+    setHasInput(name.length > 0);
     if (name.length < 3) {
-      setShowEstimator(false);
       setEstimatedValue(0);
       setValueReasons([]);
       return;
     }
     
-    setShowEstimator(true);
-    let score = 0;
+    let score = 1500; // Base value in KES
     const reasons: string[] = [];
 
     // Length
     if (name.length <= 5) {
-      score += 30;
+      score += 3000;
       reasons.push("Short length (5 chars or less)");
     } else if (name.length <= 8) {
-      score += 15;
+      score += 1500;
       reasons.push("Concise length (6-8 chars)");
     }
 
     // Extension
-    if (name.endsWith('.ke')) {
-        score += 10;
-        reasons.push("Broad .ke extension");
-    }
-    if (name.endsWith('.co.ke')) {
-      score += 20;
+     if (name.endsWith('.co.ke')) {
+      score += 2000;
       reasons.push("Popular .co.ke extension");
-    }
-    if (name.endsWith('.go.ke') || name.endsWith('.ac.ke')) {
-        score += 5;
-        reasons.push("Official/Academic extension");
-    }
-     if (name.endsWith('.or.ke')) {
-        score += 15;
+    } else if (name.endsWith('.ke')) {
+        score += 1000;
+        reasons.push("Broad .ke extension");
+    } else if (name.endsWith('.or.ke')) {
+        score += 1500;
         reasons.push("Common .or.ke extension");
+    } else if (name.endsWith('.go.ke') || name.endsWith('.ac.ke')) {
+        score += 500;
+        reasons.push("Official/Academic extension");
     }
 
     // Keywords
     const premiumKeywords = ["shop", "market", "tech", "pay", "cash", "bank", "credit", "art", "news", "kenya"];
     const containsPremium = premiumKeywords.some(kw => name.includes(kw));
     if (containsPremium) {
-      score += 25;
+      score += 2500;
       reasons.push("Contains a premium keyword");
     }
 
-    // Hyphens
-    if (name.includes('-')) {
-        score -= 10;
-    } else {
-        reasons.push("No hyphens");
-    }
+    // Hyphens & Numbers
+    if (name.includes('-')) score -= 1000;
+    else reasons.push("No hyphens");
     
-    // Numbers
-    if (/\d/.test(name)) {
-        score -= 5;
-    } else {
-        reasons.push("No numbers");
-    }
+    if (/\d/.test(name)) score -= 500;
+    else reasons.push("No numbers");
 
-    score = Math.max(0, Math.min(100, score));
-    setEstimatedValue(score);
+    setEstimatedValue(Math.max(1000, score));
     setValueReasons(reasons);
   };
 
@@ -100,7 +89,6 @@ function WhoisPageContent() {
     if (domainQuery) {
       setDomain(domainQuery);
       setIsLoading(true);
-      setShowEstimator(false);
       // Simulate API call for checking domain availability
       const timer = setTimeout(() => {
         setIsAvailable(Math.random() > 0.5); // Randomly available or not
@@ -114,12 +102,6 @@ function WhoisPageContent() {
 
   const fromDeleted = searchParams.get("from") === 'deleted-domains';
   
-  const valueColor = useMemo(() => {
-    if (estimatedValue > 70) return "text-green-500";
-    if (estimatedValue > 40) return "text-yellow-500";
-    return "text-red-500";
-  }, [estimatedValue]);
-
   return (
     <div className="flex-1">
         <section className="relative w-full h-[60vh] flex items-center justify-center text-center text-white overflow-hidden">
@@ -157,7 +139,7 @@ function WhoisPageContent() {
                     Go Back to Home
                   </Link>
                 </Button>
-                {showEstimator && !domainQuery && (
+                {!domainQuery && (
                     <Card className="mb-8">
                         <CardHeader>
                             <CardTitle className="font-headline flex items-center gap-2">
@@ -169,18 +151,28 @@ function WhoisPageContent() {
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                           <Progress value={estimatedValue} />
-                           <p className="text-right font-bold text-lg">
-                                Potential Value: <span className={valueColor}>{estimatedValue}%</span>
-                           </p>
-                           <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted-foreground">
-                            {valueReasons.map(reason => (
-                                <div key={reason} className="flex items-center gap-2">
-                                    <Check className="h-4 w-4 text-green-500" />
-                                    <span>{reason}</span>
-                                </div>
-                            ))}
-                           </div>
+                           {!hasInput ? (
+                             <div className="text-center text-muted-foreground p-8">
+                                <p>Enter a domain to estimate its value.</p>
+                             </div>
+                           ) : (
+                            <>
+                               <div className="text-center">
+                                    <p className="text-muted-foreground">Approximate Value</p>
+                                    <p className="font-bold text-3xl text-primary">
+                                        KES {estimatedValue.toLocaleString()}
+                                    </p>
+                               </div>
+                               <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted-foreground pt-4 border-t">
+                                {valueReasons.map(reason => (
+                                    <div key={reason} className="flex items-center gap-2">
+                                        <Check className="h-4 w-4 text-green-500" />
+                                        <span>{reason}</span>
+                                    </div>
+                                ))}
+                               </div>
+                            </>
+                           )}
                         </CardContent>
                     </Card>
                 )}
@@ -230,11 +222,6 @@ function WhoisPageContent() {
                         </Card>
                     </>
                 )}
-                 {!domainQuery && !showEstimator && (
-                     <div className="text-center text-muted-foreground p-8">
-                        <p>Enter a domain name above to check its availability.</p>
-                    </div>
-                 )}
             </div>
         </div>
     </div>
@@ -249,5 +236,3 @@ export default function WhoisPage() {
     </Suspense>
   );
 }
-
-    
