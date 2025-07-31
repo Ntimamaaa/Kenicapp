@@ -7,7 +7,7 @@ import { PartnersMarquee } from '@/components/partners-marquee';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles, FileText, Divide } from 'lucide-react';
+import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles, FileText, Divide, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -201,35 +201,74 @@ export default function Home() {
         <section id="stats-section-interactive" ref={(el) => (animatedSectionsRef.current[2] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground relative overflow-hidden animated-section">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center justify-center space-y-12 text-center">
-                <div className="space-y-2">
-                    <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-foreground">
-                    .KE Domain Statistics
-                    </h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    A vibrant and growing digital landscape for Kenya.
-                    </p>
-                </div>
-                <Card className="w-full max-w-5xl">
-                    <CardContent className="p-8 grid grid-cols-1 sm:grid-cols-3 gap-8 items-center">
-                        <div className="flex flex-col items-center gap-2">
-                            <Globe className="h-10 w-10 text-primary mb-2" />
-                            <p className="text-4xl font-bold text-foreground">110,000+</p>
-                            <p className="text-sm text-muted-foreground">Registered Domains</p>
-                        </div>
-                        <div className="hidden sm:block h-24 w-px bg-border" />
-                        <div className="flex flex-col items-center gap-2">
-                            <FileText className="h-10 w-10 text-primary mb-2" />
-                            <p className="text-4xl font-bold text-foreground">10+</p>
-                            <p className="text-sm text-muted-foreground">Top Level Domains</p>
-                        </div>
-                         <div className="hidden sm:block h-24 w-px bg-border" />
-                        <div className="flex flex-col items-center gap-2">
-                            <Users className="h-10 w-10 text-primary mb-2" />
-                            <p className="text-4xl font-bold text-foreground">500+</p>
-                            <p className="text-sm text-muted-foreground">Accredited Registrars</p>
-                        </div>
-                    </CardContent>
-                </Card>
+                    <div className="space-y-4">
+                        <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl flex items-center justify-center gap-3 text-foreground">
+                            <TrendingUp className="text-primary"/> Powering Kenya's Digital Identity
+                        </h2>
+                        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                        A vibrant and growing digital landscape for Kenya.
+                        </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+                        <Card className="relative overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                             <div className="absolute -bottom-16 -right-16">
+                                <Globe className="w-48 h-48 text-primary/5 opacity-50 group-hover:text-primary/10 transition-colors duration-500 rotate-12"/>
+                            </div>
+                            <CardHeader>
+                                <div className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 inline-block mb-4">
+                                     <Globe className="h-8 w-8 text-white" />
+                                </div>
+                                <CardTitle className="text-4xl font-bold text-foreground">110,000+</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">Registered Domains</p>
+                            </CardContent>
+                            <CardFooter>
+                                <Button variant="link" asChild><Link href="/domains/value-prop">Learn More</Link></Button>
+                            </CardFooter>
+                        </Card>
+
+                         <Card className="relative overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-50/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                             <div className="absolute -bottom-16 -right-16">
+                                <FileText className="w-48 h-48 text-primary/5 opacity-50 group-hover:text-primary/10 transition-colors duration-500 rotate-12"/>
+                            </div>
+                            <CardHeader>
+                                <div className="p-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-400 inline-block mb-4">
+                                     <FileText className="h-8 w-8 text-white" />
+                                </div>
+                                <CardTitle className="text-4xl font-bold text-foreground">10+</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">Top Level Domains</p>
+                            </CardContent>
+                            <CardFooter>
+                                <Button variant="link" asChild><Link href="#extensions">View TLDs</Link></Button>
+                            </CardFooter>
+                        </Card>
+
+                        <Card className="relative overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-50/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                            <div className="absolute -bottom-16 -right-16">
+                                <Users className="w-48 h-48 text-primary/5 opacity-50 group-hover:text-primary/10 transition-colors duration-500 rotate-12"/>
+                            </div>
+                            <CardHeader>
+                                <div className="p-3 rounded-full bg-gradient-to-r from-green-500 to-teal-400 inline-block mb-4">
+                                     <Users className="h-8 w-8 text-white" />
+                                </div>
+                                <CardTitle className="text-4xl font-bold text-foreground">500+</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">Accredited Registrars</p>
+                            </CardContent>
+                            <CardFooter>
+                                <Button variant="link" asChild><Link href="/registrars/licensed">Find a Registrar</Link></Button>
+                            </CardFooter>
+                        </Card>
+                    </div>
+                
                  <Link href="/domains/stats?from=home">
                   <Button size="lg" variant="outline" className="flex items-center gap-2">
                       <ChartNoAxesColumnIncreasing className="h-5 w-5"/>
@@ -359,7 +398,7 @@ export default function Home() {
                 find the perfect, available domain for you.
               </p>
             </div>
-            <div className="w-full">
+            <div className="mx-auto w-full max-w-5xl">
               <DomainSuggester />
             </div>
           </div>
