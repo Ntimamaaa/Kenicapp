@@ -62,8 +62,8 @@ const navItems = [
   { title: 'Careers', href: '/careers' },
 ];
 
-const Logo = () => (
-  <Link href="/" className="flex items-center gap-2 text-white" prefetch={false}>
+const Logo = ({ scrolled }: { scrolled: boolean }) => (
+  <Link href="/" className={cn("flex items-center gap-2", scrolled ? "text-foreground dark:text-white" : "text-white")} prefetch={false}>
     <Globe className="h-7 w-7" />
     <span className="font-headline text-xl font-bold tracking-tight">
       KeNIC
@@ -75,14 +75,20 @@ const Logo = () => (
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const pathname = usePathname();
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (pathname === '/') {
+        setScrolled(window.scrollY > window.innerHeight * 0.8);
+      } else {
+        setScrolled(window.scrollY > 50);
+      }
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial render
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
 
 
   return (
@@ -92,14 +98,14 @@ export function Header() {
     )}>
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-6">
-            <Logo />
+            <Logo scrolled={scrolled}/>
             <NavigationMenu className="hidden lg:flex">
               <NavigationMenuList>
                 {navItems.map((item) => (
                   <NavigationMenuItem key={item.title}>
                     {item.subItems ? (
                       <>
-                        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className={cn(scrolled ? "text-foreground" : "text-white")}>{item.title}</NavigationMenuTrigger>
                         <NavigationMenuContent>
                           <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                             {item.subItems.map((component) => (
@@ -116,7 +122,7 @@ export function Header() {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                      <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), scrolled ? "text-foreground" : "text-white")}>
                         <Link href={item.href!}>
                           {item.title}
                         </Link>
@@ -130,18 +136,18 @@ export function Header() {
 
         <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" className="hidden sm:inline-flex text-white">Log In</Button>
+            <Button variant="ghost" className={cn("hidden sm:inline-flex", scrolled ? "text-foreground" : "text-white")}>Log In</Button>
             <Button className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90">Register</Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="lg:hidden">
+                <Button variant="outline" size="icon" className={cn("lg:hidden", scrolled ? "text-foreground" : "text-white")}>
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="flex flex-col">
                 <div className="py-6">
-                    <Logo />
+                    <Logo scrolled={true} />
                 </div>
                 <ScrollArea className="flex-1">
                     <div className="flex flex-col space-y-2 pr-6">
