@@ -83,7 +83,7 @@ export function DomainSuggester() {
             </CardContent>
           </form>
         </div>
-        <div className="relative h-[48rem] w-full order-1 md:order-2">
+        <div className="relative h-[36rem] w-full order-1 md:order-2">
           <video
             className="absolute inset-0 h-full w-full object-cover"
             src="/videos/aiicon.mp4" // Replace with your video URL
