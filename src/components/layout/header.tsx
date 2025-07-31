@@ -63,7 +63,7 @@ const navItems = [
 ];
 
 const Logo = ({ scrolled }: { scrolled: boolean }) => (
-  <Link href="/" className={cn("flex items-center gap-2", scrolled ? "text-foreground dark:text-white" : "text-white")} prefetch={false}>
+  <Link href="/" className={cn("flex items-center gap-2", scrolled ? "text-foreground" : "text-white")} prefetch={false}>
     <Globe className="h-7 w-7" />
     <span className="font-headline text-xl font-bold tracking-tight">
       KeNIC
@@ -105,7 +105,7 @@ export function Header() {
                   <NavigationMenuItem key={item.title}>
                     {item.subItems ? (
                       <>
-                        <NavigationMenuTrigger className={cn(scrolled ? "text-foreground" : "text-white")}>{item.title}</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className={cn(scrolled ? "text-foreground" : "text-foreground dark:text-white")}>{item.title}</NavigationMenuTrigger>
                         <NavigationMenuContent>
                           <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                             {item.subItems.map((component) => (
@@ -122,7 +122,7 @@ export function Header() {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), scrolled ? "text-foreground" : "text-white")}>
+                      <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), scrolled ? "text-foreground" : "text-foreground dark:text-white")}>
                         <Link href={item.href!}>
                           {item.title}
                         </Link>
