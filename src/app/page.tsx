@@ -320,9 +320,13 @@ export default function Home() {
                   <CardTitle className="font-headline text-xl"> Domain Valuation Tool </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <div className="text-muted-foreground"> Estimate the market value of any domain based on length, keywords, TLD, and current trends. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </div>
+                  <p className="text-muted-foreground"> Estimate the market value of any domain based on length, keywords, TLD, and current trends. </p>
                 </CardContent>
-                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
+                 <CardFooter>
+                    <Link href="/whois" className="w-full">
+                        <Button className="w-full" variant="outline">Learn More</Button>
+                    </Link>
+                 </CardFooter>
               </Card>
               <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
