@@ -28,9 +28,6 @@ export default function Home() {
 
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const animatedSectionsRef = useRef<(HTMLElement | null)[]>([]);
-  const lastScrollY = useRef(0);
-  const scrollDirection = useRef<'up' | 'down'>('down');
-
 
   useEffect(() => {
     const handleMouseMove = (event: PointerEvent) => {
@@ -44,34 +41,17 @@ export default function Home() {
         }
       });
     };
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY.current) {
-        scrollDirection.current = 'down';
-      } else {
-        scrollDirection.current = 'up';
-      }
-      lastScrollY.current = currentScrollY;
-    };
     
     const statsSection = document.getElementById('stats-section-interactive');
     if (statsSection) {
       statsSection.addEventListener('pointermove', handleMouseMove);
     }
-    window.addEventListener('scroll', handleScroll, { passive: true });
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (scrollDirection.current === 'down') {
-                entry.target.classList.add('is-visible');
-            }
-          } else {
-             if (scrollDirection.current === 'down') {
-                entry.target.classList.remove('is-visible');
-             }
+            entry.target.classList.add('is-visible');
           }
         });
       },
@@ -90,7 +70,6 @@ export default function Home() {
       if (statsSection) {
         statsSection.removeEventListener('pointermove', handleMouseMove);
       }
-      window.removeEventListener('scroll', handleScroll);
        animatedSectionsRef.current.forEach((section) => {
         if (section) {
           observer.unobserve(section);
@@ -412,11 +391,11 @@ export default function Home() {
                   Your new .KE domain is just a few clicks away. Find it, register
                   it, and start building your online presence today.
                 </p>
-                <Link href="/registrars/licensed" className="inline-block mt-4">
+                <Link href="/registrars/licensed">
                   <Button
                     size="lg"
                     variant="secondary"
-                    className="h-12 px-8 text-base font-semibold hover:bg-accent hover:text-accent-foreground"
+                    className="h-12 px-8 text-base font-semibold hover:bg-accent hover:text-accent-foreground mt-4"
                   >
                     View Licensed Registrars
                   </Button>
