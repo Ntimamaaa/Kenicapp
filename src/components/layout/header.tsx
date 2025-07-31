@@ -63,7 +63,7 @@ const navItems = [
 ];
 
 const Logo = () => (
-  <Link href="/" className="flex items-center gap-2 text-foreground" prefetch={false}>
+  <Link href="/" className="flex items-center gap-2 text-white" prefetch={false}>
     <Globe className="h-7 w-7" />
     <span className="font-headline text-xl font-bold tracking-tight">
       KeNIC
@@ -130,7 +130,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" className="hidden sm:inline-flex text-foreground">Log In</Button>
+            <Button variant="ghost" className="hidden sm:inline-flex text-white">Log In</Button>
             <Button className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90">Register</Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
