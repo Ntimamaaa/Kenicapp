@@ -53,7 +53,7 @@ export default function Home() {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
           } else {
-            entry.target.classList.remove('is-visible');
+             entry.target.classList.remove('is-visible');
           }
         });
       },
@@ -367,7 +367,7 @@ export default function Home() {
                 find the perfect, available domain for you.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-2xl">
+            <div className="mx-auto w-full max-w-4xl">
               <DomainSuggester />
             </div>
           </div>
