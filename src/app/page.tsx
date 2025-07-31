@@ -28,7 +28,6 @@ export default function Home() {
 
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const animatedSectionsRef = useRef<(HTMLElement | null)[]>([]);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (event: PointerEvent) => {
@@ -48,45 +47,22 @@ export default function Home() {
       statsSection.addEventListener('pointermove', handleMouseMove);
     }
     
-    const handleScroll = () => {
-      setLastScrollY(window.scrollY);
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const currentScrollY = window.scrollY;
-          const isScrollingDown = currentScrollY > lastScrollY;
-
           if (entry.isIntersecting) {
-            if (isScrollingDown) {
-              entry.target.classList.add('animate-in-up');
-              entry.target.classList.remove('prepare-down', 'animate-in-down');
-            } else {
-              entry.target.classList.add('animate-in-down');
-              entry.target.classList.remove('prepare-up', 'animate-in-up');
-            }
-          } else {
-             if (isScrollingDown) {
-              entry.target.classList.add('prepare-down');
-              entry.target.classList.remove('animate-in-up', 'prepare-up', 'animate-in-down');
-            } else {
-              entry.target.classList.add('prepare-up');
-               entry.target.classList.remove('animate-in-down', 'prepare-down', 'animate-in-up');
-            }
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.2,
+        threshold: 0.1,
       }
     );
 
     animatedSectionsRef.current.forEach((section) => {
       if (section) {
-        section.classList.add('prepare-up');
         observer.observe(section);
       }
     });
@@ -95,14 +71,13 @@ export default function Home() {
       if (statsSection) {
         statsSection.removeEventListener('pointermove', handleMouseMove);
       }
-      window.removeEventListener('scroll', handleScroll);
        animatedSectionsRef.current.forEach((section) => {
         if (section) {
           observer.unobserve(section);
         }
       });
     };
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -139,7 +114,7 @@ export default function Home() {
 
         <section id="how-to-register" ref={(el) => (animatedSectionsRef.current[0] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section">
           <div className="container mx-auto max-w-5xl px-4 md:px-6">
-            <div className="space-y-4 text-center mb-12 animate-child">
+            <div className="space-y-4 text-center mb-12">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                 How to Register Your .KE Domain
               </h2>
@@ -151,7 +126,7 @@ export default function Home() {
             <div className="relative grid gap-12 md:grid-cols-3 md:gap-8">
                 <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 hidden md:block" />
                 <div className="absolute top-0 left-1/2 w-0.5 h-full bg-border -translate-x-1/2 md:hidden" />
-              <div className="relative flex flex-col items-center text-center child-card" style={{ animationDelay: '400ms' }}>
+              <div className="relative flex flex-col items-center text-center" style={{ animationDelay: '400ms' }}>
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Search className="h-8 w-8" />
                 </div>
@@ -164,7 +139,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="relative flex flex-col items-center text-center child-card" style={{ animationDelay: '600ms' }}>
+              <div className="relative flex flex-col items-center text-center" style={{ animationDelay: '600ms' }}>
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Users className="h-8 w-8" />
                 </div>
@@ -177,7 +152,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="relative flex flex-col items-center text-center child-card" style={{ animationDelay: '800ms' }}>
+              <div className="relative flex flex-col items-center text-center" style={{ animationDelay: '800ms' }}>
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Rocket className="h-8 w-8" />
                 </div>
@@ -195,7 +170,7 @@ export default function Home() {
 
         <section id="extensions" ref={(el) => (animatedSectionsRef.current[1] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-8 text-center animate-child">
+            <div className="flex flex-col items-center justify-center space-y-8 text-center">
               <div className="space-y-2">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                   Explore Our Domain Extensions
@@ -221,7 +196,7 @@ export default function Home() {
 
         <section id="stats-section-interactive" ref={(el) => (animatedSectionsRef.current[2] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground relative overflow-hidden animated-section">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="flex flex-col items-center justify-center space-y-12 text-center animate-child">
+                <div className="flex flex-col items-center justify-center space-y-12 text-center">
                 <div className="space-y-2">
                     <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl text-foreground">
                     .KE Domain Statistics
@@ -279,7 +254,7 @@ export default function Home() {
           className="w-full py-12 md:py-24 lg:py-32 animated-section"
         >
           <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center animate-child">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
                   Key Features
@@ -294,7 +269,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-               <Card className="child-card flex flex-col group" style={{ animationDelay: '200ms' }}>
+               <Card className="flex flex-col group" style={{ animationDelay: '200ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Sparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -308,7 +283,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-              <Card className="child-card flex flex-col group" style={{ animationDelay: '300ms' }}>
+              <Card className="flex flex-col group" style={{ animationDelay: '300ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Search className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -322,7 +297,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-               <Card className="child-card flex flex-col group" style={{ animationDelay: '400ms' }}>
+               <Card className="flex flex-col group" style={{ animationDelay: '400ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Users className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -336,7 +311,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-              <Card className="child-card flex flex-col group" style={{ animationDelay: '500ms' }}>
+              <Card className="flex flex-col group" style={{ animationDelay: '500ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Star className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -348,7 +323,7 @@ export default function Home() {
                 </CardContent>
                  <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
-              <Card className="child-card flex flex-col group" style={{ animationDelay: '600ms' }}>
+              <Card className="flex flex-col group" style={{ animationDelay: '600ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <WandSparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -360,7 +335,7 @@ export default function Home() {
                 </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
-               <Card className="child-card flex flex-col group" style={{ animationDelay: '700ms' }}>
+               <Card className="flex flex-col group" style={{ animationDelay: '700ms' }}>
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <LayoutDashboard className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -378,7 +353,7 @@ export default function Home() {
 
         <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section">
           <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
-            <div className="space-y-3 animate-child">
+            <div className="space-y-3">
               <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
                 Unleash Creativity with our AI Domain Suggester
               </h2>
@@ -387,7 +362,7 @@ export default function Home() {
                 find the perfect, available domain for you.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-2xl animate-child">
+            <div className="mx-auto w-full max-w-2xl">
               <DomainSuggester />
             </div>
           </div>
@@ -395,7 +370,7 @@ export default function Home() {
 
         <section id="partners" ref={(el) => (animatedSectionsRef.current[5] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="flex flex-col items-center justify-center space-y-8 text-center animate-child">
+              <div className="flex flex-col items-center justify-center space-y-8 text-center">
                   <div className="space-y-2">
                       <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Our Partners &amp; Collaborators</h2>
                       <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -409,7 +384,7 @@ export default function Home() {
 
         <section ref={(el) => (animatedSectionsRef.current[6] = el)} className="w-full py-20 md:py-28 lg:py-32 bg-primary text-primary-foreground animated-section">
             <div className="container mx-auto px-4 md:px-6 text-center">
-              <div className="mx-auto max-w-3xl space-y-6 animate-child">
+              <div className="mx-auto max-w-3xl space-y-6">
                 <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
                   Ready to Get Started?
                 </h2>
