@@ -73,12 +73,14 @@ function WhoisPageContent() {
 
         <div className="bg-background">
             <div className="container mx-auto max-w-4xl py-12 px-4 md:px-6">
+                <Button asChild variant="outline" className="mb-8">
+                  <Link href="/">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Go Back to Home
+                  </Link>
+                </Button>
                  {domainQuery && (
                     <>
-                        <Button variant="outline" onClick={() => router.back()} className="mb-8">
-                            <ArrowLeft className="mr-2 h-4 w-4" />
-                            Go Back
-                        </Button>
                         <Card>
                         <CardHeader>
                             <CardTitle className="font-headline text-2xl">
@@ -123,18 +125,9 @@ function WhoisPageContent() {
                         </Card>
                     </>
                 )}
-                 {!domainQuery && !fromDeleted &&(
+                 {!domainQuery && (
                      <div className="text-center text-muted-foreground p-8">
                         <p>Enter a domain name above to check its availability.</p>
-                    </div>
-                 )}
-                 {fromDeleted && !domainQuery && (
-                     <div className="text-center text-muted-foreground p-8">
-                        <p>No domain specified. Go back to the deleted domains list to select one.</p>
-                         <Button variant="outline" onClick={() => router.back()} className="mt-4">
-                            <ArrowLeft className="mr-2 h-4 w-4" />
-                            Go Back
-                        </Button>
                     </div>
                  )}
             </div>
