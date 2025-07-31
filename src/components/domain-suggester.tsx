@@ -70,36 +70,38 @@ export function DomainSuggester() {
               Enter keywords to generate available .KE domain ideas.
             </CardDescription>
           </CardHeader>
-          <form action={formAction} className="space-y-4">
-            <Input
-              name="keywords"
-              id="keywords"
-              placeholder="e.g. kenyan coffee, nairobi tech"
-              className="text-base"
-              required
-            />
-            <SubmitButton />
-          </form>
+          <div className="flex flex-col flex-grow min-h-0">
+            <form action={formAction} className="space-y-4">
+              <Input
+                name="keywords"
+                id="keywords"
+                placeholder="e.g. kenyan coffee, nairobi tech"
+                className="text-base"
+                required
+              />
+              <SubmitButton />
+            </form>
 
-          {state.suggestions && state.suggestions.length > 0 && (
-            <div className="flex flex-col mt-6 flex-grow min-h-0">
-              <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
-              <ScrollArea className="flex-grow mt-2 pr-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                  {state.suggestions.map((domain) => (
-                    <Link
-                      key={domain}
-                      href={`/whois?domain=${domain}`}
-                      className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors"
-                    >
-                      <span className="font-medium truncate">{domain}</span>
-                      <Search className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    </Link>
-                  ))}
-                </div>
-              </ScrollArea>
-            </div>
-          )}
+            {state.suggestions && state.suggestions.length > 0 && (
+              <div className="flex flex-col mt-6 flex-grow min-h-0">
+                <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
+                <ScrollArea className="flex-grow mt-2 pr-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                    {state.suggestions.map((domain) => (
+                      <Link
+                        key={domain}
+                        href={`/whois?domain=${domain}`}
+                        className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors"
+                      >
+                        <span className="font-medium truncate">{domain}</span>
+                        <Search className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                      </Link>
+                    ))}
+                  </div>
+                </ScrollArea>
+              </div>
+            )}
+          </div>
         </div>
         <div className="relative h-[36rem] w-full order-1 md:order-2">
           <video
