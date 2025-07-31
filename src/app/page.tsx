@@ -15,14 +15,14 @@ import Image from 'next/image';
 import { PageAnchorNav } from '@/components/layout/page-anchor-nav';
 
 const features = [
-    { title: 'AI Suggestions', icon: Sparkles, href: '#ai-suggester' },
-    { title: 'Real-Time WHOIS', icon: Search, href: '/whois' },
-    { title: 'Registrar Comparison', icon: Users, href: '/registrars/licensed' },
-    { title: 'Domain Valuation Tool', icon: TrendingUp, href: '/whois' },
-    { title: 'One-Click Branding Kit', icon: WandSparkles, href: '#', disabled: true },
-    { title: 'Management Dashboard', icon: LayoutDashboard, href: '#', disabled: true },
-    { title: 'Deleted Domains', icon: FileText, href: '/domains/deleted' },
-    { title: 'Domain Statistics', icon: ChartNoAxesColumnIncreasing, href: '/domains/stats' },
+    { title: 'AI Suggestions', description: 'Get creative, available domain names based on your keywords.', icon: Sparkles, href: '#ai-suggester' },
+    { title: 'Real-Time WHOIS', description: 'Check domain availability instantly with our live search tool.', icon: Search, href: '/whois' },
+    { title: 'Registrar Comparison', description: 'Find the perfect accredited registrar to fit your needs.', icon: Users, href: '/registrars/licensed' },
+    { title: 'Domain Valuation', description: 'Estimate the value of any .KE domain with our smart tool.', icon: TrendingUp, href: '/whois' },
+    { title: 'One-Click Branding', description: 'Generate a logo and branding kit for your new domain.', icon: WandSparkles, href: '#', disabled: true },
+    { title: 'Management Dashboard', description: 'Manage all your domain settings in one place.', icon: LayoutDashboard, href: '#', disabled: true },
+    { title: 'Deleted Domains', description: 'Browse and catch recently expired .KE domains.', icon: FileText, href: '/domains/deleted' },
+    { title: 'Domain Statistics', description: 'Explore live trends and data from the .KE namespace.', icon: ChartNoAxesColumnIncreasing, href: '/domains/stats' },
 ];
 
 export default function Home() {
@@ -323,23 +323,27 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-2 border-t border-l mt-12 md:grid-cols-4">
-                {features.map((feature, index) => {
+                {features.map((feature) => {
                     const Comp = feature.disabled ? 'div' : Link;
                     return (
                         <Comp
                             key={feature.title}
                             href={feature.href}
                             className={cn(
-                                "group relative flex h-48 flex-col justify-between border-b border-r p-6 transition-colors hover:bg-muted/50",
+                                "group relative flex h-48 flex-col justify-between border-b border-r p-6 overflow-hidden transition-colors",
                                 feature.disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"
                             )}
                         >
-                            <div>
-                                <feature.icon className="h-8 w-8 text-primary mb-4" />
-                                <h3 className="font-headline text-lg font-semibold">{feature.title}</h3>
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#7E42FC] to-[#8541FC] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"/>
+                            <div className="relative z-10">
+                                <feature.icon className="h-8 w-8 text-primary mb-4 transition-colors duration-300 group-hover:text-white" />
+                                <h3 className="font-headline text-lg font-semibold transition-colors duration-300 group-hover:text-white">{feature.title}</h3>
+                                <p className="text-sm text-muted-foreground mt-2 hidden transition-colors duration-300 group-hover:block group-hover:text-white/80">
+                                    {feature.description}
+                                </p>
                             </div>
-                            <div className="flex justify-end">
-                                <ArrowRight className="h-6 w-6 text-muted-foreground transition-transform group-hover:translate-x-1" />
+                            <div className="relative z-10 flex justify-end">
+                                <ArrowRight className="h-6 w-6 text-muted-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
                             </div>
                         </Comp>
                     );
