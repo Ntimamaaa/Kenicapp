@@ -128,9 +128,9 @@ export default function Home() {
             <div className="relative grid gap-12 md:grid-cols-3 md:gap-8">
                 <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 hidden md:block" />
                 <div className="absolute top-0 left-1/2 w-0.5 h-full bg-border -translate-x-1/2 md:hidden" />
-              <div className="relative flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
-                  <Search className="h-8 w-8" />
+              <div className="relative flex flex-col items-center text-center group">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background shadow-lg">
+                  <Search className="h-8 w-8 text-gradient hover-icon-effect" />
                 </div>
                 <h3 className="font-headline text-2xl font-bold mb-2">Step One</h3>
                 <p className="text-muted-foreground mb-4 flex-grow mt-4">
@@ -141,9 +141,9 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="relative flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
-                  <Users className="h-8 w-8" />
+              <div className="relative flex flex-col items-center text-center group">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background shadow-lg">
+                  <Users className="h-8 w-8 text-gradient hover-icon-effect" />
                 </div>
                 <h3 className="font-headline text-2xl font-bold mb-2">Step Two</h3>
                 <p className="text-muted-foreground mb-4 flex-grow mt-4">
@@ -154,9 +154,9 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="relative flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
-                  <Rocket className="h-8 w-8" />
+              <div className="relative flex flex-col items-center text-center group">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background shadow-lg">
+                  <Rocket className="h-8 w-8 text-gradient hover-icon-effect" />
                 </div>
                 <h3 className="font-headline text-2xl font-bold mb-2">Step Three</h3>
                 <p className="text-muted-foreground mb-4 flex-grow mt-4">
