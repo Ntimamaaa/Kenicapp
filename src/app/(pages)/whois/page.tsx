@@ -127,6 +127,11 @@ function WhoisPageContent() {
                     <div className="my-8 w-full max-w-2xl">
                         <DomainChecker onValueChange={estimateDomainValue} />
                     </div>
+                     <Button asChild variant="link" className="text-white">
+                        <Link href="/registrars/licensed">
+                            Or browse licensed registrars
+                        </Link>
+                    </Button>
                 </div>
             </div>
         </section>
