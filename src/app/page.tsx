@@ -117,56 +117,67 @@ export default function Home() {
         </section>
 
         <section id="how-to-register" ref={(el) => (animatedSectionsRef.current[0] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section">
-          <div className="container mx-auto max-w-5xl px-4 md:px-6">
-            <div className="space-y-4 text-center mb-12">
+          <div className="container mx-auto max-w-6xl px-4 md:px-6">
+            <div className="space-y-4 text-center mb-16">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                 How to Register Your .KE Domain
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Follow these three simple steps to secure your online identity.
               </p>
             </div>
+            
+            <div className="relative">
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 hidden md:block" />
+              <div className="absolute top-0 left-1/2 w-0.5 h-full bg-border -translate-x-1/2 md:hidden" />
+              <div className="relative grid gap-12 md:grid-cols-3">
+                  <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <CardContent className="p-8 pt-0">
+                      <div className="flex flex-col items-center">
+                        <Badge className="bg-primary hover:bg-primary text-primary-foreground -translate-y-4 text-sm">Step 1</Badge>
+                        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+                          <Search className="h-10 w-10 text-primary" />
+                        </div>
+                        <h3 className="font-headline text-xl font-bold mb-2">Check Name</h3>
+                        <p className="text-muted-foreground mb-6 text-sm flex-grow min-h-[40px]">
+                          Use the search box to find out if your chosen domain name is available.
+                        </p>
+                        <Button variant="outline" asChild><Link href="/whois">Search Now</Link></Button>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-            <div className="relative grid gap-12 md:grid-cols-3 md:gap-8">
-                <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 hidden md:block" />
-                <div className="absolute top-0 left-1/2 w-0.5 h-full bg-border -translate-x-1/2 md:hidden" />
-              <div className="relative flex flex-col items-center text-center group">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background shadow-lg">
-                  <Search className="h-8 w-8 text-primary hover-icon-effect" />
-                </div>
-                <h3 className="font-headline text-2xl font-bold mb-2">Step One</h3>
-                <p className="text-muted-foreground mb-4 flex-grow mt-4">
-                  Use the search box to find out if your chosen domain name is available to buy.
-                </p>
-                <Link href="/whois">
-                  <Button variant="outline">Search Now</Button>
-                </Link>
-              </div>
+                  <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <CardContent className="p-8 pt-0">
+                      <div className="flex flex-col items-center">
+                        <Badge className="bg-primary hover:bg-primary text-primary-foreground -translate-y-4 text-sm">Step 2</Badge>
+                        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+                          <Users className="h-10 w-10 text-primary" />
+                        </div>
+                        <h3 className="font-headline text-xl font-bold mb-2">Choose Registrar</h3>
+                        <p className="text-muted-foreground mb-6 text-sm flex-grow min-h-[40px]">
+                          Register your domain with one of our accredited registrars.
+                        </p>
+                        <Button variant="outline" asChild><Link href="/registrars/licensed">View Registrars</Link></Button>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-              <div className="relative flex flex-col items-center text-center group">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background shadow-lg">
-                  <Users className="h-8 w-8 text-primary hover-icon-effect" />
-                </div>
-                <h3 className="font-headline text-2xl font-bold mb-2">Step Two</h3>
-                <p className="text-muted-foreground mb-4 flex-grow mt-4">
-                  Register your domain name with one of our accredited registrars.
-                </p>
-                 <Link href="/registrars/licensed">
-                    <Button variant="outline">View Registrars</Button>
-                </Link>
-              </div>
-
-              <div className="relative flex flex-col items-center text-center group">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background shadow-lg">
-                  <Rocket className="h-8 w-8 text-primary hover-icon-effect" />
-                </div>
-                <h3 className="font-headline text-2xl font-bold mb-2">Step Three</h3>
-                <p className="text-muted-foreground mb-4 flex-grow mt-4">
-                  Buy your domain to get started and build your online presence.
-                </p>
-                <Link href="/registrars/licensed">
-                  <Button variant="outline">Get Started</Button>
-                </Link>
+                  <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                     <CardContent className="p-8 pt-0">
+                      <div className="flex flex-col items-center">
+                        <Badge className="bg-primary hover:bg-primary text-primary-foreground -translate-y-4 text-sm">Step 3</Badge>
+                        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+                          <Rocket className="h-10 w-10 text-primary" />
+                        </div>
+                        <h3 className="font-headline text-xl font-bold mb-2">Buy & Go Live</h3>
+                        <p className="text-muted-foreground mb-6 text-sm flex-grow min-h-[40px]">
+                           Launch your brand, secure your domain, and go live today.
+                        </p>
+                        <Button variant="outline" asChild><Link href="/registrars/licensed">Get Started</Link></Button>
+                      </div>
+                    </CardContent>
+                  </Card>
               </div>
             </div>
           </div>
