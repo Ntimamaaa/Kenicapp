@@ -315,11 +315,13 @@ export default function Home() {
                <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
-                    <Sparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                    <Sparkles className="h-6 w-6 text-primary hover-icon-effect" />
                   </div>
                   <CardTitle className="font-headline text-xl"> AI Suggestions </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p> </CardContent>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground"> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p>
+                </CardContent>
                 <CardFooter>
                   <Link href="#ai-suggester" className="w-full">
                     <Button className="w-full" variant="outline">Try AI Suggester</Button>
@@ -329,11 +331,13 @@ export default function Home() {
               <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
-                    <Search className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                    <Search className="h-6 w-6 text-primary hover-icon-effect" />
                   </div>
                   <CardTitle className="font-headline text-xl"> Real-Time WHOIS </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p> </CardContent>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground"> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p>
+                </CardContent>
                 <CardFooter>
                    <Link href="/whois" className="w-full">
                     <Button className="w-full" variant="outline">Check a Domain</Button>
@@ -343,11 +347,13 @@ export default function Home() {
                <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
-                    <Users className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                    <Users className="h-6 w-6 text-primary hover-icon-effect" />
                   </div>
                   <CardTitle className="font-headline text-xl"> Registrar Comparison </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow"> <p> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p> </CardContent>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground"> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p>
+                </CardContent>
                  <CardFooter>
                   <Link href="/registrars/licensed" className="w-full">
                     <Button className="w-full" variant="outline">Find a Registrar</Button>
@@ -357,7 +363,7 @@ export default function Home() {
               <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
-                    <Star className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                    <TrendingUp className="h-6 w-6 text-primary hover-icon-effect" />
                   </div>
                   <CardTitle className="font-headline text-xl"> Domain Valuation Tool </CardTitle>
                 </CardHeader>
@@ -373,24 +379,24 @@ export default function Home() {
               <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
-                    <WandSparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                    <WandSparkles className="h-6 w-6 text-primary hover-icon-effect" />
                   </div>
                   <CardTitle className="font-headline text-xl"> One-Click Branding Kit </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                   <div className="text-muted-foreground"> Instantly generate a logo, brand colors, and social media handle ideas right after you register your new domain. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> d  </div>
+                   <p className="text-muted-foreground"> Instantly generate a logo, brand colors, and social media handle ideas right after you register your new domain. <Badge variant="secondary" className="ml-2">Coming Soon</Badge></p>
                 </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
                <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
-                    <LayoutDashboard className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                    <LayoutDashboard className="h-6 w-6 text-primary hover-icon-effect" />
                   </div>
                   <CardTitle className="font-headline text-xl"> Management Dashboard </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                   <div className="text-muted-foreground"> Track, renew, transfer, and manage all your domains from one simple and intuitive dashboard. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </div>
+                   <p className="text-muted-foreground"> Track, renew, transfer, and manage all your domains from one simple and intuitive dashboard. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </p>
                 </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
@@ -409,7 +415,7 @@ export default function Home() {
                 find the perfect, available domain for you.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-5xl">
+            <div className="w-full">
               <DomainSuggester />
             </div>
           </div>

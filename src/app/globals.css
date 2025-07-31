@@ -116,7 +116,7 @@ body {
   .hover-icon-effect {
       transition: transform 0.3s ease-in-out;
   }
-  .hover-icon-effect:hover {
-      transform: scale(1.1) rotate(-5deg);
+  .group:hover .hover-icon-effect {
+      transform: scale(1.1) rotate(-6deg);
   }
 }
