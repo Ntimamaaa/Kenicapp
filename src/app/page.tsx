@@ -11,6 +11,7 @@ import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, St
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 export default function Home() {
   const extensions = [
@@ -83,7 +84,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <main className="flex-1">
-        <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
+        <section className="relative w-full h-screen flex items-center justify-center text-center text-white overflow-hidden -mt-[4rem]">
           <div className="absolute top-0 left-0 w-full h-full z-[-2]">
             <video
               src="/videos/globevideo.mp4"
