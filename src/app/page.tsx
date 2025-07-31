@@ -28,6 +28,9 @@ export default function Home() {
 
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const animatedSectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const lastScrollY = useRef(0);
+  const scrollDirection = useRef<'up' | 'down'>('down');
+
 
   useEffect(() => {
     const handleMouseMove = (event: PointerEvent) => {
@@ -42,17 +45,31 @@ export default function Home() {
       });
     };
 
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current) {
+        scrollDirection.current = 'down';
+      } else {
+        scrollDirection.current = 'up';
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    
     const statsSection = document.getElementById('stats-section-interactive');
     if (statsSection) {
       statsSection.addEventListener('pointermove', handleMouseMove);
     }
-    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+            if (scrollDirection.current === 'down') {
+                entry.target.classList.add('is-visible');
+            }
+          } else {
+             entry.target.classList.remove('is-visible');
           }
         });
       },
@@ -71,6 +88,7 @@ export default function Home() {
       if (statsSection) {
         statsSection.removeEventListener('pointermove', handleMouseMove);
       }
+      window.removeEventListener('scroll', handleScroll);
        animatedSectionsRef.current.forEach((section) => {
         if (section) {
           observer.unobserve(section);
@@ -126,7 +144,7 @@ export default function Home() {
             <div className="relative grid gap-12 md:grid-cols-3 md:gap-8">
                 <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 hidden md:block" />
                 <div className="absolute top-0 left-1/2 w-0.5 h-full bg-border -translate-x-1/2 md:hidden" />
-              <div className="relative flex flex-col items-center text-center" style={{ animationDelay: '400ms' }}>
+              <div className="relative flex flex-col items-center text-center">
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Search className="h-8 w-8" />
                 </div>
@@ -139,7 +157,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="relative flex flex-col items-center text-center" style={{ animationDelay: '600ms' }}>
+              <div className="relative flex flex-col items-center text-center">
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Users className="h-8 w-8" />
                 </div>
@@ -152,7 +170,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="relative flex flex-col items-center text-center" style={{ animationDelay: '800ms' }}>
+              <div className="relative flex flex-col items-center text-center">
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background text-primary shadow-lg">
                   <Rocket className="h-8 w-8" />
                 </div>
@@ -269,7 +287,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-               <Card className="flex flex-col group" style={{ animationDelay: '200ms' }}>
+               <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Sparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -283,7 +301,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-              <Card className="flex flex-col group" style={{ animationDelay: '300ms' }}>
+              <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Search className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -297,7 +315,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-               <Card className="flex flex-col group" style={{ animationDelay: '400ms' }}>
+               <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Users className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -311,7 +329,7 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-              <Card className="flex flex-col group" style={{ animationDelay: '500ms' }}>
+              <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Star className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -323,7 +341,7 @@ export default function Home() {
                 </CardContent>
                  <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
-              <Card className="flex flex-col group" style={{ animationDelay: '600ms' }}>
+              <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <WandSparkles className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
@@ -335,7 +353,7 @@ export default function Home() {
                 </CardContent>
                 <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
               </Card>
-               <Card className="flex flex-col group" style={{ animationDelay: '700ms' }}>
+               <Card className="flex flex-col group">
                 <CardHeader className="flex-row items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <LayoutDashboard className="h-6 w-6 text-chart-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
