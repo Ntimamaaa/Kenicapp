@@ -21,6 +21,7 @@ import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCir
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const genericDomainData = [
     { name: "co.ke", value: 100186 },
@@ -88,6 +89,42 @@ const renderActiveShape = (props: any) => {
   );
 };
 
+interface StatCardProps {
+    title: string;
+    value: string;
+    description: string;
+    imageSrc: string;
+    imageHint: string;
+    link: string;
+    linkLabel: string;
+    animationDelay: string;
+    variant?: 'outline';
+}
+
+function VividStatCard({ title, value, description, imageSrc, imageHint, link, linkLabel, animationDelay, variant }: StatCardProps) {
+    return (
+        <Card className="animate-fade-in-up relative overflow-hidden flex flex-col group h-64 justify-end" style={{ animationDelay }}>
+            <Image
+                src={imageSrc}
+                alt={title}
+                layout="fill"
+                objectFit="cover"
+                data-ai-hint={imageHint}
+                className="absolute inset-0 z-0 transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10"></div>
+            <div className="relative z-20 p-6 text-white flex flex-col flex-grow justify-end">
+                <h3 className="text-lg font-semibold drop-shadow-md">{title}</h3>
+                <p className="text-3xl font-bold drop-shadow-lg">{value}</p>
+                <p className="text-sm text-white/80 drop-shadow-md mb-4">{description}</p>
+                <Button asChild className="w-full mt-auto" variant={variant || 'default'}>
+                    <Link href={link}>{linkLabel}</Link>
+                </Button>
+            </div>
+        </Card>
+    )
+}
+
 function StatsPageContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -148,64 +185,49 @@ function StatsPageContent() {
                 )}
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
-                    <Card className="animate-fade-in-up flex flex-col" style={{animationDelay: '200ms'}}>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">
-                        Total Domains
-                        </CardTitle>
-                        <Globe className="h-4 w-4 text-primary" />
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                        <div className="text-2xl font-bold">112,801</div>
-                        <p className="text-xs text-muted-foreground">
-                        All registered .KE domains
-                        </p>
-                    </CardContent>
-                    <CardFooter>
-                        <Button asChild className="w-full">
-                            <Link href="/registrars/licensed">Register Domain</Link>
-                        </Button>
-                    </CardFooter>
-                    </Card>
-                    <Card className="animate-fade-in-up flex flex-col" style={{animationDelay: '400ms'}}>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">
-                        Licensed Registrars
-                        </CardTitle>
-                        <Users className="h-4 w-4 text-primary" />
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                        <div className="text-2xl font-bold">512</div>
-                        <p className="text-xs text-muted-foreground">
-                        Accredited partners
-                        </p>
-                    </CardContent>
-                    <CardFooter>
-                        <Button asChild className="w-full" variant="outline">
-                            <Link href="/registrars/licensed">View Registrars</Link>
-                        </Button>
-                    </CardFooter>
-                    </Card>
-                    <Card className="animate-fade-in-up" style={{animationDelay: '600ms'}}>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Generic Domains</CardTitle>
-                        <GanttChartSquare className="h-4 w-4 text-primary" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">109,526</div>
-                        <p className="text-xs text-muted-foreground">e.g. .co.ke, .or.ke</p>
-                    </CardContent>
-                    </Card>
-                    <Card className="animate-fade-in-up" style={{animationDelay: '800ms'}}>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Restricted Domains</CardTitle>
-                        <Package className="h-4 w-4 text-primary" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">3,275</div>
-                        <p className="text-xs text-muted-foreground">e.g. .ac.ke, .go.ke</p>
-                    </CardContent>
-                    </Card>
+                    <VividStatCard 
+                        title="Total Domains"
+                        value="112,801"
+                        description="All registered .KE domains"
+                        imageSrc="https://placehold.co/600x400.png"
+                        imageHint="abstract globe network"
+                        link="/registrars/licensed"
+                        linkLabel="Register Domain"
+                        animationDelay="200ms"
+                    />
+                     <VividStatCard 
+                        title="Licensed Registrars"
+                        value="512"
+                        description="Accredited partners"
+                        imageSrc="https://placehold.co/600x400.png"
+                        imageHint="modern city architecture"
+                        link="/registrars/licensed"
+                        linkLabel="View Registrars"
+                        animationDelay="400ms"
+                        variant="outline"
+                    />
+                    <VividStatCard 
+                        title="Generic Domains"
+                        value="109,526"
+                        description="e.g. .co.ke, .or.ke"
+                        imageSrc="https://placehold.co/600x400.png"
+                        imageHint="server room data"
+                        link="/domains/value-prop"
+                        linkLabel="Learn More"
+                        animationDelay="600ms"
+                        variant="outline"
+                    />
+                    <VividStatCard 
+                        title="Restricted Domains"
+                        value="3,275"
+                        description="e.g. .ac.ke, .go.ke"
+                        imageSrc="https://placehold.co/600x400.png"
+                        imageHint="government building"
+                        link="/legal/policies"
+                        linkLabel="View Policies"
+                        animationDelay="800ms"
+                        variant="outline"
+                    />
                 </div>
 
                 <div className="grid gap-8 lg:grid-cols-2 mb-8">
