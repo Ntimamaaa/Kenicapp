@@ -7,12 +7,23 @@ import { PartnersMarquee } from '@/components/partners-marquee';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles, FileText, Divide, TrendingUp } from 'lucide-react';
+import { ChartNoAxesColumnIncreasing, Globe, Rocket, Search, Users, Sparkles, Star, LayoutDashboard, WandSparkles, FileText, Divide, TrendingUp, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { PageAnchorNav } from '@/components/layout/page-anchor-nav';
+
+const features = [
+    { title: 'AI Suggestions', icon: Sparkles, href: '#ai-suggester' },
+    { title: 'Real-Time WHOIS', icon: Search, href: '/whois' },
+    { title: 'Registrar Comparison', icon: Users, href: '/registrars/licensed' },
+    { title: 'Domain Valuation Tool', icon: TrendingUp, href: '/whois' },
+    { title: 'One-Click Branding Kit', icon: WandSparkles, href: '#', disabled: true },
+    { title: 'Management Dashboard', icon: LayoutDashboard, href: '#', disabled: true },
+    { title: 'Deleted Domains', icon: FileText, href: '/domains/deleted' },
+    { title: 'Domain Statistics', icon: ChartNoAxesColumnIncreasing, href: '/domains/stats' },
+];
 
 export default function Home() {
   const extensions = [
@@ -311,95 +322,28 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-               <Card className="flex flex-col group">
-                <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <Sparkles className="h-6 w-6 text-primary hover-icon-effect" />
-                  </div>
-                  <CardTitle className="font-headline text-xl"> AI Suggestions </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground"> Get creative, available domain names based on your keywords. Use smart filters for short, catchy, or brandable options. </p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="#ai-suggester" className="w-full">
-                    <Button className="w-full" variant="outline">Try AI Suggester</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-              <Card className="flex flex-col group">
-                <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <Search className="h-6 w-6 text-primary hover-icon-effect" />
-                  </div>
-                  <CardTitle className="font-headline text-xl"> Real-Time WHOIS </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground"> Instantly check the availability and get detailed public info for any .KE domain, including owner and expiry date. </p>
-                </CardContent>
-                <CardFooter>
-                   <Link href="/whois" className="w-full">
-                    <Button className="w-full" variant="outline">Check a Domain</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-               <Card className="flex flex-col group">
-                <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <Users className="h-6 w-6 text-primary hover-icon-effect" />
-                  </div>
-                  <CardTitle className="font-headline text-xl"> Registrar Comparison </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground"> Easily compare pricing and services from over 500 accredited .KE domain registrars to find the best fit for you. </p>
-                </CardContent>
-                 <CardFooter>
-                  <Link href="/registrars/licensed" className="w-full">
-                    <Button className="w-full" variant="outline">Find a Registrar</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-              <Card className="flex flex-col group">
-                <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <TrendingUp className="h-6 w-6 text-primary hover-icon-effect" />
-                  </div>
-                  <CardTitle className="font-headline text-xl"> Domain Valuation Tool </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground"> Estimate the market value of any domain based on length, keywords, TLD, and current trends. </p>
-                </CardContent>
-                 <CardFooter>
-                    <Link href="/whois" className="w-full">
-                        <Button className="w-full" variant="outline">Learn More</Button>
-                    </Link>
-                 </CardFooter>
-              </Card>
-              <Card className="flex flex-col group">
-                <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <WandSparkles className="h-6 w-6 text-primary hover-icon-effect" />
-                  </div>
-                  <CardTitle className="font-headline text-xl"> One-Click Branding Kit </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                   <p className="text-muted-foreground"> Instantly generate a logo, brand colors, and social media handle ideas right after you register your new domain. <Badge variant="secondary" className="ml-2">Coming Soon</Badge></p>
-                </CardContent>
-                <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
-              </Card>
-               <Card className="flex flex-col group">
-                <CardHeader className="flex-row items-center gap-4">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <LayoutDashboard className="h-6 w-6 text-primary hover-icon-effect" />
-                  </div>
-                  <CardTitle className="font-headline text-xl"> Management Dashboard </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                   <p className="text-muted-foreground"> Track, renew, transfer, and manage all your domains from one simple and intuitive dashboard. <Badge variant="secondary" className="ml-2">Coming Soon</Badge> </p>
-                </CardContent>
-                <CardFooter> <Button className="w-full" variant="outline" disabled>Learn More</Button> </CardFooter>
-              </Card>
+            <div className="mx-auto grid max-w-5xl grid-cols-2 border-t border-l mt-12 md:grid-cols-4">
+                {features.map((feature, index) => {
+                    const Comp = feature.disabled ? 'div' : Link;
+                    return (
+                        <Comp
+                            key={feature.title}
+                            href={feature.href}
+                            className={cn(
+                                "group relative flex h-48 flex-col justify-between border-b border-r p-6 transition-colors hover:bg-muted/50",
+                                feature.disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"
+                            )}
+                        >
+                            <div>
+                                <feature.icon className="h-8 w-8 text-primary mb-4" />
+                                <h3 className="font-headline text-lg font-semibold">{feature.title}</h3>
+                            </div>
+                            <div className="flex justify-end">
+                                <ArrowRight className="h-6 w-6 text-muted-foreground transition-transform group-hover:translate-x-1" />
+                            </div>
+                        </Comp>
+                    );
+                })}
             </div>
           </div>
         </section>
