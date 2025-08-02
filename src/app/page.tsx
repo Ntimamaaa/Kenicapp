@@ -377,7 +377,7 @@ export default function Home() {
               <div className="relative h-[28rem] w-full hidden md:block">
                  <video
                     className="absolute inset-0 h-full w-full object-contain"
-                    src="/videos/ai-chip.mp4"
+                    src="/videos/aiicon.mp4"
                     autoPlay
                     loop
                     muted
