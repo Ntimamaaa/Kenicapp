@@ -82,7 +82,6 @@ export default function DeletedDomainsPage() {
                      <Button asChild variant="link" size="lg">
                         <Link href="/domains/value-prop">
                             <span>Why a .KE Domain?</span>
-                           <Image src="/icons/arrow-right-up.svg" alt="Arrow Icon" width={20} height={20} className="filter dark:invert"/>
                         </Link>
                     </Button>
                 </div>
