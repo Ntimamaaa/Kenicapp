@@ -362,7 +362,7 @@ export default function Home() {
         </div>
 
         <div>
-          <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section relative overflow-hidden">
+          <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section relative overflow-hidden">
             <video
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
               src="/videos/aiicon.mp4"
@@ -372,7 +372,7 @@ export default function Home() {
               playsInline
             ></video>
             <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
-            <div className="container mx-auto grid md:grid-cols-2 items-center gap-12 px-4 md:px-6 relative z-20">
+            <div className="container mx-auto max-w-6xl grid md:grid-cols-2 items-center gap-12 px-4 md:px-6 relative z-20">
               <div className="space-y-4 text-white">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
                   Unleash Creativity with our <span className="text-primary">AI Domain Suggester</span>
@@ -383,7 +383,7 @@ export default function Home() {
                 </p>
                 <DomainSuggester />
               </div>
-              <div>
+              <div className="hidden md:block">
                  {/* This column is now empty, video is in the background */}
               </div>
             </div>
@@ -434,5 +434,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
