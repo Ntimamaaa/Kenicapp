@@ -82,7 +82,7 @@ export function DomainSuggester() {
                 <SubmitButton />
               </form>
             </div>
-            <div className="bg-secondary p-6">
+            <div className="bg-secondary p-6 flex flex-col h-full">
                 {state.suggestions && state.suggestions.length > 0 ? (
                   <div className="flex flex-col h-full">
                     <h3 className="font-headline text-lg font-semibold mb-2">Suggestions:</h3>
@@ -92,7 +92,7 @@ export function DomainSuggester() {
                           <Link
                             key={domain}
                             href={`/whois?domain=${domain}`}
-                            className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors text-sm"
+                            className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors text-sm w-full"
                           >
                             <span className="font-medium truncate">{domain}</span>
                             <Search className="h-4 w-4 text-muted-foreground flex-shrink-0" />
