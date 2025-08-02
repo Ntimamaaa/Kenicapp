@@ -62,28 +62,39 @@ export default function DeletedDomainsPage() {
   return (
     <div className="flex-1 bg-background">
         <section className="w-full py-20 lg:py-32">
-            <div className="container mx-auto max-w-4xl px-4 md:px-6">
-                 <Link href="#" className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary transition-colors hover:bg-primary/20 mb-6">
-                    <span>Pro Tip: Short, brandable names are often found here!</span>
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-                <h1 className="font-headline text-5xl md:text-7xl font-light tracking-tighter text-foreground mb-6">
-                    Deleted Domains
-                </h1>
-                <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed mb-10">
-                    Find your next digital asset. Recently expired domains are a goldmine of opportunities waiting to be discovered. Explore the list to catch valuable names as they become available.
-                </p>
-                <div className="flex items-center gap-4">
-                    <Button asChild size="lg">
-                        <Link href="/whois">
-                           Check a Name
-                        </Link>
-                    </Button>
-                     <Button asChild variant="link" size="lg">
-                        <Link href="/domains/value-prop">
-                            <span>Why a .KE Domain?</span>
-                        </Link>
-                    </Button>
+            <div className="container mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 md:grid-cols-2 md:px-6">
+                <div className="space-y-6">
+                    <Link href="#" className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary transition-colors hover:bg-primary/20">
+                        <span>Pro Tip: Short, brandable names are often found here!</span>
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                    <h1 className="font-headline text-5xl md:text-7xl font-light tracking-tighter text-foreground">
+                        Deleted Domains
+                    </h1>
+                    <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed">
+                        Find your next digital asset. Recently expired domains are a goldmine of opportunities waiting to be discovered. Explore the list to catch valuable names as they become available.
+                    </p>
+                    <div className="flex items-center gap-4">
+                        <Button asChild size="lg">
+                            <Link href="/whois">
+                                Check a Name
+                            </Link>
+                        </Button>
+                        <Button asChild variant="link" size="lg">
+                            <Link href="/domains/value-prop">
+                                <span>Why a .KE Domain?</span>
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+                <div className="hidden md:flex justify-center">
+                    <Image 
+                        src="/icons/qiskit-community.svg"
+                        alt="Deleted Domains Illustration"
+                        width={400}
+                        height={400}
+                        className="w-full max-w-md"
+                    />
                 </div>
             </div>
         </section>
@@ -200,3 +211,5 @@ export default function DeletedDomainsPage() {
     </div>
   );
 }
+
+    
