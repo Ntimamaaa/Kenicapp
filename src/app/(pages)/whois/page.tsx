@@ -100,7 +100,7 @@ function WhoisPageContent() {
     }
   }, [domainQuery]);
 
-  const fromDeleted = searchParams.get("from") === 'deleted-domains';
+  const fromAISuggester = searchParams.get("from") === 'ai-suggester';
   
   return (
     <div className="flex-1">
@@ -138,12 +138,22 @@ function WhoisPageContent() {
 
         <div className="bg-background">
             <div className="container mx-auto max-w-4xl py-12 px-4 md:px-6">
-                <Button asChild variant="outline" className="mb-8">
-                  <Link href="/">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Go Back to Home
-                  </Link>
-                </Button>
+                 {fromAISuggester ? (
+                     <Button asChild variant="outline" className="mb-8">
+                        <Link href="/#ai-suggester">
+                            <ArrowLeft className="mr-2 h-4 w-4" />
+                            Back to AI Suggester
+                        </Link>
+                    </Button>
+                 ) : (
+                    <Button asChild variant="outline" className="mb-8">
+                        <Link href="/">
+                            <ArrowLeft className="mr-2 h-4 w-4" />
+                            Go Back to Home
+                        </Link>
+                    </Button>
+                 )}
+
                 {!domainQuery && (
                     <Card className="mb-8">
                         <CardHeader>

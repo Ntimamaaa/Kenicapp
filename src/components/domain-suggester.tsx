@@ -91,7 +91,7 @@ export function DomainSuggester() {
                         {state.suggestions.map((domain) => (
                           <Link
                             key={domain}
-                            href={`/whois?domain=${domain}`}
+                            href={`/whois?domain=${domain}&from=ai-suggester`}
                             className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors text-sm w-full"
                           >
                             <span className="font-medium truncate">{domain}</span>
