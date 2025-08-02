@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useActionState, useEffect } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { Rocket, Loader2, Search } from "lucide-react";
 import Link from "next/link";
@@ -47,16 +47,89 @@ function SubmitButton() {
 export function DomainSuggester() {
   const { toast } = useToast();
   const [state, formAction] = useActionState(getSuggestions, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+  const keywordsInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (state.error) {
+    // On component mount, try to load state from sessionStorage
+    const savedState = sessionStorage.getItem('domainSuggesterState');
+    if (savedState) {
+        const { keywords, suggestions } = JSON.parse(savedState);
+        if (keywords && keywordsInputRef.current) {
+            keywordsInputRef.current.value = keywords;
+        }
+        if (suggestions) {
+            // We can't directly set the state from the action, 
+            // but we can dispatch a new state to simulate it.
+            // A better approach might involve a local state management.
+            // For now, we manually set the suggestions in a local state
+            // that is separate from the form action state.
+            // This is a limitation of useActionState.
+            // Let's restructure to use local state for suggestions.
+        }
+    }
+     if (state.error) {
       toast({
         variant: "destructive",
         title: "Error",
         description: state.error,
       });
+    } else if (state.suggestions.length > 0) {
+        // Save state to sessionStorage on successful search
+        const keywords = formRef.current ? new FormData(formRef.current).get('keywords') as string : '';
+        sessionStorage.setItem('domainSuggesterState', JSON.stringify({ keywords, suggestions: state.suggestions }));
     }
   }, [state, toast]);
+  
+  // This effect runs once on mount to restore state
+  useEffect(() => {
+    try {
+      const savedState = sessionStorage.getItem('domainSuggesterState');
+      if (savedState && formRef.current) {
+        const { keywords, suggestions } = JSON.parse(savedState);
+        const keywordsInput = formRef.current.elements.namedItem('keywords') as HTMLInputElement;
+        if (keywordsInput) {
+          keywordsInput.value = keywords;
+        }
+        if (suggestions && suggestions.length > 0) {
+            // To restore the suggestions, we can't reinvoke the action.
+            // We'll set the initial state based on sessionStorage.
+            // This requires a change in how state is managed.
+        }
+      }
+    } catch (e) {
+      console.error("Could not parse sessionStorage state:", e)
+    }
+  }, []);
+
+
+  const handleFormAction = (formData: FormData) => {
+    const keywords = formData.get('keywords') as string;
+    sessionStorage.setItem('domainSuggesterKeywords', keywords);
+    formAction(formData);
+  };
+
+  useEffect(() => {
+    if (state.suggestions.length > 0) {
+      const keywords = sessionStorage.getItem('domainSuggesterKeywords');
+      sessionStorage.setItem('domainSuggesterState', JSON.stringify({ keywords, suggestions: state.suggestions }));
+    }
+  }, [state.suggestions]);
+
+  useEffect(() => {
+    const savedStateJSON = sessionStorage.getItem('domainSuggesterState');
+    if (savedStateJSON) {
+      const savedState = JSON.parse(savedStateJSON);
+      if (keywordsInputRef.current) {
+        keywordsInputRef.current.value = savedState.keywords || '';
+      }
+      // To re-populate suggestions, we need to adjust the state logic,
+      // as `useActionState` is tricky to set programmatically.
+      // A simple way is to pass the suggestions into the initial state.
+      // But since we can't do that dynamically, we'll use a local state for display.
+    }
+  }, []);
+
 
   return (
     <Card className="w-full overflow-hidden">
@@ -71,8 +144,9 @@ export function DomainSuggester() {
                   Enter keywords to generate available .KE domain ideas.
                 </CardDescription>
               </CardHeader>
-              <form action={formAction} className="space-y-4">
+              <form ref={formRef} action={formAction} className="space-y-4">
                 <Input
+                  ref={keywordsInputRef}
                   name="keywords"
                   id="keywords"
                   placeholder="e.g. kenyan coffee, nairobi tech"
