@@ -104,64 +104,64 @@ export function DomainSuggester() {
 
   return (
     <Card className="w-full overflow-hidden">
-        <CardContent className="p-0">
-          <div className="grid md:grid-cols-2 items-stretch">
-            <div className="p-6 flex flex-col">
-              <CardHeader className="p-0 mb-4">
-                <CardTitle className="font-headline text-xl">
-                  AI Domain Suggester
-                </CardTitle>
-                <CardDescription>
-                  Enter keywords to generate available .KE domain ideas.
-                </CardDescription>
-              </CardHeader>
-              <form ref={formRef} action={formAction} className="space-y-4">
-                <Input
-                  ref={keywordsInputRef}
-                  name="keywords"
-                  id="keywords"
-                  placeholder="e.g. kenyan coffee, nairobi tech"
-                  className="text-base h-11"
-                  required
-                />
-                <SubmitButton />
-              </form>
-            </div>
-            <div className="bg-secondary p-6">
-                <div className="flex flex-col h-full min-h-[270px]">
-                    {displayedSuggestions && displayedSuggestions.length > 0 ? (
-                    <>
-                        <div className="flex justify-between items-center mb-2">
-                            <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
-                            <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground">
-                                <X className="mr-2 h-4 w-4" />
-                                Clear
-                            </Button>
-                        </div>
-                        <ScrollArea className="flex-grow pr-4 -mr-4">
-                        <div className="grid grid-cols-1 gap-3">
-                            {displayedSuggestions.map((domain) => (
-                            <Link
-                                key={domain}
-                                href={`/whois?domain=${domain}&from=ai-suggester`}
-                                className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors text-sm w-full"
-                            >
-                                <span className="font-medium truncate">{domain}</span>
-                                <Search className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                            </Link>
-                            ))}
-                        </div>
-                        </ScrollArea>
-                    </>
-                    ) : (
-                        <div className="flex items-center justify-center h-full text-center text-muted-foreground">
-                            <p>Your domain suggestions will appear here.</p>
-                        </div>
-                    )}
+      <CardContent className="p-0">
+        <div className="grid md:grid-cols-2">
+          <div className="p-6 flex flex-col">
+            <CardHeader className="p-0 mb-4">
+              <CardTitle className="font-headline text-xl">
+                AI Domain Suggester
+              </CardTitle>
+              <CardDescription>
+                Enter keywords to generate available .KE domain ideas.
+              </CardDescription>
+            </CardHeader>
+            <form ref={formRef} action={formAction} className="space-y-4">
+              <Input
+                ref={keywordsInputRef}
+                name="keywords"
+                id="keywords"
+                placeholder="e.g. kenyan coffee, nairobi tech"
+                className="text-base h-11"
+                required
+              />
+              <SubmitButton />
+            </form>
+          </div>
+          <div className="bg-secondary p-6">
+            <div className="flex flex-col h-full min-h-[270px]">
+              {displayedSuggestions && displayedSuggestions.length > 0 ? (
+                <>
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
+                    <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground">
+                      <X className="mr-2 h-4 w-4" />
+                      Clear
+                    </Button>
+                  </div>
+                  <ScrollArea className="flex-grow pr-4 -mr-4">
+                    <div className="grid grid-cols-1 gap-3">
+                      {displayedSuggestions.map((domain) => (
+                        <Link
+                          key={domain}
+                          href={`/whois?domain=${domain}&from=ai-suggester`}
+                          className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors text-sm w-full"
+                        >
+                          <span className="font-medium truncate">{domain}</span>
+                          <Search className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                        </Link>
+                      ))}
+                    </div>
+                  </ScrollArea>
+                </>
+              ) : (
+                <div className="flex items-center justify-center h-full text-center text-muted-foreground">
+                  <p>Your domain suggestions will appear here.</p>
                 </div>
+              )}
             </div>
           </div>
-        </CardContent>
+        </div>
+      </CardContent>
     </Card>
   );
 }
