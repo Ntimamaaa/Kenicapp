@@ -133,7 +133,7 @@ export function DomainSuggester() {
                 <>
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
-                    <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground">
+                    <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground hover:text-destructive">
                       <X className="mr-2 h-4 w-4" />
                       Clear
                     </Button>
@@ -165,3 +165,4 @@ export function DomainSuggester() {
     </Card>
   );
 }
+
