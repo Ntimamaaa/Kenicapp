@@ -3,7 +3,7 @@
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
-import { Rocket, Loader2, Search } from "lucide-react";
+import { Rocket, Loader2, Search, X } from "lucide-react";
 import Link from "next/link";
 import { getSuggestions } from "@/app/actions";
 import { Input } from "@/components/ui/input";
@@ -88,6 +88,21 @@ export function DomainSuggester() {
     }
   }, []);
 
+  const handleClear = () => {
+    setDisplayedSuggestions([]);
+    if (formRef.current) {
+        formRef.current.reset();
+    }
+    if (keywordsInputRef.current) {
+        keywordsInputRef.current.value = "";
+    }
+     try {
+      sessionStorage.removeItem('domainSuggesterState');
+    } catch (e) {
+      console.error("Could not remove state from sessionStorage:", e);
+    }
+  }
+
 
   return (
     <Card className="w-full overflow-hidden">
@@ -117,7 +132,13 @@ export function DomainSuggester() {
             <div className="bg-secondary p-6 flex flex-col h-full min-h-[200px]">
                 {displayedSuggestions && displayedSuggestions.length > 0 ? (
                   <div className="flex flex-col h-full">
-                    <h3 className="font-headline text-lg font-semibold mb-2">Suggestions:</h3>
+                    <div className="flex justify-between items-center mb-2">
+                        <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
+                         <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground">
+                            <X className="mr-2 h-4 w-4" />
+                            Clear
+                        </Button>
+                    </div>
                     <ScrollArea className="flex-grow pr-4 -mr-4">
                       <div className="grid grid-cols-1 gap-3">
                         {displayedSuggestions.map((domain) => (
