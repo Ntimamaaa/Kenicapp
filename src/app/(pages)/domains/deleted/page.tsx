@@ -12,11 +12,12 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, Flame, ShoppingBag, Landmark, Code, Leaf, Calendar } from "lucide-react";
+import { Search, Flame, ShoppingBag, Landmark, Code, Leaf, Calendar, ArrowRight, PlayCircle } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const deletedDomains = [
     { name: "classic-kenya.ke", deletionDate: "2024-05-20", category: "Tourism" },
@@ -60,26 +61,32 @@ export default function DeletedDomainsPage() {
 
   return (
     <div className="flex-1 bg-background">
-        <section className="relative w-full h-[50vh] flex items-center justify-center text-center text-white overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full z-[-2]">
-                <video
-                    src="/videos/gradient.mp4"
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                />
-            </div>
-            <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[-1]"></div>
-             <div className="container relative z-10 mx-auto px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-6 animate-fade-in-up">
-                    <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                        Deleted Domains
-                    </h1>
-                    <p className="max-w-[700px] text-lg text-white/90 md:text-xl">
-                        Find your next digital asset. Recently expired domains are a goldmine of opportunities.
-                    </p>
+        <section className="w-full py-20 lg:py-32">
+            <div className="container mx-auto max-w-4xl px-4 md:px-6">
+                 <Link href="#" className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary transition-colors hover:bg-primary/20 mb-6">
+                    <Image src="/icons/light-bulb.svg" alt="Pro Tip" width={16} height={16} className="mr-2"/>
+                    <span>Pro Tip: Short, brandable names are often found here!</span>
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <h1 className="font-headline text-5xl md:text-7xl font-light tracking-tighter text-foreground mb-6">
+                    Deleted Domains
+                </h1>
+                <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed mb-10">
+                    Find your next digital asset. Recently expired domains are a goldmine of opportunities waiting to be discovered. Explore the list to catch valuable names as they become available.
+                </p>
+                <div className="flex items-center gap-4">
+                    <Button asChild size="lg">
+                        <Link href="/whois">
+                           <Image src="/icons/play-icon.svg" alt="Play Icon" width={20} height={20} className="mr-2 filter dark:invert"/>
+                            Check a Name
+                        </Link>
+                    </Button>
+                     <Button asChild variant="link" size="lg">
+                        <Link href="/domains/value-prop">
+                            Why a .KE Domain?
+                           <Image src="/icons/arrow-right-up.svg" alt="Arrow Icon" width={20} height={20} className="ml-2 filter dark:invert"/>
+                        </Link>
+                    </Button>
                 </div>
             </div>
         </section>
