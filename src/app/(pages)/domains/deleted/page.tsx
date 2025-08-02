@@ -77,14 +77,14 @@ export default function DeletedDomainsPage() {
                 <div className="flex items-center gap-4">
                     <Button asChild size="lg">
                         <Link href="/whois">
-                           <Image src="/icons/play-icon.svg" alt="Play Icon" width={20} height={20} className="mr-2 filter dark:invert"/>
-                            Check a Name
+                           <Image src="/icons/play-icon.svg" alt="Play Icon" width={20} height={20} className="filter dark:invert"/>
+                           <span>Check a Name</span>
                         </Link>
                     </Button>
                      <Button asChild variant="link" size="lg">
                         <Link href="/domains/value-prop">
-                            Why a .KE Domain?
-                           <Image src="/icons/arrow-right-up.svg" alt="Arrow Icon" width={20} height={20} className="ml-2 filter dark:invert"/>
+                            <span>Why a .KE Domain?</span>
+                           <Image src="/icons/arrow-right-up.svg" alt="Arrow Icon" width={20} height={20} className="filter dark:invert"/>
                         </Link>
                     </Button>
                 </div>
