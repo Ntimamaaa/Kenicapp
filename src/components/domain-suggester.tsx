@@ -128,7 +128,7 @@ export function DomainSuggester() {
             </form>
           </div>
           <div className="bg-secondary p-6">
-            <div className="flex flex-col h-full min-h-[270px]">
+            <div className="flex flex-col h-[270px]">
               {displayedSuggestions && displayedSuggestions.length > 0 ? (
                 <>
                   <div className="flex justify-between items-center mb-2">
