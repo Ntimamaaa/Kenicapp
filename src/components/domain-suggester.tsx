@@ -86,7 +86,7 @@ export function DomainSuggester() {
                 {state.suggestions && state.suggestions.length > 0 ? (
                   <div className="flex flex-col h-full">
                     <h3 className="font-headline text-lg font-semibold mb-2">Suggestions:</h3>
-                    <ScrollArea className="flex-grow pr-4 -mr-4">
+                    <ScrollArea className="flex-grow pr-4 -mr-4 h-48">
                       <div className="grid grid-cols-1 gap-3">
                         {state.suggestions.map((domain) => (
                           <Link
