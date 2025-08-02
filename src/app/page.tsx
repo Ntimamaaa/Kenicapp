@@ -363,18 +363,26 @@ export default function Home() {
 
         <div>
           <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section">
-            <div className="container mx-auto grid items-center gap-4 px-4 text-center md:px-6">
-              <div className="space-y-3">
+            <div className="container mx-auto grid md:grid-cols-2 items-center gap-12 px-4 md:px-6">
+              <div className="space-y-4">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                  Unleash Creativity with our AI Domain Suggester
+                  Unleash Creativity with our <span className="text-primary">AI Domain Suggester</span>
                 </h2>
-                <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Don't just search. Discover. Enter a few keywords and let our AI
                   find the perfect, available domain for you.
                 </p>
-              </div>
-              <div className="w-full">
                 <DomainSuggester />
+              </div>
+              <div className="relative h-[28rem] w-full hidden md:block">
+                 <video
+                    className="absolute inset-0 h-full w-full object-contain"
+                    src="/videos/ai-chip.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  ></video>
               </div>
             </div>
           </section>

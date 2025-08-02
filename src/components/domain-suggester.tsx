@@ -28,7 +28,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" size="lg" disabled={pending} className="w-full">
+    <Button type="submit" size="lg" disabled={pending} className="w-full h-12 text-base">
       {pending ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -60,60 +60,55 @@ export function DomainSuggester() {
 
   return (
     <Card className="w-full overflow-hidden">
-      <div className="grid md:grid-cols-2 items-stretch">
-        <div className="p-8 order-2 md:order-1 flex flex-col">
-          <CardHeader className="p-0 mb-6">
-            <CardTitle className="font-headline text-2xl">
-              AI Domain Suggester
-            </CardTitle>
-            <CardDescription>
-              Enter keywords to generate available .KE domain ideas.
-            </CardDescription>
-          </CardHeader>
-          <div className="flex flex-col flex-grow min-h-0">
-            <form action={formAction} className="space-y-4">
-              <Input
-                name="keywords"
-                id="keywords"
-                placeholder="e.g. kenyan coffee, nairobi tech"
-                className="text-base"
-                required
-              />
-              <SubmitButton />
-            </form>
-
-            {state.suggestions && state.suggestions.length > 0 && (
-              <div className="flex flex-col mt-6 flex-grow min-h-0">
-                <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
-                <ScrollArea className="flex-grow mt-2 pr-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                    {state.suggestions.map((domain) => (
-                      <Link
-                        key={domain}
-                        href={`/whois?domain=${domain}`}
-                        className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors"
-                      >
-                        <span className="font-medium truncate">{domain}</span>
-                        <Search className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                      </Link>
-                    ))}
+        <CardContent className="p-0">
+          <div className="grid md:grid-cols-2 items-stretch">
+            <div className="p-6 flex flex-col">
+              <CardHeader className="p-0 mb-4">
+                <CardTitle className="font-headline text-xl">
+                  AI Domain Suggester
+                </CardTitle>
+                <CardDescription>
+                  Enter keywords to generate available .KE domain ideas.
+                </CardDescription>
+              </CardHeader>
+              <form action={formAction} className="space-y-4">
+                <Input
+                  name="keywords"
+                  id="keywords"
+                  placeholder="e.g. kenyan coffee, nairobi tech"
+                  className="text-base h-11"
+                  required
+                />
+                <SubmitButton />
+              </form>
+            </div>
+            <div className="bg-secondary p-6">
+                {state.suggestions && state.suggestions.length > 0 ? (
+                  <div className="flex flex-col h-full">
+                    <h3 className="font-headline text-lg font-semibold mb-2">Suggestions:</h3>
+                    <ScrollArea className="flex-grow pr-4 -mr-4">
+                      <div className="grid grid-cols-1 gap-3">
+                        {state.suggestions.map((domain) => (
+                          <Link
+                            key={domain}
+                            href={`/whois?domain=${domain}`}
+                            className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors text-sm"
+                          >
+                            <span className="font-medium truncate">{domain}</span>
+                            <Search className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                          </Link>
+                        ))}
+                      </div>
+                    </ScrollArea>
                   </div>
-                </ScrollArea>
-              </div>
-            )}
+                ) : (
+                    <div className="flex items-center justify-center h-full text-center text-muted-foreground">
+                        <p>Your domain suggestions will appear here.</p>
+                    </div>
+                )}
+            </div>
           </div>
-        </div>
-        <div className="relative h-[36rem] w-full order-1 md:order-2">
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            src="/videos/aiicon.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-          ></video>
-        </div>
-      </div>
+        </CardContent>
     </Card>
   );
 }
