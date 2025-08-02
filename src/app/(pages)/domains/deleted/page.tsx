@@ -77,8 +77,7 @@ export default function DeletedDomainsPage() {
                 <div className="flex items-center gap-4">
                     <Button asChild size="lg">
                         <Link href="/whois">
-                           <Image src="/icons/play-icon.svg" alt="Play Icon" width={20} height={20} className="filter dark:invert"/>
-                           <span>Check a Name</span>
+                           Check a Name
                         </Link>
                     </Button>
                      <Button asChild variant="link" size="lg">
