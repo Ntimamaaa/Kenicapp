@@ -104,28 +104,30 @@ export function DomainSuggester() {
 
   return (
     <Card className="w-full overflow-hidden">
-      <CardContent className="p-0">
+       <CardContent className="p-0">
         <div className="grid md:grid-cols-2">
-          <div className="p-6 flex flex-col">
-            <CardHeader className="p-0 mb-4">
-              <CardTitle className="font-headline text-xl">
-                AI Domain Suggester
-              </CardTitle>
-              <CardDescription>
-                Enter keywords to generate available .KE domain ideas.
-              </CardDescription>
-            </CardHeader>
-            <form ref={formRef} action={formAction} className="space-y-4">
-              <Input
-                ref={keywordsInputRef}
-                name="keywords"
-                id="keywords"
-                placeholder="e.g. kenyan coffee, nairobi tech"
-                className="text-base h-11"
-                required
-              />
-              <SubmitButton />
-            </form>
+          <div className="p-6 flex flex-col justify-between">
+            <div>
+                <CardHeader className="p-0 mb-4">
+                <CardTitle className="font-headline text-xl">
+                    AI Domain Suggester
+                </CardTitle>
+                <CardDescription>
+                    Enter keywords to generate available .KE domain ideas.
+                </CardDescription>
+                </CardHeader>
+                <form ref={formRef} action={formAction} className="space-y-4">
+                <Input
+                    ref={keywordsInputRef}
+                    name="keywords"
+                    id="keywords"
+                    placeholder="e.g. kenyan coffee, nairobi tech"
+                    className="text-base h-11"
+                    required
+                />
+                <SubmitButton />
+                </form>
+            </div>
           </div>
           <div className="bg-secondary p-6">
             <div className="flex flex-col h-[270px]">
@@ -133,7 +135,7 @@ export function DomainSuggester() {
                 <>
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
-                    <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground hover:text-destructive">
+                    <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground hover:bg-destructive hover:text-destructive-foreground">
                       <X className="mr-2 h-4 w-4" />
                       Clear
                     </Button>
@@ -165,4 +167,3 @@ export function DomainSuggester() {
     </Card>
   );
 }
-
