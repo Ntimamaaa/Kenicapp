@@ -64,7 +64,6 @@ export default function DeletedDomainsPage() {
         <section className="w-full py-20 lg:py-32">
             <div className="container mx-auto max-w-4xl px-4 md:px-6">
                  <Link href="#" className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary transition-colors hover:bg-primary/20 mb-6">
-                    <Image src="/icons/light-bulb.svg" alt="Pro Tip" width={16} height={16} className="mr-2"/>
                     <span>Pro Tip: Short, brandable names are often found here!</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
