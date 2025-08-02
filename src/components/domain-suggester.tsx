@@ -70,7 +70,6 @@ export function DomainSuggester() {
     }
   }, [state, toast]);
   
-  // This effect runs once on mount to restore state from sessionStorage
   useEffect(() => {
     try {
       const savedStateJSON = sessionStorage.getItem('domainSuggesterState');
@@ -85,7 +84,6 @@ export function DomainSuggester() {
       }
     } catch (e) {
       console.error("Could not parse or restore state from sessionStorage:", e);
-      // Clear potentially corrupted storage
       sessionStorage.removeItem('domainSuggesterState');
     }
   }, []);
@@ -116,9 +114,9 @@ export function DomainSuggester() {
                 <SubmitButton />
               </form>
             </div>
-            <div className="bg-secondary p-6 flex flex-col h-full">
+            <div className="bg-secondary p-6 flex flex-col h-full min-h-[200px]">
                 {displayedSuggestions && displayedSuggestions.length > 0 ? (
-                  <div className="flex flex-col h-full min-h-[200px]">
+                  <div className="flex flex-col h-full">
                     <h3 className="font-headline text-lg font-semibold mb-2">Suggestions:</h3>
                     <ScrollArea className="flex-grow pr-4 -mr-4">
                       <div className="grid grid-cols-1 gap-3">
@@ -136,7 +134,7 @@ export function DomainSuggester() {
                     </ScrollArea>
                   </div>
                 ) : (
-                    <div className="flex items-center justify-center h-full text-center text-muted-foreground min-h-[200px]">
+                    <div className="flex items-center justify-center h-full text-center text-muted-foreground">
                         <p>Your domain suggestions will appear here.</p>
                     </div>
                 )}
