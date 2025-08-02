@@ -12,7 +12,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -129,9 +128,9 @@ export function DomainSuggester() {
                 <SubmitButton />
               </form>
             </div>
-            <div className="bg-secondary p-6 flex flex-col h-full min-h-[200px]">
+            <div className="bg-secondary p-6">
                 {displayedSuggestions && displayedSuggestions.length > 0 ? (
-                  <div className="flex flex-col h-full">
+                  <div className="flex flex-col h-full min-h-[270px]">
                     <div className="flex justify-between items-center mb-2">
                         <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
                          <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground">
@@ -155,7 +154,7 @@ export function DomainSuggester() {
                     </ScrollArea>
                   </div>
                 ) : (
-                    <div className="flex items-center justify-center h-full text-center text-muted-foreground">
+                    <div className="flex items-center justify-center h-full text-center text-muted-foreground min-h-[270px]">
                         <p>Your domain suggestions will appear here.</p>
                     </div>
                 )}
