@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, Flame, ShoppingBag, Landmark, Code, Leaf, Calendar, ArrowRight, PlayCircle } from "lucide-react";
+import { Search, Flame, ShoppingBag, Landmark, Code, Leaf, Calendar, ArrowRight, PlayCircle, CalendarX, PackageCheck } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
@@ -102,16 +102,22 @@ export default function DeletedDomainsPage() {
       <div className="bg-secondary">
         <div className="container mx-auto max-w-6xl py-12 px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <Card className="text-center">
-                    <CardContent className="p-4">
-                        <p className="text-3xl font-bold text-primary">27</p>
-                        <p className="text-sm text-muted-foreground">Domains Deleted Today</p>
+                 <Card>
+                    <CardContent className="p-6 flex items-center gap-6">
+                        <CalendarX className="h-12 w-12 text-primary/70 animate-pulse" />
+                        <div className="text-left">
+                            <p className="text-3xl font-bold text-primary">27</p>
+                            <p className="text-sm text-muted-foreground">Domains Deleted Today</p>
+                        </div>
                     </CardContent>
                 </Card>
-                <Card className="text-center">
-                    <CardContent className="p-4">
-                        <p className="text-3xl font-bold text-primary">{deletedDomains.length}</p>
-                        <p className="text-sm text-muted-foreground">Total Available</p>
+                <Card>
+                    <CardContent className="p-6 flex items-center gap-6">
+                        <PackageCheck className="h-12 w-12 text-primary/70 animate-pulse" />
+                        <div className="text-left">
+                            <p className="text-3xl font-bold text-primary">{deletedDomains.length}</p>
+                            <p className="text-sm text-muted-foreground">Total Available</p>
+                        </div>
                     </CardContent>
                 </Card>
             </div>
@@ -211,5 +217,3 @@ export default function DeletedDomainsPage() {
     </div>
   );
 }
-
-    
