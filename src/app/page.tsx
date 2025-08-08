@@ -114,7 +114,7 @@ export default function Home() {
                     Search for your domain.
                 </p>
               </div>
-              <div className="relative w-full h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[300px] lg:h-[350px] rounded-xl overflow-hidden shadow-2xl">
                  <video
                     src="/videos/globevideo.mp4"
                     className="w-full h-full object-cover"
@@ -430,5 +430,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
