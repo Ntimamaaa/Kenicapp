@@ -97,37 +97,36 @@ export default function Home() {
     <div className="flex flex-col">
       <PageAnchorNav />
       <main className="flex-1">
-        <div>
-          <section id="hero" className="relative w-full h-screen flex items-center justify-center text-center text-white overflow-hidden -mt-[4rem]">
-            <div className="absolute top-0 left-0 w-full h-full z-[-2]">
-              <video
-                src="/videos/globevideo.mp4"
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </div>
-            <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
-            <div className="container relative z-10 mx-auto px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-6">
-                     <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
-                      Your Perfect .KE Domain Awaits
-                    </h1>
-                    <p className="max-w-[700px] text-lg text-white/90 md:text-xl">
-                      Search, register, and manage your .KE domains with powerful tools for your online identity.
-                    </p>
-                    <div className="w-full max-w-2xl bg-white/20 backdrop-blur-sm p-4 rounded-lg">
-                        <DomainChecker />
-                    </div>
-                    <p className="text-xs text-white/70">
-                        Search for your domain.
-                    </p>
+        <section id="hero" className="w-full py-20 md:py-32 lg:py-40 bg-background">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6 text-left">
+                <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
+                  Your Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">.KE Domain</span> Awaits
+                </h1>
+                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  Search, register, and manage your .KE domains with powerful tools for your online identity.
+                </p>
+                <div className="w-full max-w-lg">
+                    <DomainChecker />
                 </div>
+                 <p className="text-xs text-muted-foreground">
+                    Search for your domain.
+                </p>
+              </div>
+              <div className="relative w-full h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
+                 <video
+                    src="/videos/globevideo.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+              </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
 
         <div>
           <section id="how-to-register" ref={(el) => (animatedSectionsRef.current[0] = el)} className="w-full py-12 md:py-24 lg:py-32 bg-secondary animated-section">
