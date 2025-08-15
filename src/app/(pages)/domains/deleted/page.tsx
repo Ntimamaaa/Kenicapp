@@ -174,8 +174,8 @@ export default function DeletedDomainsPage() {
                 </TableHeader>
                 <TableBody>
                   {filteredDomains.map((domain, index) => (
-                    <>
-                      <TableRow key={domain.name}>
+                    <React.Fragment key={`${domain.name}-${index}`}>
+                      <TableRow>
                         <TableCell className="font-medium">{domain.name}</TableCell>
                         <TableCell className="hidden md:table-cell">
                             <Badge variant="outline">{domain.category}</Badge>
@@ -202,7 +202,7 @@ export default function DeletedDomainsPage() {
                             </TableCell>
                          </TableRow>
                       )}
-                    </>
+                    </React.Fragment>
                   ))}
                 </TableBody>
               </Table>
