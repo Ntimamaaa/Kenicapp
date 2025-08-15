@@ -212,7 +212,7 @@ function StatsPageContent() {
                         description="e.g. .co.ke, .or.ke"
                         imageSrc="https://placehold.co/600x400.png"
                         imageHint="server room data"
-                        link="/domains/value-prop"
+                        link="/domains/deleted"
                         linkLabel="Learn More"
                         animationDelay="600ms"
                         variant="outline"

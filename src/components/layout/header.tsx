@@ -30,7 +30,6 @@ const navItems = [
     title: '.KE Domains',
     subItems: [
       { title: 'Domain Statistics', href: '/domains/stats', description: 'View trends and statistics of the .KE namespace.', icon: Users },
-      { title: 'Value Proposition', href: '/domains/value-prop', description: 'Why choosing a .KE domain is the best for you.', icon: Star },
       { title: 'Deleted Domains', href: '/domains/deleted', description: 'Browse recently deleted and available domains.', icon: Download },
       { title: 'Domain Checker', href: '/whois', description: 'Quickly check if a domain is available.', icon: Search },
     ],
@@ -39,22 +38,18 @@ const navItems = [
     title: 'Discover KeNIC',
     subItems: [
       { title: 'About Us', href: '/about', description: 'Learn about our mission, vision, and values.', icon: Users },
-      { title: 'Information', href: '/information', description: 'Find helpful resources and information.', icon: Info },
-      { title: 'Resources', href: '/resources', description: 'Find helpful resources and downloads.', icon: Download },
     ],
   },
   {
     title: 'Legal & Policy',
     subItems: [
         { title: 'KeNIC Policies', href: '/legal/policies', description: 'Read our official policies and regulations.', icon: Shield },
-        { title: 'Domain Disputes', href: '/legal/disputes', description: 'Information on resolving domain name disputes.', icon: Scale },
     ]
   },
   {
     title: 'Registrars',
     subItems: [
         { title: 'Licensed Registrars', href: '/registrars/licensed', description: 'Find an accredited registrar to manage your domain.', icon: Users },
-        { title: 'Become a Registrar', href: '/registrars/become-a-registrar', description: 'Learn how to become an accredited .KE registrar.', icon: UserPlus },
     ]
   },
   { title: 'WhoIs', href: '/whois' },
@@ -216,5 +211,3 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = 'ListItem';
-
-    

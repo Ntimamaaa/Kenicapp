@@ -99,22 +99,6 @@ export default function PoliciesPage() {
                  </div>
               </CardContent>
             </Card>
-            <Card className="bg-primary text-primary-foreground">
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-3">
-                        <Shield/>
-                        Domain Disputes
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-primary-foreground/80 mb-4">
-                        Information on resolving domain name disputes.
-                    </p>
-                    <Button asChild variant="secondary" className="w-full">
-                        <Link href="/legal/disputes">Learn More</Link>
-                    </Button>
-                </CardContent>
-            </Card>
           </aside>
         </div>
       </div>

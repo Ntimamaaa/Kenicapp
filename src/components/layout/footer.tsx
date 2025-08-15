@@ -98,7 +98,7 @@ export function Footer() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="#"
+                    href="#how-to-register"
                     className="text-muted-foreground hover:text-foreground"
                   >
                     How To Register
@@ -135,7 +135,7 @@ export function Footer() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="#"
+                    href="/about"
                     className="text-muted-foreground hover:text-foreground"
                   >
                     About Us
@@ -164,14 +164,6 @@ export function Footer() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="#"
-                    className="text-muted-foreground hover:text-foreground"
-                  >
-                    Downloads
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/registrars/licensed"
                     className="text-muted-foreground hover:text-foreground"
                   >
@@ -180,7 +172,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/news"
                     className="text-muted-foreground hover:text-foreground"
                   >
                     News & Events
@@ -188,7 +180,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/careers"
                     className="text-muted-foreground hover:text-foreground"
                   >
                     Careers
