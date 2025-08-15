@@ -34,24 +34,9 @@ const navItems = [
       { title: 'Domain Checker', href: '/whois', description: 'Quickly check if a domain is available.', icon: Search },
     ],
   },
-  {
-    title: 'Discover KeNIC',
-    subItems: [
-      { title: 'About Us', href: '/about', description: 'Learn about our mission, vision, and values.', icon: Users },
-    ],
-  },
-  {
-    title: 'Legal & Policy',
-    subItems: [
-        { title: 'KeNIC Policies', href: '/legal/policies', description: 'Read our official policies and regulations.', icon: Shield },
-    ]
-  },
-  {
-    title: 'Registrars',
-    subItems: [
-        { title: 'Licensed Registrars', href: '/registrars/licensed', description: 'Find an accredited registrar to manage your domain.', icon: Users },
-    ]
-  },
+  { title: 'About', href: '/about' },
+  { title: 'Policies', href: '/legal/policies' },
+  { title: 'Registrars', href: '/registrars/licensed' },
   { title: 'WhoIs', href: '/whois' },
   { title: 'News', href: '/news' },
   { title: 'Careers', href: '/careers' },
