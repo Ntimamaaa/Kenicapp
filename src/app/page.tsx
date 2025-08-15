@@ -96,8 +96,8 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <PageAnchorNav />
-      <main className="flex-1 pt-16">
-        <section id="hero" className="w-full pb-20 md:pb-24 lg:pb-32 bg-background">
+      <main className="flex-1">
+        <section id="hero" className="w-full pt-16 pb-20 md:pb-24 lg:pb-32 bg-background">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 text-left">
@@ -114,7 +114,7 @@ export default function Home() {
                     Search for your domain.
                 </p>
               </div>
-              <div className="relative w-full h-[300px] lg:h-[350px] rounded-xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[250px] lg:h-[300px] rounded-xl overflow-hidden shadow-2xl">
                  <video
                     src="/videos/globevideo.mp4"
                     className="w-full h-full object-cover"
@@ -283,7 +283,7 @@ export default function Home() {
                                   <Users className="w-48 h-48 text-primary/5 opacity-50 group-hover:text-primary/10 transition-colors duration-500 rotate-12"/>
                               </div>
                               <CardHeader>
-                                  <div className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 inline-block mb-4">
+                                  <div className="p-3 rounded-full bg-gradient-to-r from-pink-500 to-orange-400 inline-block mb-4">
                                        <Users className="h-8 w-8 text-white" />
                                   </div>
                                   <CardTitle className="text-4xl font-bold text-foreground">500+</CardTitle>
@@ -317,7 +317,7 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                  <div className="inline-block rounded-lg bg-primary text-primary-foreground px-3 py-1 text-sm">
                     Key Features
                   </div>
                   <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -361,7 +361,7 @@ export default function Home() {
         </div>
 
         <div>
-           <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section bg-card">
+           <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section bg-secondary">
             <div className="container mx-auto max-w-6xl grid grid-cols-1 items-center gap-12 px-4 md:px-6 text-center">
               <div className="space-y-4">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
