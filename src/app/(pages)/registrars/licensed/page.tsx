@@ -152,51 +152,52 @@ export default function LicensedRegistrarsPage() {
 
   return (
     <div className="flex-1">
-      <section className="relative w-full h-[50vh] md:h-[60vh] flex items-center justify-center text-center text-white overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full z-[-2]">
-          <video
-            src="/videos/buildings.mp4"
-            className="w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-        </div>
-        <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[-1]"></div>
-        <div className="container relative z-10 mx-auto px-4 md:px-6 animate-fade-in-up">
-            <div className="flex flex-col items-center justify-center space-y-6">
-                 <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                    Licensed .KE Registrars
-                </h1>
-                <p className="max-w-[700px] text-lg text-white/90 md:text-xl">
-                    Choose from our network of accredited partners to register and manage your .KE domain.
-                </p>
-                <div className="my-8 w-full max-w-2xl">
-                    <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white/70" />
-                    <Input
-                        placeholder="Search for a registrar..."
-                        value={filter}
-                        onChange={(e) => setFilter(e.target.value)}
-                        className="pl-10 text-base h-12 bg-white/20 border-white/30 placeholder:text-white/70 focus:ring-primary"
-                    />
-                    </div>
-                    <Button asChild variant="link" className="mt-4 text-white">
-                        <Link href="/whois">
-                            Or check domain availability
-                        </Link>
-                    </Button>
+      <section className="w-full pt-16 pb-20 md:pb-24 lg:pb-32 bg-background">
+        <div className="container mx-auto max-w-7xl px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 text-left">
+              <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
+                Licensed <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">.KE Registrars</span>
+              </h1>
+              <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                Choose from our network of accredited partners to register and manage your .KE domain.
+              </p>
+              <div className="w-full max-w-lg">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input
+                    placeholder="Search for a registrar..."
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                    className="pl-10 text-base h-12 bg-card"
+                  />
                 </div>
+                 <Button asChild variant="link" className="mt-2">
+                    <Link href="/whois">
+                        Or check domain availability
+                    </Link>
+                </Button>
+              </div>
             </div>
+            <div className="relative w-full h-[300px] lg:h-[350px] rounded-xl overflow-hidden shadow-2xl">
+              <video
+                src="/videos/buildings.mp4"
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
+          </div>
         </div>
       </section>
     
-      <div className="bg-background">
+      <div className="bg-secondary">
         <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredRegistrars.map((registrar) => (
-              <Card key={registrar.name} className="flex flex-col">
+              <Card key={registrar.name} className="flex flex-col bg-card">
                 <CardHeader className="items-center">
                   <div className="relative w-40 h-20 mb-4">
                       <Image src="https://placehold.co/200x100.png" alt={`${registrar.name} Logo`} layout="fill" objectFit="contain" data-ai-hint={registrar.hint}/>
@@ -236,5 +237,3 @@ export default function LicensedRegistrarsPage() {
     </div>
   );
 }
-
-    
