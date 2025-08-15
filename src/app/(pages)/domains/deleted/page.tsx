@@ -87,7 +87,7 @@ export default function DeletedDomainsPage() {
                         </Button>
                     </div>
                 </div>
-                <div className="hidden md:flex justify-center">
+                <div className="flex justify-center">
                     <Image 
                         src="/icons/qiskit-community.svg"
                         alt="Deleted Domains Illustration"
