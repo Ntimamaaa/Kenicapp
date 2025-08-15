@@ -96,8 +96,8 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <PageAnchorNav />
-      <main className="flex-1">
-        <section id="hero" className="w-full pb-20 pt-16 md:pb-24 md:pt-20 lg:pb-32 lg:pt-28 bg-background">
+      <main className="flex-1 pt-16">
+        <section id="hero" className="w-full pb-20 md:pb-24 lg:pb-32 bg-background">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 text-left">
@@ -231,7 +231,7 @@ export default function Home() {
                   <div className="flex flex-col items-center justify-center space-y-12 text-center">
                       <div className="space-y-4">
                           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl flex items-center justify-center gap-3 text-foreground">
-                              <TrendingUp className="text-primary"/> Powering Kenya's <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital Identity</span>
+                              Powering Kenya's <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital Identity</span>
                           </h2>
                           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                           A vibrant and growing digital landscape for Kenya.
@@ -278,12 +278,12 @@ export default function Home() {
                           </Card>
 
                           <Card className="relative overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-50/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-pink-50/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
                               <div className="absolute -bottom-16 -right-16">
                                   <Users className="w-48 h-48 text-primary/5 opacity-50 group-hover:text-primary/10 transition-colors duration-500 rotate-12"/>
                               </div>
                               <CardHeader>
-                                  <div className="p-3 rounded-full bg-gradient-to-r from-green-500 to-teal-400 inline-block mb-4">
+                                  <div className="p-3 rounded-full bg-gradient-to-r from-pink-500 to-orange-400 inline-block mb-4">
                                        <Users className="h-8 w-8 text-white" />
                                   </div>
                                   <CardTitle className="text-4xl font-bold text-foreground">500+</CardTitle>
@@ -421,5 +421,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
