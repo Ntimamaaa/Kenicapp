@@ -283,7 +283,7 @@ export default function Home() {
                                   <Users className="w-48 h-48 text-primary/5 opacity-50 group-hover:text-primary/10 transition-colors duration-500 rotate-12"/>
                               </div>
                               <CardHeader>
-                                  <div className="p-3 rounded-full bg-gradient-to-r from-pink-500 to-orange-400 inline-block mb-4">
+                                  <div className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 inline-block mb-4">
                                        <Users className="h-8 w-8 text-white" />
                                   </div>
                                   <CardTitle className="text-4xl font-bold text-foreground">500+</CardTitle>
