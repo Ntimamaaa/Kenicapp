@@ -97,7 +97,7 @@ export default function Home() {
     <div className="flex flex-col">
       <PageAnchorNav />
       <main className="flex-1 pt-16">
-        <section id="hero" className="w-full pb-20 md:pb-32 lg:pb-40 bg-background">
+        <section id="hero" className="w-full pb-20 pt-10 md:pb-24 lg:pb-32 bg-background">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 text-left">
@@ -361,22 +361,13 @@ export default function Home() {
         </div>
 
         <div>
-          <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section relative overflow-hidden">
-            <video
-              className="absolute top-0 left-0 w-full h-full object-cover z-0"
-              src="/videos/aiicon.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-            ></video>
-            <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
-            <div className="container mx-auto max-w-6xl grid grid-cols-1 items-center gap-12 px-4 md:px-6 relative z-20 text-center">
-              <div className="space-y-4 text-white">
+           <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section bg-secondary">
+            <div className="container mx-auto max-w-6xl grid grid-cols-1 items-center gap-12 px-4 md:px-6 text-center">
+              <div className="space-y-4">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                  Unleash Creativity with our <span className="text-primary">AI Domain Suggester</span>
+                  Unleash Creativity with our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">AI Domain Suggester</span>
                 </h2>
-                <p className="text-white/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-3xl mx-auto">
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-3xl mx-auto">
                   Don't just search. Discover. Enter a few keywords and let our AI
                   find the perfect, available domain for you.
                 </p>

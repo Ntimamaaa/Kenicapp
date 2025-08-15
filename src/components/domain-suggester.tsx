@@ -103,7 +103,7 @@ export function DomainSuggester() {
   }
 
   return (
-    <Card className="w-full overflow-hidden">
+    <Card className="w-full overflow-hidden text-left bg-card">
        <CardContent className="p-0">
         <div className="grid md:grid-cols-2">
           <div className="p-6 flex flex-col justify-between">
@@ -129,13 +129,22 @@ export function DomainSuggester() {
                 </form>
             </div>
           </div>
-          <div className="bg-secondary p-6">
-            <div className="flex flex-col h-[270px]">
+          <div className="relative p-6 bg-secondary overflow-hidden">
+             <video
+              className="absolute top-0 left-0 w-full h-full object-cover z-0"
+              src="/videos/aiicon.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            ></video>
+            <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
+            <div className="relative z-20 flex flex-col h-[270px]">
               {displayedSuggestions && displayedSuggestions.length > 0 ? (
                 <>
-                  <div className="flex justify-between items-center mb-2">
+                  <div className="flex justify-between items-center mb-2 text-white">
                     <h3 className="font-headline text-lg font-semibold">Suggestions:</h3>
-                    <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground hover:bg-destructive hover:text-destructive-foreground">
+                    <Button variant="ghost" size="sm" onClick={handleClear} className="text-white/80 hover:bg-destructive hover:text-destructive-foreground">
                       <X className="mr-2 h-4 w-4" />
                       Clear
                     </Button>
@@ -146,17 +155,17 @@ export function DomainSuggester() {
                         <Link
                           key={domain}
                           href={`/whois?domain=${domain}&from=ai-suggester`}
-                          className="flex items-center justify-between rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-colors text-sm w-full"
+                          className="flex items-center justify-between rounded-lg border border-white/20 bg-white/10 p-3 hover:bg-primary hover:text-primary-foreground transition-colors text-sm w-full text-white"
                         >
                           <span className="font-medium truncate">{domain}</span>
-                          <Search className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                          <Search className="h-4 w-4 text-white/70 flex-shrink-0" />
                         </Link>
                       ))}
                     </div>
                   </ScrollArea>
                 </>
               ) : (
-                <div className="flex items-center justify-center h-full text-center text-muted-foreground">
+                <div className="flex items-center justify-center h-full text-center text-white/80">
                   <p>Your domain suggestions will appear here.</p>
                 </div>
               )}
