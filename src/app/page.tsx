@@ -96,8 +96,8 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <PageAnchorNav />
-      <main className="flex-1 pt-16">
-        <section id="hero" className="w-full pb-20 pt-10 md:pb-24 lg:pb-32 bg-background">
+      <main className="flex-1">
+        <section id="hero" className="w-full pb-20 pt-16 md:pb-24 md:pt-20 lg:pb-32 lg:pt-28 bg-background">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 text-left">
@@ -133,7 +133,7 @@ export default function Home() {
             <div className="container mx-auto max-w-6xl px-4 md:px-6">
               <div className="space-y-4 text-center mb-16">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-                  How to Register Your .KE Domain
+                  How to Register Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">.KE Domain</span>
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Follow these three simple steps to secure your online identity.
@@ -183,7 +183,7 @@ export default function Home() {
                           <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                             <Rocket className="h-10 w-10 text-primary" />
                           </div>
-                          <h3 className="font-headline text-xl font-bold mb-2">Buy & Go Live</h3>
+                          <h3 className="font-headline text-xl font-bold mb-2">Buy &amp; Go Live</h3>
                           <p className="text-muted-foreground mb-6 text-sm flex-grow min-h-[40px]">
                              Launch your brand, secure your domain, and go live today.
                           </p>
@@ -203,7 +203,7 @@ export default function Home() {
               <div className="flex flex-col items-center justify-center space-y-8 text-center">
                 <div className="space-y-2">
                   <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-                    Explore Our Domain Extensions
+                    Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Domain Extensions</span>
                   </h2>
                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     We offer a wide range of .KE extensions to suit every need.
@@ -231,7 +231,7 @@ export default function Home() {
                   <div className="flex flex-col items-center justify-center space-y-12 text-center">
                       <div className="space-y-4">
                           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl flex items-center justify-center gap-3 text-foreground">
-                              <TrendingUp className="text-primary"/> Powering Kenya's Digital Identity
+                              <TrendingUp className="text-primary"/> Powering Kenya's <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital Identity</span>
                           </h2>
                           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                           A vibrant and growing digital landscape for Kenya.
@@ -321,7 +321,7 @@ export default function Home() {
                     Key Features
                   </div>
                   <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Everything You Need for .KE Domains
+                    Everything You Need for <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">.KE Domains</span>
                   </h2>
                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     From real-time checks to AI-powered suggestions, we provide a
@@ -361,7 +361,7 @@ export default function Home() {
         </div>
 
         <div>
-           <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section bg-secondary">
+           <section id="ai-suggester" ref={(el) => (animatedSectionsRef.current[4] = el)} className="w-full py-12 md:py-24 lg:py-32 animated-section bg-card">
             <div className="container mx-auto max-w-6xl grid grid-cols-1 items-center gap-12 px-4 md:px-6 text-center">
               <div className="space-y-4">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
@@ -382,7 +382,7 @@ export default function Home() {
               <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-8 text-center">
                     <div className="space-y-2">
-                        <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Our Partners &amp; Collaborators</h2>
+                        <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Partners &amp; Collaborators</span></h2>
                         <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                             We are proud to work with a diverse range of organizations to build a better digital Kenya.
                         </p>
@@ -398,7 +398,7 @@ export default function Home() {
               <div className="container mx-auto px-4 md:px-6 text-center">
                 <div className="mx-auto max-w-3xl space-y-6">
                   <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
-                    Ready to Get Started?
+                    Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">Get Started?</span>
                   </h2>
                   <p className="text-lg text-primary-foreground/80 md:text-xl">
                     Your new .KE domain is just a few clicks away. Find it, register
@@ -421,3 +421,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
