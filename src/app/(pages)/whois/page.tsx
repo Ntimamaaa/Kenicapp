@@ -104,39 +104,40 @@ function WhoisPageContent() {
   
   return (
     <div className="flex-1">
-        <section className="relative w-full h-[60vh] flex items-center justify-center text-center text-white overflow-hidden">
-             <div className="absolute top-0 left-0 w-full h-full z-[-2]">
-                <video
+         <section className="w-full pt-32 pb-20 md:pb-24 lg:pb-32 bg-background">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6 text-left">
+                <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
+                  WhoIs <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Domain Checker</span>
+                </h1>
+                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  Check the availability of any .KE domain instantly.
+                </p>
+                <div className="w-full max-w-lg">
+                    <DomainChecker onValueChange={estimateDomainValue} />
+                </div>
+                 <Button asChild variant="link">
+                    <Link href="/registrars/licensed">
+                        Or browse licensed registrars
+                    </Link>
+                </Button>
+              </div>
+              <div className="relative w-full h-[300px] lg:h-[350px] rounded-xl overflow-hidden shadow-2xl">
+                 <video
                     src="/videos/globe3.mp4"
                     className="w-full h-full object-cover"
                     autoPlay
                     loop
                     muted
                     playsInline
-                />
+                  />
+              </div>
             </div>
-            <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[-1]"></div>
-             <div className="container relative z-10 mx-auto px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-6 animate-fade-in-up">
-                    <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                        WhoIs Domain Checker
-                    </h1>
-                    <p className="max-w-[700px] text-lg text-white/90 md:text-xl">
-                        Check the availability of any .KE domain instantly.
-                    </p>
-                    <div className="my-8 w-full max-w-2xl">
-                        <DomainChecker onValueChange={estimateDomainValue} />
-                    </div>
-                     <Button asChild variant="link" className="text-white">
-                        <Link href="/registrars/licensed">
-                            Or browse licensed registrars
-                        </Link>
-                    </Button>
-                </div>
-            </div>
+          </div>
         </section>
 
-        <div className="bg-background">
+        <div className="bg-secondary">
             <div className="container mx-auto max-w-4xl py-12 px-4 md:px-6">
                  {fromAISuggester ? (
                      <Button asChild variant="outline" className="mb-8">
