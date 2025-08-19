@@ -36,7 +36,7 @@ export default function LicensedRegistrarsPage() {
 
   return (
     <div className="flex-1">
-      <section className="w-full pt-16 pb-20 md:pb-24 lg:pb-32 bg-background">
+      <section className="w-full pt-32 pb-20 md:pb-24 lg:pb-32 bg-background">
         <div className="container mx-auto max-w-7xl px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-left">
@@ -63,7 +63,7 @@ export default function LicensedRegistrarsPage() {
     
       <div className="bg-secondary">
         <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
-          <div className="w-full max-w-2xl mx-auto mb-12">
+          <div className="w-full max-w-2xl mx-auto mb-12 text-center">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
