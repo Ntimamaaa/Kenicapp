@@ -68,11 +68,11 @@ export default function DeletedDomainsPage() {
                         <span>Pro Tip: Short, brandable names are often found here!</span>
                         <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
-                    <h1 className="font-headline text-5xl md:text-7xl font-light tracking-tighter text-foreground">
-                        Deleted Domains
+                    <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Deleted Domains</span>
                     </h1>
                     <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed">
-                        Find your next digital asset. Recently expired domains are a goldmine of opportunities waiting to be discovered. Explore the list to catch valuable names as they become available.
+                        Discover valuable names in our list of recently expired .KE domains. Seize the opportunity to acquire premium domains as they become available.
                     </p>
                     <div className="flex items-center gap-4">
                         <Button asChild size="lg">
@@ -80,15 +80,19 @@ export default function DeletedDomainsPage() {
                                 Check a Name
                             </Link>
                         </Button>
-                        <Button asChild variant="link" size="lg">
-                            <Link href="/domains/value-prop">
-                                <span>Why a .KE Domain?</span>
-                            </Link>
-                        </Button>
                     </div>
                 </div>
-                <div className="flex justify-center">
-                    <Image 
+                <div className="flex justify-center md:hidden">
+                    <Image
+                        src="/icons/qiskit-community.svg"
+                        alt="Deleted Domains Illustration"
+                        width={400}
+                        height={400}
+                        className="w-full max-w-md"
+                    />
+                </div>
+                <div className="hidden md:flex justify-center">
+                    <Image
                         src="/icons/qiskit-community.svg"
                         alt="Deleted Domains Illustration"
                         width={400}
@@ -135,8 +139,8 @@ export default function DeletedDomainsPage() {
                 <div className="space-y-2">
                     <div className="flex flex-wrap items-center justify-center gap-2">
                         {categories.map(({ name, icon: Icon }) => (
-                            <Button 
-                                key={name} 
+                            <Button
+                                key={name}
                                 variant={selectedCategory === name ? 'default' : 'outline'}
                                 onClick={() => setSelectedCategory(name)}
                                 className="flex items-center gap-2"
