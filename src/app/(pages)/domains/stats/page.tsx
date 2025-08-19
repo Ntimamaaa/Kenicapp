@@ -155,15 +155,15 @@ function StatsPageContent() {
                     Live insights and trends from the .KE domain namespace.
                 </p>
               </div>
-              <div className="relative w-full h-[300px] lg:h-[350px] rounded-xl overflow-hidden shadow-2xl">
-                 <video
-                    src="/videos/stats.mp4"
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
+              <div className="flex justify-center">
+                <Image
+                    src="https://placehold.co/400x400.png"
+                    alt="Domain Stats Illustration"
+                    width={400}
+                    height={400}
+                    className="w-full max-w-md rounded-xl shadow-2xl"
+                    data-ai-hint="data analytics"
+                />
               </div>
             </div>
           </div>
