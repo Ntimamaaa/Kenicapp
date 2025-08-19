@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, Suspense, type ElementType } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import {
@@ -17,7 +17,7 @@ import {
   Legend,
   Sector
 } from "recharts";
-import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCircle, ArrowLeft } from "lucide-react";
+import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCircle, ArrowLeft, Briefcase, Server, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -89,38 +89,33 @@ const renderActiveShape = (props: any) => {
   );
 };
 
-interface StatCardProps {
+
+interface BlobStatCardProps {
     title: string;
     value: string;
     description: string;
-    imageSrc: string;
-    imageHint: string;
-    link: string;
-    linkLabel: string;
+    icon: ElementType;
     animationDelay: string;
-    variant?: 'outline';
 }
 
-function VividStatCard({ title, value, description, imageSrc, imageHint, link, linkLabel, animationDelay, variant }: StatCardProps) {
+function BlobStatCard({ title, value, description, icon: Icon, animationDelay }: BlobStatCardProps) {
     return (
-        <Card className="animate-fade-in-up relative overflow-hidden flex flex-col group h-64 justify-end" style={{ animationDelay }}>
-            <Image
-                src={imageSrc}
-                alt={title}
-                fill
-                className="absolute inset-0 z-0 object-cover transition-transform duration-500 group-hover:scale-110"
-                data-ai-hint={imageHint}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10"></div>
-            <div className="relative z-20 p-6 text-white flex flex-col flex-grow justify-end">
-                <h3 className="text-lg font-semibold drop-shadow-md">{title}</h3>
-                <p className="text-3xl font-bold drop-shadow-lg">{value}</p>
-                <p className="text-sm text-white/80 drop-shadow-md mb-4">{description}</p>
-                <Button asChild className="w-full mt-auto" variant={variant || 'default'}>
-                    <Link href={link}>{linkLabel}</Link>
-                </Button>
+        <div className="blob-card animate-fade-in-up" style={{ animationDelay }}>
+            <div className="blob"></div>
+            <div className="blob"></div>
+            <div className="blob"></div>
+            <div className="blob"></div>
+            <div className="blob-card__content">
+                <div className="p-6 h-full flex flex-col justify-between text-white">
+                    <Icon className="w-10 h-10 mb-4 text-white/80" />
+                    <div>
+                        <p className="text-4xl font-bold drop-shadow-lg">{value}</p>
+                        <h3 className="text-lg font-semibold drop-shadow-md">{title}</h3>
+                        <p className="text-sm text-white/80 drop-shadow-md">{description}</p>
+                    </div>
+                </div>
             </div>
-        </Card>
+        </div>
     )
 }
 
@@ -184,49 +179,34 @@ function StatsPageContent() {
                 )}
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
-                    <VividStatCard 
+                   <BlobStatCard
                         title="Total Domains"
                         value="112,801"
                         description="All registered .KE domains"
-                        imageSrc="https://placehold.co/600x400.png"
-                        imageHint="abstract globe network"
-                        link="/registrars/licensed"
-                        linkLabel="Register Domain"
+                        icon={Globe}
                         animationDelay="200ms"
-                    />
-                     <VividStatCard 
+                   />
+                    <BlobStatCard
                         title="Licensed Registrars"
                         value="512"
                         description="Accredited partners"
-                        imageSrc="https://placehold.co/600x400.png"
-                        imageHint="modern city architecture"
-                        link="/registrars/licensed"
-                        linkLabel="View Registrars"
+                        icon={Briefcase}
                         animationDelay="400ms"
-                        variant="outline"
-                    />
-                    <VividStatCard 
+                   />
+                   <BlobStatCard
                         title="Generic Domains"
                         value="109,526"
                         description="e.g. .co.ke, .or.ke"
-                        imageSrc="https://placehold.co/600x400.png"
-                        imageHint="server room data"
-                        link="/domains/deleted"
-                        linkLabel="Learn More"
+                        icon={Server}
                         animationDelay="600ms"
-                        variant="outline"
-                    />
-                    <VividStatCard 
+                   />
+                   <BlobStatCard
                         title="Restricted Domains"
                         value="3,275"
                         description="e.g. .ac.ke, .go.ke"
-                        imageSrc="https://placehold.co/600x400.png"
-                        imageHint="government building"
-                        link="/legal/policies"
-                        linkLabel="View Policies"
+                        icon={Shield}
                         animationDelay="800ms"
-                        variant="outline"
-                    />
+                   />
                 </div>
 
                 <div className="grid gap-8 lg:grid-cols-2 mb-8">
@@ -341,7 +321,3 @@ export default function DomainStatsPage() {
         </Suspense>
     )
 }
-
-    
-
-    
