@@ -46,22 +46,6 @@ export default function LicensedRegistrarsPage() {
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 Choose from our network of accredited partners to register and manage your .KE domain.
               </p>
-              <div className="w-full max-w-lg">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input
-                    placeholder="Search for a registrar..."
-                    value={filter}
-                    onChange={(e) => setFilter(e.target.value)}
-                    className="pl-10 text-base h-12 bg-card"
-                  />
-                </div>
-                 <Button asChild variant="link" className="mt-2">
-                    <Link href="/whois">
-                        Or check domain availability
-                    </Link>
-                </Button>
-              </div>
             </div>
             <div className="relative w-full h-[300px] lg:h-[350px] rounded-xl overflow-hidden shadow-2xl">
               <video
@@ -79,6 +63,22 @@ export default function LicensedRegistrarsPage() {
     
       <div className="bg-secondary">
         <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
+          <div className="w-full max-w-2xl mx-auto mb-12">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Input
+                placeholder="Search for a registrar..."
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="pl-10 text-base h-12 bg-card"
+              />
+            </div>
+              <Button asChild variant="link" className="mt-2">
+                <Link href="/whois">
+                    Or check domain availability
+                </Link>
+            </Button>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {visibleRegistrars.map((registrar) => (
               <Card key={registrar.name} className="flex flex-col bg-card">
@@ -135,5 +135,3 @@ export default function LicensedRegistrarsPage() {
     </div>
   );
 }
-
-    
