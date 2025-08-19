@@ -82,16 +82,7 @@ export default function DeletedDomainsPage() {
                         </Button>
                     </div>
                 </div>
-                <div className="flex justify-center md:hidden">
-                    <Image
-                        src="/icons/qiskit-community.svg"
-                        alt="Deleted Domains Illustration"
-                        width={400}
-                        height={400}
-                        className="w-full max-w-md"
-                    />
-                </div>
-                <div className="hidden md:flex justify-center">
+                <div className="flex justify-center">
                     <Image
                         src="/icons/qiskit-community.svg"
                         alt="Deleted Domains Illustration"
@@ -172,8 +163,8 @@ export default function DeletedDomainsPage() {
                   <TableRow>
                     <TableHead>Domain Name</TableHead>
                     <TableHead className="hidden md:table-cell">Category</TableHead>
-                    <TableHead>Deletion Date</TableHead>
-                    <TableHead className="text-right">Action</TableHead>
+                    <TableHead className="text-left md:text-right">Deletion Date</TableHead>
+                    <TableHead>Action</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -184,11 +175,12 @@ export default function DeletedDomainsPage() {
                         <TableCell className="hidden md:table-cell">
                             <Badge variant="outline">{domain.category}</Badge>
                         </TableCell>
-                        <TableCell>{domain.deletionDate}</TableCell>
-                        <TableCell className="text-right">
+                        <TableCell className="text-left md:text-right">{domain.deletionDate}</TableCell>
+                        <TableCell>
                           <Button asChild variant="outline" size="sm">
                             <Link href={`/whois?domain=${domain.name}&from=deleted-domains`}>
-                              Check Availability
+                               <span className="hidden md:inline">Check Availability</span>
+                               <span className="md:hidden">Check</span>
                             </Link>
                           </Button>
                         </TableCell>
