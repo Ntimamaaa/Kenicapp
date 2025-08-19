@@ -107,10 +107,9 @@ function VividStatCard({ title, value, description, imageSrc, imageHint, link, l
             <Image
                 src={imageSrc}
                 alt={title}
-                layout="fill"
-                objectFit="cover"
+                fill
+                className="absolute inset-0 z-0 object-cover transition-transform duration-500 group-hover:scale-110"
                 data-ai-hint={imageHint}
-                className="absolute inset-0 z-0 transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10"></div>
             <div className="relative z-20 p-6 text-white flex flex-col flex-grow justify-end">
@@ -131,7 +130,6 @@ function StatsPageContent() {
     const fromHome = searchParams.get('from') === 'home';
 
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
-    const [activeRestrictedIndex, setActiveRestrictedIndex] = useState<number | null>(null);
 
 
   const onPieEnter = (_: any, index: number) => {
@@ -151,8 +149,8 @@ function StatsPageContent() {
 
   return (
     <div className="flex-1">
-        <section className="relative w-full h-[50vh] flex items-center justify-center text-center text-white overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full z-[-2]">
+        <section className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center text-white overflow-hidden">
+             <div className="absolute top-0 left-0 w-full h-full z-[-2]">
                 <video
                     src="/videos/stats.mp4"
                     className="w-full h-full object-cover"
