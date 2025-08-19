@@ -147,7 +147,7 @@ body {
   .blob-card .blob:nth-child(2) {
     left: -50px;
     top: -90px;
-    background: #ff930f;
+    background: hsl(var(--chart-1));
     animation-delay: 1s;
   }
 
@@ -155,21 +155,21 @@ body {
     left: 110px;
     top: -20px;
     z-index: -1;
-    background: #bf0fff;
+    background: hsl(var(--accent));
     animation-delay: 2s;
   }
 
   .blob-card .blob:nth-child(4) {
     left: -40px;
     top: 100px;
-    background: #ff1b6b;
+    background: hsl(var(--chart-5));
     animation-delay: 3s;
   }
 
   .blob-card .blob:nth-child(5) {
     left: 100px;
     top: 180px;
-    background: #0061ff;
+    background: hsl(var(--primary));
     animation-delay: 4s;
   }
 }
