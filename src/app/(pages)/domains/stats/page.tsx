@@ -157,7 +157,7 @@ function StatsPageContent() {
               </div>
               <div className="flex justify-center">
                 <Image
-                    src="https://placehold.co/400x400.png"
+                    src="/public/icons/functions-catalog.svg"
                     alt="Domain Stats Illustration"
                     width={400}
                     height={400}
