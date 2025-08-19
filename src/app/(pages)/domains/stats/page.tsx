@@ -149,28 +149,29 @@ function StatsPageContent() {
 
   return (
     <div className="flex-1">
-        <section className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center text-white overflow-hidden">
-             <div className="absolute top-0 left-0 w-full h-full z-[-2]">
-                <video
+        <section className="w-full pt-32 pb-20 md:pb-24 lg:pb-32 bg-background">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6 text-left">
+                <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
+                  .KE Domain <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Statistics</span>
+                </h1>
+                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                    Live insights and trends from the .KE domain namespace.
+                </p>
+              </div>
+              <div className="relative w-full h-[300px] lg:h-[350px] rounded-xl overflow-hidden shadow-2xl">
+                 <video
                     src="/videos/stats.mp4"
                     className="w-full h-full object-cover"
                     autoPlay
                     loop
                     muted
                     playsInline
-                />
+                  />
+              </div>
             </div>
-            <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[-1]"></div>
-             <div className="container relative z-10 mx-auto px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-6 animate-fade-in-up">
-                    <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                        .KE Domain Statistics
-                    </h1>
-                    <p className="max-w-[700px] text-lg text-white/90 md:text-xl">
-                        Live insights and trends from the .KE domain namespace.
-                    </p>
-                </div>
-            </div>
+          </div>
         </section>
         
         <div className="bg-secondary">
@@ -340,5 +341,7 @@ export default function DomainStatsPage() {
         </Suspense>
     )
 }
+
+    
 
     
