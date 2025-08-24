@@ -97,7 +97,7 @@ export default function Home() {
     <div className="flex flex-col">
       <PageAnchorNav />
       <main className="flex-1">
-        <section id="hero" className="w-full pt-16 pb-20 md:pb-24 lg:pb-32 bg-background">
+        <section id="hero" className="w-full pt-32 pb-20 bg-background">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 text-left">
@@ -106,12 +106,6 @@ export default function Home() {
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                   Search, register, and manage your .KE domains with powerful tools for your online identity.
-                </p>
-                <div className="w-full max-w-lg">
-                    <DomainChecker />
-                </div>
-                 <p className="text-xs text-muted-foreground">
-                    Search for your domain.
                 </p>
               </div>
               <div className="relative w-full h-[250px] lg:h-[300px] rounded-xl overflow-hidden shadow-2xl">
@@ -126,6 +120,17 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+        
+        <section className="w-full pb-20 md:pb-24 lg:pb-32 bg-background">
+            <div className="container mx-auto max-w-2xl px-4 md:px-6 text-center">
+                 <div className="w-full">
+                    <DomainChecker />
+                </div>
+                 <p className="text-xs text-muted-foreground mt-2">
+                    Search for your domain.
+                </p>
+            </div>
         </section>
 
         <div>
