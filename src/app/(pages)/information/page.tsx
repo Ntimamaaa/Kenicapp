@@ -46,11 +46,13 @@ export default function InformationPage() {
       </div>
 
       <Tabs defaultValue="charter" className="w-full">
-        <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 h-auto">
-          <TabsTrigger value="charter" className="py-2">KeNIC Service Charter</TabsTrigger>
-          <TabsTrigger value="tenders" className="py-2">KeNIC Tenders</TabsTrigger>
-          <TabsTrigger value="certificates" className="py-2">Certificates</TabsTrigger>
-        </TabsList>
+        <div className="w-full overflow-x-auto">
+          <TabsList className="h-auto">
+            <TabsTrigger value="charter" className="py-2">KeNIC Service Charter</TabsTrigger>
+            <TabsTrigger value="tenders" className="py-2">KeNIC Tenders</TabsTrigger>
+            <TabsTrigger value="certificates" className="py-2">Certificates</TabsTrigger>
+          </TabsList>
+        </div>
         <TabsContent value="charter" className="mt-8">
           <Card>
             <CardHeader>

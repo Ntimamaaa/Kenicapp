@@ -13,13 +13,15 @@ export default function NewsPage() {
       </div>
 
       <Tabs defaultValue="updates" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto">
-          <TabsTrigger value="updates" className="py-2">News & Updates</TabsTrigger>
-          <TabsTrigger value="blog" className="py-2">Blog & Articles</TabsTrigger>
-          <TabsTrigger value="events" className="py-2">Events</TabsTrigger>
-          <TabsTrigger value="trainings" className="py-2">Trainings</TabsTrigger>
-          <TabsTrigger value="newsletter" className="py-2">Newsletter</TabsTrigger>
-        </TabsList>
+        <div className="w-full overflow-x-auto">
+          <TabsList className="h-auto">
+            <TabsTrigger value="updates" className="py-2">News & Updates</TabsTrigger>
+            <TabsTrigger value="blog" className="py-2">Blog & Articles</TabsTrigger>
+            <TabsTrigger value="events" className="py-2">Events</TabsTrigger>
+            <TabsTrigger value="trainings" className="py-2">Trainings</TabsTrigger>
+            <TabsTrigger value="newsletter" className="py-2">Newsletter</TabsTrigger>
+          </TabsList>
+        </div>
         <TabsContent value="updates" className="mt-8">
           <Card>
             <CardHeader>

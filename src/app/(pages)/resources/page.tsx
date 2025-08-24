@@ -27,12 +27,14 @@ export default function ResourcesPage() {
       </div>
 
       <Tabs defaultValue="dns" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
-          <TabsTrigger value="dns" className="py-2">DNS &amp; DNSSEC Material</TabsTrigger>
-          <TabsTrigger value="downloads" className="py-2">Downloads</TabsTrigger>
-          <TabsTrigger value="links" className="py-2">Useful Links</TabsTrigger>
-          <TabsTrigger value="payment" className="py-2">Payment Details</TabsTrigger>
-        </TabsList>
+        <div className="w-full overflow-x-auto">
+          <TabsList className="h-auto">
+            <TabsTrigger value="dns" className="py-2">DNS &amp; DNSSEC Material</TabsTrigger>
+            <TabsTrigger value="downloads" className="py-2">Downloads</TabsTrigger>
+            <TabsTrigger value="links" className="py-2">Useful Links</TabsTrigger>
+            <TabsTrigger value="payment" className="py-2">Payment Details</TabsTrigger>
+          </TabsList>
+        </div>
         <TabsContent value="dns" className="mt-8">
           <Card>
             <CardHeader>
