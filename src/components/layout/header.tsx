@@ -97,8 +97,12 @@ export function Header() {
 
         <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost">Log In</Button>
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90">Register</Button>
+            <Button asChild variant="ghost">
+              <Link href="/login">Log In</Link>
+            </Button>
+            <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Link href="/signup">Register</Link>
+            </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="lg:hidden">
