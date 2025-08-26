@@ -8,6 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { Bell, Calendar, Edit, ExternalLink, Globe, PlusCircle, Power, ShieldCheck, User } from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const domains = [
     { name: "mybusiness.co.ke", registrar: "Safaricom", status: "Active", expiry: "2025-08-15" },
