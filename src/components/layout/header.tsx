@@ -4,7 +4,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun, Info, UserPlus } from 'lucide-react';
+import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun, Info, UserPlus, LayoutDashboard } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -38,6 +38,7 @@ const navItems = [
   { title: 'Policies', href: '/legal/policies' },
   { title: 'Registrars', href: '/registrars/licensed' },
   { title: 'WhoIs', href: '/whois' },
+  { title: 'Dashboard', href: '/dashboard'},
   { title: 'News', href: '/news' },
   { title: 'Careers', href: '/careers' },
 ];
