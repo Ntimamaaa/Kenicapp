@@ -54,14 +54,14 @@ export function SettingsDrawer() {
           <div className="py-4">
             <div className="space-y-2">
                 <Label>Theme</Label>
-                <div className="grid grid-cols-3 gap-2">
-                    <Button variant={theme === "light" ? "default" : "outline"} onClick={() => setTheme('light')}>
+                <div className="flex flex-col sm:flex-row gap-2">
+                    <Button variant={theme === "light" ? "default" : "outline"} onClick={() => setTheme('light')} className="w-full justify-center">
                        <Sun className="mr-2 h-4 w-4"/> Light
                     </Button>
-                     <Button variant={theme === "dark" ? "default" : "outline"} onClick={() => setTheme('dark')}>
+                     <Button variant={theme === "dark" ? "default" : "outline"} onClick={() => setTheme('dark')} className="w-full justify-center">
                        <Moon className="mr-2 h-4 w-4"/> Dark
                     </Button>
-                     <Button variant={theme === "system" ? "default" : "outline"} onClick={() => setTheme('system')}>
+                     <Button variant={theme === "system" ? "default" : "outline"} onClick={() => setTheme('system')} className="w-full justify-center">
                        <Laptop className="mr-2 h-4 w-4"/> System
                     </Button>
                 </div>
