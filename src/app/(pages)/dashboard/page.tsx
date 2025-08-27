@@ -32,7 +32,7 @@ export default function DashboardPage() {
                             <p className="text-muted-foreground">Here's what's happening with your domains.</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                         <Button variant="outline">
                             <Bell className="mr-2 h-4 w-4" />
                             Notifications
@@ -93,7 +93,7 @@ export default function DashboardPage() {
                 </div>
 
                 <Card>
-                    <CardHeader className="flex flex-row justify-between items-center">
+                    <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                         <div>
                             <CardTitle className="font-headline text-2xl">My Registered Domains</CardTitle>
                             <CardDescription>Manage your portfolio of .KE domains.</CardDescription>
