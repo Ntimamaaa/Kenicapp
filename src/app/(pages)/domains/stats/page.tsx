@@ -144,7 +144,7 @@ function StatsPageContent() {
 
   return (
     <div className="flex-1">
-        <section className="w-full pt-32 pb-20 md:pb-24 lg:pb-32 bg-background">
+        <section className="w-full pt-24 pb-20 md:pb-24 lg:pb-32 bg-background">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 text-left">

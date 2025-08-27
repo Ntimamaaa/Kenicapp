@@ -4,12 +4,13 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun, Info, UserPlus, LayoutDashboard } from 'lucide-react';
+import { Globe, Menu, Briefcase, Newspaper, Search, Users, Shield, FileText, Download, Star, BookOpen, Scale, Moon, Sun, Info, UserPlus, LayoutDashboard, Settings } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
+  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import {
@@ -24,6 +25,7 @@ import {
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '../theme-toggle';
 import { ScrollArea } from '../ui/scroll-area';
+import { useSettings } from '../settings-drawer';
 
 const navItems = [
   {
@@ -55,6 +57,7 @@ const Logo = () => (
 
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { setOpen: setSettingsOpen } = useSettings();
   
   return (
     <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -97,7 +100,10 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2">
-            <ThemeToggle />
+            <Button variant="ghost" size="icon" onClick={() => setSettingsOpen(true)}>
+                <Settings />
+                <span className="sr-only">Settings</span>
+            </Button>
             <Button asChild variant="ghost">
               <Link href="/login">Log In</Link>
             </Button>
@@ -112,6 +118,7 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="flex flex-col">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="py-6">
                     <Logo />
                 </div>

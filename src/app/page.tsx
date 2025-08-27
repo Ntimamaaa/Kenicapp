@@ -97,10 +97,10 @@ export default function Home() {
     <div className="flex flex-col">
       <PageAnchorNav />
       <main className="flex-1">
-        <section id="hero" className="w-full pt-32 pb-20 bg-background">
+        <section id="hero" className="w-full pt-24 pb-20 bg-background">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6 text-left">
+              <div className="space-y-6 text-left flex-col md:order-1 order-2">
                 <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
                   Your Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">.KE Domain</span> Awaits
                 </h1>
@@ -108,7 +108,7 @@ export default function Home() {
                   Search, register, and manage your .KE domains with powerful tools for your online identity.
                 </p>
               </div>
-              <div className="relative w-full h-[250px] lg:h-[300px] rounded-xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[250px] lg:h-[300px] rounded-xl overflow-hidden shadow-2xl flex-col md:order-2 order-1">
                  <video
                     src="/videos/globevideo.mp4"
                     className="w-full h-full object-cover"

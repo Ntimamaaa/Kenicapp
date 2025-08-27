@@ -20,7 +20,7 @@ const domains = [
 export default function DashboardPage() {
     return (
         <div className="flex-1 bg-secondary">
-            <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
+            <div className="container mx-auto max-w-7xl py-24 px-4 md:px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
                     <div className="flex items-center gap-4 mb-4 md:mb-0">
                         <Avatar className="h-16 w-16">

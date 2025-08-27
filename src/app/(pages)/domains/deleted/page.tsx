@@ -61,7 +61,7 @@ export default function DeletedDomainsPage() {
 
   return (
     <div className="flex-1 bg-background">
-        <section className="w-full py-20 lg:py-32">
+        <section className="w-full pt-20 lg:pt-32">
             <div className="container mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 md:grid-cols-2 md:px-6">
                 <div className="space-y-6">
                     <Link href="#" className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary transition-colors hover:bg-primary/20">
@@ -84,7 +84,7 @@ export default function DeletedDomainsPage() {
                 </div>
                 <div className="flex justify-center">
                     <Image
-                        src="/icons/qiskit-community.svg"
+                        src="/public/icons/deleted-domains.svg"
                         alt="Deleted Domains Illustration"
                         width={400}
                         height={400}
