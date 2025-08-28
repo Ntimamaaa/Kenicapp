@@ -47,7 +47,7 @@ const policies = [
 
 export default function PoliciesPage() {
   return (
-    <div className="bg-secondary flex-1">
+    <div className="bg-secondary flex-1 pt-24 md:pt-32">
       <div className="container mx-auto max-w-6xl py-12 px-4 md:px-6">
         <div className="space-y-4 text-center mb-16">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
