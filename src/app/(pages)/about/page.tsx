@@ -12,7 +12,7 @@ export default function AboutPage() {
   const [isVisionExpanded, setIsVisionExpanded] = useState(false);
 
   return (
-    <div className="bg-secondary flex-1">
+    <div className="bg-secondary flex-1 pt-24 md:pt-32">
       <div className="container mx-auto max-w-6xl py-12 px-4 md:px-6">
         <div className="space-y-4 text-center mb-16">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">About KeNIC</h1>
@@ -95,7 +95,7 @@ export default function AboutPage() {
                         <p>Kenya ranks 3rd in Africa in domain uptake analysis based on registered domains and local hosting metrics. With 85% internet penetration, Kenya is a continental leader in digital advancement</p>
                         <p>IANA delegated .ke administration to Dr. Shem Ochuocho in 1993, succeeded by KeNIC's 2000 formation as a non-profit entity under Kenyan law to manage Kenya's internet presence</p>
                         <p>As manager of Kenya's secure .ke namespace, KeNIC aims to operate an efficient registry aligned with global standards. Strategic priorities include opening .ke globally, improving domain registration experience, partnerships and talent development for sustainable growth</p>
-                        <p>KeNIC offers a range of products and services, including comprehensive registry services, registrar accreditation, DNSSEC implementation, and the introduction of the Second-Level Domain Name Space, providing flexibility and customization for businesses and individuals within the .KE domain space. Continually investing in technical infrastructure enhancements, KeNIC ensures the reliability and security of the .KE domain registry, upholding its commitment to providing a stable and trustworthy platform for .KE domain name registration and management</p>
+                        <p>KeNIC offers a range of products and services, including comprehensive registry services, registrar accreditation, DNSSEC implementation, and the introduction of the Second-Level Domain Name Space, providing flexibility and customization for businesses and individuals within the .KE domain space. Continually investing in technical infrastructure enhancements, KeNIC ensures the reliability and security of the .KE domain registry, upholding its commitment to providing a stable and trustworthy platform for .KE domain name registration and management.</p>
                         <p>In conclusion, KeNIC's role as the manager and administrator of .KE domains in Kenya is pivotal in shaping the nation's internet ecosystem and contributing to its digital economy growth. Through strategic partnerships, technical capabilities, and a diverse range of products and services, KeNIC remains at the forefront of promoting a secure, reliable, and inclusive online presence for businesses, organizations, and individuals across Kenya's digital landscape.</p>
                     </div>
                 )}
