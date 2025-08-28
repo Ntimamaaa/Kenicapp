@@ -42,7 +42,6 @@ const navItems = [
   { title: 'WhoIs', href: '/whois' },
   { title: 'Dashboard', href: '/dashboard'},
   { title: 'News', href: '/news' },
-  { title: 'Careers', href: '/careers' },
 ];
 
 const Logo = () => (
