@@ -21,6 +21,12 @@ This platform is designed for a diverse range of users within Kenya and abroad w
 *   **Non-Profit Organizations:** NGOs and community-based organizations seeking to establish credibility and trust with a .or.ke domain.
 *   **Educational and Governmental Institutions:** Schools, universities, and government bodies that use restricted domains like .ac.ke and .go.ke.
 
+## How Our Features Work Together
+
+The application provides a seamless and integrated experience for domain registration. The journey begins with the **Domain Availability Checker**, where a user can instantly perform a WHOIS lookup to see if their desired name is available. If the name is taken or the user is looking for inspiration, they can turn to the **AI-Powered Domain Suggester**. By entering relevant keywords, the user receives a list of creative and, most importantly, available domain names.
+
+Once the user finds an available domain they like—either through a direct search or from the AI suggestions—they are guided to the **Licensed Registrar Directory**. This comprehensive list of KeNIC-accredited partners allows the user to choose a trusted registrar to complete the purchase. The platform bridges the gap between discovery and acquisition, making it simple to go from an idea to a registered .KE domain through a secure and reliable channel. For existing users, the **User Dashboard** provides a centralized place to view all their registered domains, manage their account, and receive important notifications, completing the domain lifecycle management experience.
+
 ## Key Features
 
 This application is equipped with a wide array of features designed to provide a seamless and powerful user experience for all things related to .KE domains.
