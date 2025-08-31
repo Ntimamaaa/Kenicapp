@@ -86,7 +86,7 @@ export function PageAnchorNav() {
     if (section) {
       const headerHeight = headerRef.current?.offsetHeight ?? 64; // Default to 64px
       const stickyNavHeight = 48; // Height of the anchor nav itself
-      const offset = headerHeight + stickyNavHeight;
+      const offset = headerHeight + (isVisible ? stickyNavHeight : 0);
 
       window.scrollTo({
         top: section.offsetTop - offset, // Dynamic offset
