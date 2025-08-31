@@ -1,15 +1,27 @@
-
 # KeNIC - Official .KE Domain Registry Website
 
 ## Project Brief
-
-### Introduction
 
 The Kenya Network Information Centre (KeNIC) is the entity charged with the management and administration of the .KE country code Top-Level Domain (.KE ccTLD). This project is the official web portal for KeNIC, meticulously engineered to serve as a comprehensive, user-friendly, and technologically advanced platform for the registration, management, and lookup of .KE domain names. Built with a modern technology stack, this application aims to empower individuals, businesses, and organizations across Kenya and beyond to establish and manage their unique digital identities online.
 
 The primary goal of this platform is to streamline the process of acquiring and managing a .KE domain. It provides a centralized hub where users can access a suite of powerful tools, from a real-time domain availability checker to an AI-powered domain suggestion engine. The application serves a diverse audience, including entrepreneurs launching new businesses, established companies protecting their brand identity, and individuals securing a personal web address. By offering a secure, intuitive, and feature-rich experience, the KeNIC portal is designed to foster the growth of Kenya's digital landscape and encourage the adoption of the .KE namespace as a symbol of national pride and digital presence.
 
-### Core Features
+## Problem Statement
+
+Prior to this platform, the process of registering a .KE domain in Kenya was often fragmented and cumbersome. Aspiring domain owners faced challenges in quickly verifying domain availability, discovering creative and memorable names, and easily finding trusted registrars. There was no single, authoritative hub that consolidated these essential services, leading to a disjointed and often frustrating user experience. This friction acted as a barrier to entry for many individuals and small businesses looking to establish an online presence, slowing the potential growth of Kenya's digital economy. The lack of a centralized, modern platform meant that valuable time was lost navigating multiple websites, and potential domain owners could miss out on opportunities. This project directly addresses these issues by creating a seamless, one-stop-shop for all things related to .KE domains, thereby democratizing access to Kenya's digital landscape.
+
+## Target Audience
+
+This platform is designed for a diverse range of users within Kenya and abroad who wish to establish a digital presence associated with the country. This includes:
+
+*   **Entrepreneurs and Startups:** New business owners seeking to create a unique online identity and build their brand with a Kenyan domain.
+*   **Small and Medium-sized Enterprises (SMEs):** Established businesses looking to protect their brand, expand their market reach online, and leverage a local domain for better search engine visibility within Kenya.
+*   **Large Corporations:** Companies that need to manage a portfolio of domains, protect their trademarks, and maintain a strong corporate presence in the Kenyan market.
+*   **Individuals and Bloggers:** Personal users, content creators, and professionals aiming to secure a personal web address (.me.ke) for portfolios, blogs, or personal branding.
+*   **Non-Profit Organizations:** NGOs and community-based organizations seeking to establish credibility and trust with a .or.ke domain.
+*   **Educational and Governmental Institutions:** Schools, universities, and government bodies that use restricted domains like .ac.ke and .go.ke.
+
+## Key Features
 
 This application is equipped with a wide array of features designed to provide a seamless and powerful user experience for all things related to .KE domains.
 
@@ -31,7 +43,7 @@ This application is equipped with a wide array of features designed to provide a
 
 7.  **Customizable User Experience:** The application features a settings panel allowing users to customize their viewing experience by switching between light and dark themes and choosing from multiple color palettes (Default, Forest, Ocean) to suit their preferences.
 
-### Technology Stack
+## Technology Stack
 
 The application is built on a modern, robust, and scalable technology stack, prioritizing performance, developer experience, and maintainability.
 
