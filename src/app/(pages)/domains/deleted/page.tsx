@@ -84,7 +84,7 @@ export default function DeletedDomainsPage() {
                 </div>
                 <div className="flex justify-center">
                     <Image
-                        src="/public/icons/deleted-domains.svg"
+                        src="/icons/Credits_Blog_Img_6a045b986e.webp"
                         alt="Deleted Domains Illustration"
                         width={400}
                         height={400}
