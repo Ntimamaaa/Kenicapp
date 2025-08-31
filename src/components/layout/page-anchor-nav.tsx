@@ -1,10 +1,11 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const sections = [
   { id: 'how-to-register', title: 'How to Register' },
@@ -20,6 +21,13 @@ export function PageAnchorNav() {
   const [activeSection, setActiveSection] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
+  const isMobile = useIsMobile();
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    // A more reliable way to get the header
+    headerRef.current = document.querySelector('header');
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,7 +45,15 @@ export function PageAnchorNav() {
     );
 
     const handleScroll = () => {
-        if (window.scrollY > window.innerHeight * 0.8) {
+        // Use a more dynamic threshold based on the hero section
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+            if (window.scrollY > heroSection.offsetHeight) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        } else if (window.scrollY > window.innerHeight * 0.8) {
             setIsVisible(true);
         } else {
             setIsVisible(false);
@@ -51,7 +67,7 @@ export function PageAnchorNav() {
       }
     });
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       sections.forEach((section) => {
@@ -68,8 +84,12 @@ export function PageAnchorNav() {
     e.preventDefault();
     const section = document.getElementById(sectionId);
     if (section) {
+      const headerHeight = headerRef.current?.offsetHeight ?? 64; // Default to 64px
+      const stickyNavHeight = 48; // Height of the anchor nav itself
+      const offset = headerHeight + stickyNavHeight;
+
       window.scrollTo({
-        top: section.offsetTop - 80, // Adjust for sticky header height
+        top: section.offsetTop - offset, // Dynamic offset
         behavior: 'smooth',
       });
     }
