@@ -157,7 +157,7 @@ function StatsPageContent() {
               </div>
               <div className="flex justify-center">
                 <Image
-                    src="/placeholder.svg"
+                    src="https://www.ibm.com/quantum/quantum-safe"
                     alt="Domain Stats Illustration"
                     width={400}
                     height={400}
