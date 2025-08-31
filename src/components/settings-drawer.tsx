@@ -12,8 +12,9 @@ import {
 } from "@/components/ui/sheet"
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
-import { Laptop, Moon, Sun, Palette, Droplets, Leaf } from "lucide-react";
+import { Laptop, Moon, Sun, Palette, Droplets, Leaf, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Separator } from "./ui/separator";
 
 type ColorTheme = "default" | "forest" | "ocean";
 
@@ -67,6 +68,37 @@ export function SettingsDrawer() {
   const { open, setOpen } = useSettings();
   const { theme, setTheme } = useTheme();
   const { colorTheme, setColorTheme } = useSettings();
+  const [installPrompt, setInstallPrompt] = React.useState<any>(null);
+  const [isAppInstalled, setIsAppInstalled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+
+    const handleAppInstalled = () => {
+        setIsAppInstalled(true);
+    }
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
+
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        setIsAppInstalled(true);
+    }
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener("appinstalled", handleAppInstalled);
+    };
+  }, []);
+
+  const handleInstallClick = () => {
+    if (installPrompt) {
+      installPrompt.prompt();
+    }
+  };
 
   return (
       <Sheet open={open} onOpenChange={setOpen}>
@@ -107,6 +139,22 @@ export function SettingsDrawer() {
                     </Button>
                   ))}
                 </div>
+            </div>
+            <Separator />
+            <div className="space-y-2">
+                <Label>Application</Label>
+                 <Button 
+                    variant="outline"
+                    onClick={handleInstallClick}
+                    disabled={!installPrompt || isAppInstalled}
+                    className="w-full justify-center"
+                 >
+                    <Download className="mr-2 h-4 w-4" />
+                    {isAppInstalled ? "App Installed" : "Download App"}
+                 </Button>
+                 <p className="text-xs text-muted-foreground text-center">
+                    Install the application on your device for a native-like experience.
+                 </p>
             </div>
           </div>
         </SheetContent>
