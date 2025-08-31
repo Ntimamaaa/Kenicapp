@@ -157,7 +157,7 @@ function StatsPageContent() {
               </div>
               <div className="flex justify-center">
                 <Image
-                    src="/public/icons/functions-catalog.svg"
+                    src="/placeholder.svg"
                     alt="Domain Stats Illustration"
                     width={400}
                     height={400}
