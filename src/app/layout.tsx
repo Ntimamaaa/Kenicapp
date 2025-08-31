@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'KeNIC | Find Your Perfect .KE Domain',
   description:
     'Search for available .KE domains, get AI-powered suggestions, and register your domain with licensed registrars in Kenya.',
+  manifest: '/manifest.webmanifest',
 };
 
 export default function RootLayout({
