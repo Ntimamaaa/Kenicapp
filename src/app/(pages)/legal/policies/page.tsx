@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Mail, Phone, Shield } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const policies = [
   {
@@ -49,13 +50,25 @@ export default function PoliciesPage() {
   return (
     <div className="bg-secondary flex-1 pt-24 md:pt-32">
       <div className="container mx-auto max-w-6xl py-12 px-4 md:px-6">
-        <div className="space-y-4 text-center mb-16">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
-            KeNIC Policies
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our official policies and regulations governing the .KE namespace.
-          </p>
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div className="space-y-4">
+                <h1 className="font-headline text-4xl font-bold tracking-tight text-primary">
+                    KeNIC Policies
+                </h1>
+                <p className="text-lg text-muted-foreground">
+                    Our official policies and regulations governing the .KE namespace.
+                </p>
+            </div>
+            <div className="flex justify-center">
+                <Image
+                    src="/icons/join-quantum-network-feature.webp"
+                    alt="Policies Illustration"
+                    width={400}
+                    height={300}
+                    className="w-full max-w-md rounded-lg shadow-lg"
+                    data-ai-hint="policy document"
+                />
+            </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-12 items-start">
