@@ -21,7 +21,6 @@ import { Users, Globe, TrendingUp, Package, GanttChartSquare, RefreshCw, PlusCir
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Image from "next/image";
 
 const genericDomainData = [
     { name: "co.ke", value: 100186 },
@@ -155,14 +154,14 @@ function StatsPageContent() {
                     Live insights and trends from the .KE domain namespace.
                 </p>
               </div>
-              <div className="flex justify-center">
-                <Image
-                    src="https://www.ibm.com/quantum/quantum-safe"
-                    alt="Domain Stats Illustration"
-                    width={400}
-                    height={400}
-                    className="w-full max-w-md rounded-xl shadow-2xl"
-                    data-ai-hint="data analytics"
+              <div className="relative w-full h-[300px] lg:h-[350px] rounded-xl overflow-hidden shadow-2xl">
+                <video
+                    src="/videos/leadspace.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                 />
               </div>
             </div>
